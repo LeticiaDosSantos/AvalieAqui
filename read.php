@@ -29,7 +29,7 @@
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <title>Informações do Contato</title>
+        <title>Avalie Aqui - Dados da Conta</title>
     </head>
 
     <body>
@@ -37,7 +37,7 @@
             <div class="span10 offset1">
                   <div class="card">
     								<div class="card-header">
-                    <h3 class="well">Informações do Contato</h3>
+                    <h3 class="well">Informações da Conta</h3>
                 </div>
                 <div class="container">
                 <div class="form-horizontal">

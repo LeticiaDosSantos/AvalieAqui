@@ -1,4 +1,5 @@
- <?php require 'banco.php';
+ <?php include 'cabecalho.php';
+    require 'banco.php';
     $id = null;
     if(!empty($_GET['id']))
     {
@@ -25,15 +26,6 @@
     }
 ?>
 
-
-
-
-
-
-
-
-
-
  <!DOCTYPE html>
     <html lang="pt-br">
 
@@ -41,7 +33,7 @@
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <title>Informações do Contato</title>
+        <title>Avalie Aqui - Informações da Conta</title>
     </head>
 
     <body>

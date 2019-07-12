@@ -19,13 +19,13 @@
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Restaurantes</a>
+        <a class="nav-link" href="buscar_restaurantes.php">Restaurantes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Comidas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Cadastre Seu Restaurante</a>
+        <a class="nav-link" href="create_restaurante.php">Cadastre Seu Restaurante</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

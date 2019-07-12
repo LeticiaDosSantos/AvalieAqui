@@ -1,5 +1,6 @@
 <?php
-    $sexo = "Indefinido";
+    include 'cabecalho.php';
+    $estado = "Indefinido";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -8,7 +9,7 @@
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <title>Avalie Aqui</title>
+  <title>Avalie Aqui - Cadastrar Restaurante</title>
 </head>
 
 <body>
@@ -16,10 +17,10 @@
         <div clas="span10 offset1">
           <div class="card">
             <div class="card-header">
-                <h3 class="well"> Cadastre-se </h3>
+                <h3 class="well"> Cadastrar Restaurante </h3>
             </div>
             <div class="card-body">
-            <form class="form-horizontal" action="create.php" method="post">
+            <form class="form-horizontal" action="create_restaurante.php" method="post">
 
                 <div class="control-group <?php echo !empty($nomeErro)?'error ' : '';?>">
                     <label class="control-label">Nome</label>
@@ -61,19 +62,23 @@
                     </div>
                 </div>
 
-                <div class="control-group <?php echo !empty($sexoErro)?'error ': '';?>">
-                    <label class="control-label">Sexo</label>
+                <div class="control-group <?php echo !empty($estadoErro)?'error ': '';?>">
+                    <label class="control-label">Estado</label>
                     <div class="controls">
                         <div class="form-check">
                             <p class="form-check-label">
-                                <input class="form-check-input" type="radio" name="sexo" id="sexo" value="M" <?php echo ($sexo=="M" ) ? "checked" : null; ?>/> Masculino
+                                <input class="form-check-input" type="radio" name="estado" id="estado" value="M" <?php echo ($estado=="PR" ) ? "checked" : null; ?>/> PR
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sexo" id="sexo" value="F" <?php echo ($sexo=="F" ) ? "checked" : null; ?>/> Feminino
+                            <input class="form-check-input" type="radio" name="estado" id="estado" value="F" <?php echo ($estado=="RS" ) ? "checked" : null; ?>/> RS
+                        </div>  <div class="form-check">
+                            <input class="form-check-input" type="radio" name="estado" id="estado" value="F" <?php echo ($estado=="SC" ) ? "checked" : null; ?>/> SC
                         </div>
+
+
                         </p>
-                        <?php if(!empty($sexoErro)): ?>
-                            <span class="help-inline"><?php echo $sexoErro;?></span>
+                        <?php if(!empty($estadoErro)): ?>
+                            <span class="help-inline"><?php echo $estadoErro;?></span>
                             <?php endif;?>
                     </div>
                 </div>
@@ -103,19 +108,18 @@
 
     if(!empty($_POST))
     {
-        $sexo="Indefinido";
         //Acompanha os erros de validação
         $nomeErro = null;
         $enderecoErro = null;
         $telefoneErro = null;
         $emailErro = null;
-        $sexoErro = null;
+        $estadoErro = null;
 
         $nome = $_POST['nome'];
         $endereco = $_POST['endereco'];
         $telefone = $_POST['telefone'];
         $email = $_POST['email'];
-        $sexo = $_POST['sexo'];
+        $estado = $_POST['estado'];
 
         //Validaçao dos campos:
         $validacao = true;
@@ -148,9 +152,9 @@
             $validacao = false;
         }
 
-        if(empty($sexo))
+        if(empty($estado))
         {
-            $sexoErro = 'Por favor digite o campo!';
+            $estadoErro = 'Por favor digite o campo!';
             $validacao = false;
         }
 
@@ -159,9 +163,9 @@
         {
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO pessoa (nome, endereco, telefone, email, sexo) VALUES(?,?,?,?,?)";
+            $sql = "INSERT INTO restaurante (nome, endereco, telefone, email, estado) VALUES(?,?,?,?,?)";
             $q = $pdo->prepare($sql);
-            $q->execute(array($nome,$endereco,$telefone,$email,$sexo));
+            $q->execute(array($nome,$endereco,$telefone,$email,$estado));
             Banco::desconectar();
             header("Location: index.php");
         }

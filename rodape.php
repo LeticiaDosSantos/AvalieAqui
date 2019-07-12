@@ -1,10 +1,18 @@
- <div class="container">
-          <div class="jumbotron">
-            <div class="row" style="height: 100%">
-                <h2>CRUD em PHP</h2>
-                	<br><br>
-            </div>
-                <h2><span class="badge badge-secondary">Júlia, Leticia e Natália</span></h2>
-          </div>
-            </br>
-            <div class="row">
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div>
+	    <nav class="navbar navbar-expand-lg navbar-light bg-light"><center>
+		  <a class="navbar-brand" style="margin-left: 110%">Júlia, Leticia e Natália<br>Copyright© 2019 | Todos os direitos reservados</a>
+	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+  	</button>
+  </div>
+</center>
+</nav>
+</body>
+</html>

@@ -6,6 +6,7 @@
 <html lang="pt-br">
 
 <head>
+    <title>Avalie Aqui - Restaurantes</title>
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -29,12 +30,7 @@
 
 <body>
 
-<?php
-    include ("carrossel.php");
-?>
-                <p>
-                    <a href="create.php" class="btn btn-success">Adicionar</a>
-                </p>
+             
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -51,23 +47,23 @@
                         <?php
                         include 'banco.php';
                         $pdo = Banco::conectar();
-                        $sql = 'SELECT * FROM pessoa ORDER BY id DESC';
+                        $sql = 'SELECT * FROM restaurante ORDER BY id ASC';
 
                         foreach($pdo->query($sql)as $row)
                         {
                             echo '<tr>';
-			                      echo '<th scope="row">'. $row['id'] . '</th>';
+                                  echo '<th scope="row">'. $row['id'] . '</th>';
                             echo '<td>'. $row['nome'] . '</td>';
                             echo '<td>'. $row['endereco'] . '</td>';
                             echo '<td>'. $row['telefone'] . '</td>';
                             echo '<td>'. $row['email'] . '</td>';
-                            echo '<td>'. $row['sexo'] . '</td>';
+                            echo '<td>'. $row['estado'] . '</td>';
                             echo '<td width=250>';
                             echo '<a class="btn btn-primary" href="read.php?id='.$row['id'].'">Info</a>';
                             echo ' ';
                             echo '<a class="btn btn-warning" href="update.php?id='.$row['id'].'">Atualizar</a>';
                             echo ' ';
-                            echo '<a class="btn btn-danger" href="delete.php?id='.$row['id'].'">Excluir</a>';
+                            echo '<a class="btn btn-danger" href="delete_restaurante.php?id='.$row['id'].'">Excluir</a>';
                             echo '</td>';
                             echo '</tr>';
                         }
