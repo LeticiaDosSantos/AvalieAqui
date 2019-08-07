@@ -1,5 +1,6 @@
 <?php
     $sexo = "Indefinido";
+    include("cabecalho.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,8 +20,13 @@
         <div clas="span10 offset1">
           <div class="card">
             <div class="card-header">
-                <h3 class="well"> Cadastre-se </h3>
+                <h3 class="well"> Cadastre-se Aqui </h3>
             </div>
+         </div>
+
+         <br>
+         <br>
+         <div class="card">   
             <div class="card-body">
             <form class="form-horizontal" action="create.php" method="post">
 
@@ -78,7 +84,7 @@
                             <p class="form-check-label">
                                 <input class="form-check-input" type="radio" name="sexo" id="sexo" value="M" <?php echo ($sexo=="M" ) ? "checked" : null; ?>/> Masculino
                         </div>
-                        
+
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="sexo" id="sexo" value="F" <?php echo ($sexo=="F" ) ? "checked" : null; ?>/> Feminino
                         </div>

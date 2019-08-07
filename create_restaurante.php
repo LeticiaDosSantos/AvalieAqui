@@ -12,13 +12,37 @@
   <title>Avalie Aqui - Cadastrar Restaurante</title>
 </head>
 
+<br>
+<br>
+<br>
+<!--
+<div>
+
+<h1>Cadastre o seu Restaurante
+
+
+</div>
+
+
+!-->
+
 <body>
     <div class="container">
         <div clas="span10 offset1">
           <div class="card">
             <div class="card-header">
-                <h3 class="well"> Cadastrar Restaurante </h3>
-            </div>
+                <h3 class="well"> Cadastre seu Restaurante </h3>
+            </div>    
+          </div>
+        </div>
+            
+    </div>
+
+    <br>
+    <br>
+ <div class="container">
+        <div clas="span10 offset1">
+            <div class="card">
             <div class="card-body">
             <form class="form-horizontal" action="create_restaurante.php" method="post">
 
@@ -26,6 +50,7 @@
                     <label class="control-label">Nome do Restaurante</label>
                     <div class="controls">
                         <input size="50" class="form-control" name="nome" type="text" placeholder="Nome" required="" value="<?php echo !empty($nome)?$nome: '';?>">
+                        <p></p>
                         <?php if(!empty($nomeErro)): ?>
                             <span class="help-inline"><?php echo $nomeErro;?></span>
                             <?php endif;?>
@@ -36,6 +61,7 @@
                     <label class="control-label">Endereço</label>
                     <div class="controls">
                         <input size="80" class="form-control" name="endereco" type="text" placeholder="Endereço" required="" value="<?php echo !empty($endereco)?$endereco: '';?>">
+                        <p></p>
                         <?php if(!empty($emailErro)): ?>
                             <span class="help-inline"><?php echo $enderecoErro;?></span>
                             <?php endif;?>
@@ -46,7 +72,8 @@
                  <div class="control-group <?php echo !empty($numeroErro)?'error ': '';?>">
                     <label class="control-label">Número</label>
                         <div class="controls">
-                         <input size="80" class="form-control" name="numero" type="text" placeholder="Número" required="" value="<?php echo !empty($numero)?$numero: '';?>">
+                         <input size="80" class="form-control" name="numero" type="tel" placeholder="Número" required="" value="<?php echo !empty($numero)?$numero: '';?>">
+                         <p></p>
                         <?php if(!empty($numeroErro)): ?>
                             <span class="help-inline"><?php echo $numeroErro;?></span>
                             <?php endif;?>
@@ -55,7 +82,8 @@
                  <div class="control-group <?php echo !empty($descricaoErro)?'error ': '';?>">
                     <label class="control-label">Descriçao</label>
                         <div class="controls">
-                         <input size="80" class="form-control" name="descricao" type="text" placeholder="Descrição" required="" value="<?php echo !empty($descricao)?$descricao: '';?>">
+                         <input size="80" class="form-control" name="descricao" type="textarea" placeholder="Descrição" required="" value="<?php echo !empty($descricao)?$descricao: '';?>">
+                         <p></p>
                         <?php if(!empty($descricaoErro)): ?>
                             <span class="help-inline"><?php echo $descricaoErro;?></span>
                             <?php endif;?>
@@ -65,6 +93,7 @@
                     <label class="control-label">Horário de Funcionamento</label>
                         <div class="controls">
                          <input size="80" class="form-control" name="descricao" type="text" placeholder="De segunda à sexta, das 11:00 ao 12:00" required="" value="<?php echo !empty($horario_funcionamento)?$horario_funcionamento: '';?>">
+                         <p></p>
                         <?php if(!empty($horario_funcionamentoErro)): ?>
                             <span class="help-inline"><?php echo $horario_funcionamentoErro;?></span>
                             <?php endif;?>
@@ -74,6 +103,7 @@
                     <label class="control-label">Telefone</label>
                     <div class="controls">
                         <input size="35" class="form-control" name="telefone" type="text" placeholder="Telefone" required="" value="<?php echo !empty($telefone)?$telefone: '';?>">
+                        <p></p>
                         <?php if(!empty($emailErro)): ?>
                             <span class="help-inline"><?php echo $telefoneErro;?></span>
                             <?php endif;?>
@@ -83,12 +113,53 @@
                 <div class="control-group <?php echo !empty($emailErro)?'error ': '';?>">
                     <label class="control-label">Email</label>
                     <div class="controls">
-                        <input size="40" class="form-control" name="email" type="text" placeholder="Email" required="" value="<?php echo !empty($email)?$email: '';?>">
+                        <input size="40" class="form-control" name="email" type="email" placeholder="name@example.com" required="" value="<?php echo !empty($email)?$email: '';?>">
+                        <p></p>
                         <?php if(!empty($emailErro)): ?>
                             <span class="help-inline"><?php echo $emailErro;?></span>
                             <?php endif;?>
                     </div>
                 </div>
+
+
+
+                <div class="control-group <?php echo !empty($emailErro)?'error ': '';?>">
+                    <label class="control-label">Estado</label>
+                    <div class="controls">
+
+                        <select class="form-control" name="Estado" value="Estado">
+                          
+                          <option value="parana">Paraná</option>
+                          <option value="rio">Rio Grande do Sul</option>
+                          <option>Santa Catarina</option>
+                      </select>
+
+                        <input size="40" class="form-control" name="estado" type="text" placeholder="Estado" required="" value="<?php echo !empty($estado)?$estado: '';?>">
+                        <p></p>
+                        <?php if(!empty($emailErro)): ?>
+                            <span class="help-inline"><?php echo $emailErro;?></span>
+                            <?php endif;?>
+                    </div>
+                </div>
+
+
+
+
+      <label for="inputState" >Estado</label>
+      <select id="inputState" class="form-control">
+        <option selected>Santa Catarina</option>
+        <option>Paraná</option>
+        <option>Rio Grande do Sul</option>
+        
+
+      </select>
+    </div>
+
+
+
+
+
+
 
                 <div class="control-group <?php echo !empty($estadoErro)?'error ': '';?>">
                     <label class="control-label">Estado</label>
@@ -102,6 +173,14 @@
                         </div>  <div class="form-check">
                             <input class="form-check-input" type="radio" name="estado" id="estado" value="SC" <?php echo ($estado=="SC" ) ? "checked" : null; ?>/> SC
                         </div>
+                        <p></p>
+
+              <form>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Escolha suas imagens</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+             </form>
 
 
                         </p>
@@ -123,6 +202,10 @@
         </div>
     </div>
     </div>
+
+</div>
+
+</divS>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
@@ -222,4 +305,13 @@
             header("Location: index.php");
         }
     }
+
+?>
+
+<br>
+<br>
+
+<?php
+
+    include("rodape.php");
 ?>
