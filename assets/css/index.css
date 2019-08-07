@@ -1,3 +1,19 @@
+
 .porra{
 	margin-left: 10%;
 }
+
+
+div#linha{
+	border-bottom: 1.2px solid #000000;
+	position: center;
+	margin-left: 15%;
+}
+
+/*
+body{
+	background: url("shushii.jpg");
+}
+
+*/
+

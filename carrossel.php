@@ -3,7 +3,9 @@
 <head>
   <title>ola mundo</title>
 
-      <link rel="stylesheet" type="text/css" href="carrossel.css">
+      <link rel="stylesheet" type="text/css" href="/assets/css/carrossel.css">
+
+      
 
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -21,8 +23,8 @@
 
 <body>
 
-<center>
-  <div class="espaco">
+<center >
+  <div class="espaco" >
     <div id="tamanho-carrossel" class="carousel slide" data-ride="carousel"  >
       <ol class="carousel-indicators">
         <li data-target="#macarrom" data-slide-to="0" class="active"></li>
@@ -30,29 +32,30 @@
         <li data-target="#pratos" data-slide-to="2"></li>
       </ol>
 
-    <div class="carousel-inner">  <!-- a class muda o tamanho da imagem -->
-        <div class="carousel-item active" class="imagem-menu">
-          <img id="tamanho" src="https://miro.medium.com/max/1838/1*XroED_LvekQACInBYsIhJw.png" alt="First slide" class="imagem-menu">
-           <div class="carousel-caption d-none d-md-block">
-          <h5>Conheça o restaurante Dellandrea</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </div>
-        </div>
-
-        <div  class="carousel-item" >
-          <img id="tamanho" src="https://miro.medium.com/max/1838/1*XroED_LvekQACInBYsIhJw.png" alt="Second slide">
-           <div class="carousel-caption d-none d-md-block">
-          <h5>Conheça o restaurante Santos</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </div>
+    <div class="" id="tamanh"  >  <!-- a class muda o tamanho da imagem -->
+      
+        <div class="carousel-item active" class="imagem-menu" >
+          <img id="tamanho" src="fundo.png" alt="First slide" class="imagem-menu"  >
+            <div class="carousel-caption d-none d-md-block" >
+                   <h5>Conheça o restaurante Dellandrea</h5>
+                   <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
         </div>
 
-        <div  class="carousel-item" >
-          <img id="tamanho" src="https://miro.medium.com/max/1838/1*XroED_LvekQACInBYsIhJw.png" alt="Third slide">
-           <div class="carousel-caption d-none d-md-block">
-          <h5>Conheça o restaurante BIFF</h5>
-          <p>BLA BLABLA BLA BLA.</p>
+        <div  class="carousel-item" style="">
+           <img id="tamanho" src="fundo1.png" alt="Second slide">
+             <div class="carousel-caption d-none d-md-block">
+                <h5>Conheça o restaurante Santos</h5>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
         </div>
+
+        <div  class="carousel-item" style="">
+          <img id="tamanho" src="restaurante.png" alt="Third slide">
+           <div class="carousel-caption d-none d-md-block">
+               <h5>Conheça o restaurante BIFF</h5>
+               <p>BLA BLABLA BLA BLA.</p>
+           </div>
         </div>
 
     </div>
@@ -69,6 +72,7 @@
 
     </div>
   </div>
-</center>  
+</center>
+
 </body>
 </html>

@@ -36,34 +36,40 @@
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Nome</th>
+                            <th scope="col">Descricao</th>
                             <th scope="col">Endereço</th>
                             <th scope="col">Telefone</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Sexo</th>
-                            <th scope="col">Ação</th>
+                            <th scope="col">Horario de Funcionamento</th>
+                            <th scope="col">numero</th>
+                            
+
+                            
+
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         include 'banco.php';
                         $pdo = Banco::conectar();
-                        $sql = 'SELECT * FROM restaurante ORDER BY id ASC';
+                        $sql = 'SELECT * FROM restaurante ORDER BY id_rest ASC';
 
                         foreach($pdo->query($sql)as $row)
                         {
                             echo '<tr>';
-                                  echo '<th scope="row">'. $row['id'] . '</th>';
+                            echo '<th scope="row">'. $row['id_rest'] . '</th>';
                             echo '<td>'. $row['nome'] . '</td>';
+                            echo '<td>'. $row['descricao'] . '</td>';
                             echo '<td>'. $row['endereco'] . '</td>';
                             echo '<td>'. $row['telefone'] . '</td>';
-                            echo '<td>'. $row['email'] . '</td>';
-                            echo '<td>'. $row['estado'] . '</td>';
+                            echo '<meta charset="utf-8"> <td>'. $row['horario_funcio'] . '</td>';
+                            echo '<td>'. $row['numero'] . '</td>';
                             echo '<td width=250>';
-                            echo '<a class="btn btn-primary" href="read.php?id='.$row['id'].'">Info</a>';
+                            echo '<a class="btn btn-primary" href="read.php?id_rest='.$row['id_rest'].'">Info</a>';
                             echo ' ';
-                            echo '<a class="btn btn-warning" href="update.php?id='.$row['id'].'">Atualizar</a>';
+                            echo '<a class="btn btn-warning" href="update.php?id_rest='.$row['id_rest'].'">Atualizar</a>';
                             echo ' ';
-                            echo '<a class="btn btn-danger" href="delete_restaurante.php?id='.$row['id'].'">Excluir</a>';
+                            echo '<a class="btn btn-danger" href="delete_restaurante.php?id_rest='.$row['id_rest'].'">Excluir</a>';
                             echo '</td>';
                             echo '</tr>';
                         }

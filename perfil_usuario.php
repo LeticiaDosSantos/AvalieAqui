@@ -14,15 +14,15 @@
     {
        $pdo = Banco::conectar();
        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       $sql = "SELECT * FROM pessoa where id = ?";
+       $sql = "SELECT * FROM usuario where id_user = 2";
        $q = $pdo->prepare($sql);
        $q->execute(array($id));
        $data = $q->fetch(PDO::FETCH_ASSOC);
        Banco::desconectar();
-
-        echo '<a class="btn btn-warning" href="update.php?id='.$row['id'].'">Editar</a>';
-        echo ' ';
-        echo '<a class="btn btn-danger" href="delete.php?id='.$row['id'].'">Excluir</a>';
+$row=1;
+        echo '<a class="btn btn-warning" href="update.php?id_user='.$row['id_user'].'">Editar</a>';
+        
+        echo '<a class="btn btn-danger" href="delete.php?id_user='.$row['id_user'].'">Excluir</a>';
     }
 ?>
 
@@ -55,22 +55,14 @@
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label">Endereço</label>
+                        <label class="control-label">Data de nascimento</label>
                         <div class="controls">
                             <label class="carousel-inner">
-                                <?php echo $data['endereco'];?>
+                                <?php echo $data['dt_nascimento'];?>
                             </label>
                         </div>
                     </div>
 
-                    <div class="control-group">
-                        <label class="control-label">Telefone</label>
-                        <div class="controls">
-                            <label class="carousel-inner">
-                                <?php echo $data['telefone'];?>
-                            </label>
-                        </div>
-                    </div>
 
                     <div class="control-group">
                         <label class="control-label">Email</label>

@@ -2,7 +2,7 @@
 
 class Banco
 {
-    private static $dbNome = 'avalie-aqui';
+    private static $dbNome = 'avalie_aqui_projeto';
     private static $dbHost = '';
     private static $dbUsuario = 'root';
     private static $dbSenha = '';
@@ -20,7 +20,7 @@ class Banco
         {
             try
             {
-                self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbNome, self::$dbUsuario, self::$dbSenha); 
+                self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbNome."; charset=utf8" , self::$dbUsuario, self::$dbSenha); 
             }
             catch(PDOException $exception)
             {
