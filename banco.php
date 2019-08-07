@@ -2,10 +2,11 @@
 
 class Banco
 {
-    private static $dbNome = 'avalie-aqui';
+    private static $dbNome = 'avalie_aqui_projeto';
     private static $dbHost = '';
     private static $dbUsuario = 'root';
     private static $dbSenha = '';
+    
     private static $cont = null;
     
     public function __construct() 

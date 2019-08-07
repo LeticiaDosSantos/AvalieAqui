@@ -1,6 +1,5 @@
 <?php
     $sexo = "Indefinido";
-    include ("cabecalho.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,7 +10,7 @@
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <title>Avalie Aqui</title>
 </head>
-<br>
+
 <body>
     <div class="container">
         <div clas="span10 offset1">
@@ -32,14 +31,22 @@
                     </div>
                 </div>
 
-              
-
-                <div class="control-group <?php echo !empty($dt_nascErro)?'error ': '';?>">
-                    <label class="control-label">Data de Nascimento</label>
+                <div class="control-group <?php echo !empty($id_userErro)?'error ': '';?>">
+                    <label class="control-label">Id</label>
                     <div class="controls">
-                        <input size="35" class="form-control" name="dt_nasc" type="text" placeholder="21/12/2001" required="" value="<?php echo !empty($dt_nasc)?$dt_nasc: '';?>">
-                        <?php if(!empty($dt_nascErro)): ?>
-                            <span class="help-inline"><?php echo $dt_nascErro;?></span>
+                        <input size="80" class="form-control" name="id_user" type="text" placeholder="id_user" required="" value="<?php echo !empty($id_user)?$id_user: '';?>">
+                        <?php if(!empty($emailErro)): ?>
+                            <span class="help-inline"><?php echo $id_userErro;?></span>
+                            <?php endif;?>
+                    </div>
+                </div>
+
+                <div class="control-group <?php echo !empty($dt_nascimentoErro)?'error ': '';?>">
+                    <label class="control-label">dt_nascimento</label>
+                    <div class="controls">
+                        <input size="35" class="form-control" name="dt_nascimento" type="text" placeholder="dt_nascimento" required="" value="<?php echo !empty($dt_nascimento)?$dt_nascimento: '';?>">
+                        <?php if(!empty($emailErro)): ?>
+                            <span class="help-inline"><?php echo $dt_nascimentoErro;?></span>
                             <?php endif;?>
                     </div>
                 </div>
@@ -68,7 +75,6 @@
                         <?php if(!empty($sexoErro)): ?>
                             <span class="help-inline"><?php echo $sexoErro;?></span>
                             <?php endif;?>
-                </div>
                     </div>
                 </div>
                 <div class="form-actions">
@@ -100,14 +106,14 @@
         $sexo="Indefinido";
         //Acompanha os erros de validação
         $nomeErro = null;
-        $dt_nascErro = null;
+        $id_userErro = null;
+        $dt_nascimentoErro = null;
         $emailErro = null;
         $sexoErro = null;
-        $dt_nascimento = null;
 
         $nome = $_POST['nome'];
-        
-        $dt_nasc = $_POST['dt_nascimento'];
+        $id_user = $_POST['id_user'];
+        $dt_nascimento = $_POST['dt_nascimento'];
         $email = $_POST['email'];
         $sexo = $_POST['sexo'];
 
@@ -119,17 +125,21 @@
             $validacao = false;
         }
 
-       
-
-        if(empty($dt_nasc))
+        if(empty($id_user))
         {
-            $dt_nascErro = 'Por favor digite a data de nascimento!';
+            $id_userErro = 'Por favor digite o seu id!';
+            $validacao = false;
+        }
+
+        if(empty($dt_nascimento))
+        {
+            $dt_nascimentoErro = 'Por favor digite o número do dt_nascimento!';
             $validacao = false;
         }
 
         if(empty($email))
         {
-            $dt_nascErro = 'Por favor digite o endereço de email';
+            $emailErro = 'Por favor digite o endereço de email';
             $validacao = false;
         }
         elseif (!filter_var($email,FILTER_VALIDATE_EMAIL))
@@ -149,14 +159,11 @@
         {
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO pessoa (nome, dt_nascimento, email, sexo) VALUES(?,?,?,?,?)";
+            $sql = "INSERT INTO usuario (nome, id_user, dt_nascimento, email, sexo) VALUES(?,?,?,?,?)";
             $q = $pdo->prepare($sql);
-            $q->execute(array($nome,$dt_nasc,$email,$sexo));
+            $q->execute(array($nome,$id_user,$dt_nascimento,$email,$sexo));
             Banco::desconectar();
             header("Location: index.php");
         }
     }
-?>
-<?php
-    include ("rodape.php");
 ?>
