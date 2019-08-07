@@ -35,7 +35,7 @@
     <div class="" id="tamanh"  >  <!-- a class muda o tamanho da imagem -->
       
         <div class="carousel-item active" class="imagem-menu" >
-          <img id="tamanho" src="fundo.png" alt="First slide" class="imagem-menu"  >
+          <img id="tamanho" src="img/fundo.png" alt="First slide" class="imagem-menu"  >
             <div class="carousel-caption d-none d-md-block" >
                    <h5>Conheça o restaurante Dellandrea</h5>
                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -43,7 +43,7 @@
         </div>
 
         <div  class="carousel-item" style="">
-           <img id="tamanho" src="fundo1.png" alt="Second slide">
+           <img id="tamanho" src="img/fundo1.png" alt="Second slide">
              <div class="carousel-caption d-none d-md-block">
                 <h5>Conheça o restaurante Santos</h5>
                 <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -51,7 +51,7 @@
         </div>
 
         <div  class="carousel-item" style="">
-          <img id="tamanho" src="restaurante.png" alt="Third slide">
+          <img id="tamanho" src="img/restaurante.png" alt="Third slide">
            <div class="carousel-caption d-none d-md-block">
                <h5>Conheça o restaurante BIFF</h5>
                <p>BLA BLABLA BLA BLA.</p>

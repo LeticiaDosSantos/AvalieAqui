@@ -40,7 +40,7 @@
     </div>
      
       <div>
-        <img src="logo1.png" style="width: 39%;" style="margin-left: 1%;">
+        <img src="img/logo1.png" style="width: 39%;" style="margin-left: 1%;">
       </div>
     
     <div class="collapse navbar-collapse" id="navbarNavDropdown" style="float: right;" >

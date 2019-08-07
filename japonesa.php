@@ -35,7 +35,7 @@
 
 <div>
 
-  <img id="image" src="sushi1.png" style="width:100%; ">
+  <img id="image" src="img/sushi1.png" style="width:100%; ">
   
 </div>
 
@@ -67,7 +67,7 @@
 
 <div class="card-deck">
   <div class="card">
-    <img src="japao.png" class="card-img-top" alt="..." style="height: 49%;"><!--esse height regula pra ficar do tamanho dos outros-->
+    <img src="img/japao.png" class="card-img-top" alt="..." style="height: 49%;"><!--esse height regula pra ficar do tamanho dos outros-->
     <div class="card-body">
       <h5 class="card-title">kanji</h5>
       <p class="card-text">O  restaurante Kanji Sushi Lounge oferece cardápio a La Carte e Rodízio completo para os fãs da culinária japonesa.</p>
@@ -76,7 +76,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="japonesa1.png" class="card-img-top" alt="..." style="width: 100%;">
+    <img src="img/japonesa1.png" class="card-img-top" alt="..." style="width: 100%;">
     <div class="card-body">
       <h5 class="card-title">Sushi'n'Roll</h5>
       <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -85,7 +85,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="japonesa2.png" class="card-img-top" alt="..." style="height: 49%;">
+    <img src="img/japonesa2.png" class="card-img-top" alt="..." style="height: 49%;">
     <div class="card-body">
       <h5 class="card-title">Shinrai Sushi</h5>
       <p class="card-text">Temos o objetivo de levar à você o melhor da culinária japonesa, através da diversidade de nossos pratos À La Carte e Festival de Rodízio.</p>

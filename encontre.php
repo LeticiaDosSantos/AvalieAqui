@@ -35,7 +35,7 @@
 
 <div>
 
-  <img id="image" src="fachada.png" style="width:100%; ">
+  <img id="image" src="img/fachada.png" style="width:100%; ">
   
 </div>
 

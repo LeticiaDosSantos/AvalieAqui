@@ -34,7 +34,7 @@
 
 <div>
 
-  <img id="image" src="fundo3.png" style="width:100%; ">
+  <img id="image" src="img/fundo3.png" style="width:100%; ">
   
 </div>
 
@@ -75,7 +75,7 @@
 
 	<div>
 
-  <img id="image" src="sugestao3.png" style="width:100%;">
+  <img id="image" src="img/sugestao3.png" style="width:100%;">
   
 </div>
 
@@ -86,7 +86,7 @@
 
   
   		<div class="media-body" >
-    	<p><img src="fundo.png" class="mr-3"alt="..." style="width: 25%; "></p>
+    	<p><img src="img/fundo.png" class="mr-3"alt="..." style="width: 25%; "></p>
 		<a href="#" class="btn btn-dark" style="margin-left: 5%;">Comida Chinesa</a>
     
     	
@@ -96,7 +96,7 @@
 	
 <br>
 
-<div class="card float-lg-left" style="width: 20rem;  border-color: brown; background: url(fundo.png); background-size: 100%;" >
+<div class="card float-lg-left" style="width: 20rem;  border-color: brown; background: url(img/fundo.png); background-size: 100%;" >
   <div class="card-body">
 
     <!--<p><img src="fundo.png" style="width:100%; margin-left: %; "></p>-->
@@ -108,7 +108,7 @@
 <br>
 <!----->
 
-<div class=" card text-center" style="width: 20rem;border-color: brown; background: url(fundo.png); background-size: 100%; " >
+<div class=" card text-center" style="width: 20rem;border-color: brown; background: url(img/fundo.png); background-size: 100%; " >
   <div class="card-body">
     <!--<p><img src="fundo.png" style="width:100%; margin-left: %; "></p>-->
     <a href="#" class="btn btn-light " style="margin-bottom: 45%; ">Comida Japonesa</a>

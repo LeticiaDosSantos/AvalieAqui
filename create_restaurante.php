@@ -23,7 +23,7 @@
             <form class="form-horizontal" action="create_restaurante.php" method="post">
 
                 <div class="control-group <?php echo !empty($nomeErro)?'error ' : '';?>">
-                    <label class="control-label">Nome</label>
+                    <label class="control-label">Nome do Restaurante</label>
                     <div class="controls">
                         <input size="50" class="form-control" name="nome" type="text" placeholder="Nome" required="" value="<?php echo !empty($nome)?$nome: '';?>">
                         <?php if(!empty($nomeErro)): ?>
@@ -42,6 +42,34 @@
                     </div>
                 </div>
 
+
+                 <div class="control-group <?php echo !empty($numeroErro)?'error ': '';?>">
+                    <label class="control-label">Número</label>
+                        <div class="controls">
+                         <input size="80" class="form-control" name="numero" type="text" placeholder="Número" required="" value="<?php echo !empty($numero)?$numero: '';?>">
+                        <?php if(!empty($numeroErro)): ?>
+                            <span class="help-inline"><?php echo $numeroErro;?></span>
+                            <?php endif;?>
+                    </div>
+
+                 <div class="control-group <?php echo !empty($descricaoErro)?'error ': '';?>">
+                    <label class="control-label">Descriçao</label>
+                        <div class="controls">
+                         <input size="80" class="form-control" name="descricao" type="text" placeholder="Descrição" required="" value="<?php echo !empty($descricao)?$descricao: '';?>">
+                        <?php if(!empty($descricaoErro)): ?>
+                            <span class="help-inline"><?php echo $descricaoErro;?></span>
+                            <?php endif;?>
+                    </div>
+
+                 <div class="control-group <?php echo !empty($horario_funcionamentoErro)?'error ': '';?>">
+                    <label class="control-label">Horário de Funcionamento</label>
+                        <div class="controls">
+                         <input size="80" class="form-control" name="descricao" type="text" placeholder="De segunda à sexta, das 11:00 ao 12:00" required="" value="<?php echo !empty($horario_funcionamento)?$horario_funcionamento: '';?>">
+                        <?php if(!empty($horario_funcionamentoErro)): ?>
+                            <span class="help-inline"><?php echo $horario_funcionamentoErro;?></span>
+                            <?php endif;?>
+                    </div>
+                </div>
                 <div class="control-group <?php echo !empty($telefoneErro)?'error ': '';?>">
                     <label class="control-label">Telefone</label>
                     <div class="controls">
@@ -67,12 +95,12 @@
                     <div class="controls">
                         <div class="form-check">
                             <p class="form-check-label">
-                                <input class="form-check-input" type="radio" name="estado" id="estado" value="M" <?php echo ($estado=="PR" ) ? "checked" : null; ?>/> PR
+                                <input class="form-check-input" type="radio" name="estado" id="estado" value="PR" <?php echo ($estado=="PR" ) ? "checked" : null; ?>/> PR
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="estado" id="estado" value="F" <?php echo ($estado=="RS" ) ? "checked" : null; ?>/> RS
+                            <input class="form-check-input" type="radio" name="estado" id="estado" value="RS" <?php echo ($estado=="RS" ) ? "checked" : null; ?>/> RS
                         </div>  <div class="form-check">
-                            <input class="form-check-input" type="radio" name="estado" id="estado" value="F" <?php echo ($estado=="SC" ) ? "checked" : null; ?>/> SC
+                            <input class="form-check-input" type="radio" name="estado" id="estado" value="SC" <?php echo ($estado=="SC" ) ? "checked" : null; ?>/> SC
                         </div>
 
 
@@ -111,15 +139,21 @@
         //Acompanha os erros de validação
         $nomeErro = null;
         $enderecoErro = null;
+        $numero=null;
         $telefoneErro = null;
         $emailErro = null;
         $estadoErro = null;
+        $descricao = null;
+        $horario_funcionamento = null;
 
         $nome = $_POST['nome'];
         $endereco = $_POST['endereco'];
+        $numero = $_POST['numero'];
         $telefone = $_POST['telefone'];
         $email = $_POST['email'];
         $estado = $_POST['estado'];
+        $descricao = $_POST['descricao'];
+        $horario_funcionamento = $POST['horario_funcio'];
 
         //Validaçao dos campos:
         $validacao = true;
@@ -132,6 +166,24 @@
         if(empty($endereco))
         {
             $enderecoErro = 'Por favor digite o seu endereço!';
+            $validacao = false;
+        }
+
+        if(empty($numero))
+        {
+            $numeroErro = 'Por favor digite o número!';
+            $validacao = false;
+        }
+
+        if(empty($descricao))
+        {
+            $descricaoErro = 'Por favor, digite uma descrição para o restaurante!';
+            $validacao = false;
+        }
+
+        if(empty($horario_funcionamento))
+        {
+           $horario_funcionamentoErro = 'Por favor, digite uma descrição para o restaurante!';
             $validacao = false;
         }
 
@@ -163,9 +215,9 @@
         {
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO restaurante (nome, endereco, telefone, email, estado) VALUES(?,?,?,?,?)";
+            $sql = "INSERT INTO restaurante (nome, endereco, numero, telefone, email, estado, descricao, horario_funcionamento) VALUES(?,?,?,?,?)";
             $q = $pdo->prepare($sql);
-            $q->execute(array($nome,$endereco,$telefone,$email,$estado));
+            $q->execute(array($nome,$endereco, $numero,$telefone,$email,$estado,$descricao,$horario_funcionamento));
             Banco::desconectar();
             header("Location: index.php");
         }

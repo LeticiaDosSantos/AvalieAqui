@@ -35,7 +35,7 @@
 
 <div>
 
-  <img id="image" src="hamburg.jpg" style="width:100%; ">
+  <img id="image" src="img/hamburg.jpg" style="width:100%; ">
   
 </div>
 
@@ -67,7 +67,7 @@
 
 <div class="card-deck">
   <div class="card">
-    <img src="italianaa.png" class="card-img-top" alt="..." style="height: 49%;"><!--esse height regula pra ficar do tamanho dos outros-->
+    <img src="img/italianaa.png" class="card-img-top" alt="..." style="height: 49%;"><!--esse height regula pra ficar do tamanho dos outros-->
     <div class="card-body">
       <h5 class="card-title">Itália Mia</h5>
       <p class="card-text">O chef segue a tradição da cozinha italiana à risca, são as mesmas receitas que vêm surpreendendo os seus clientes há 41 anos.</p>
@@ -76,7 +76,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="madero.png" class="card-img-top" alt="..." style="height: 49%;">
+    <img src="img/madero.png" class="card-img-top" alt="..." style="height: 49%;">
     <div class="card-body">
       <h5 class="card-title"> Restaurante Madero</h5>
       <p class="card-text">Com fortes referências da cozinha italiana, mas também com outras inspirações da Europa Meridional.</p>
@@ -85,7 +85,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="italia.png" class="card-img-top" alt="..." style="height: 49%;">
+    <img src="img/italia.png" class="card-img-top" alt="..." style="height: 49%;">
     <div class="card-body">
       <h5 class="card-title">Antonietta Cucina</h5>
       <p class="card-text">Um espaço clean, em clima italiano-urbano, com mesinhas na calçada para um papo descontraído com os amigos acompanhado de um bom vinho.</p>
@@ -101,7 +101,7 @@
 
 <div class="card-deck">
   <div class="card">
-    <img src="italianaa.png" class="card-img-top" alt="..." style="height: 49%;"><!--esse height regula pra ficar do tamanho dos outros-->
+    <img src="img/italianaa.png" class="card-img-top" alt="..." style="height: 49%;"><!--esse height regula pra ficar do tamanho dos outros-->
     <div class="card-body">
       <h5 class="card-title">Itália Mia</h5>
       <p class="card-text">O chef segue a tradição da cozinha italiana à risca, são as mesmas receitas que vêm surpreendendo os seus clientes há 41 anos.</p>
@@ -110,7 +110,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="italianaaa.png" class="card-img-top" alt="..." style="height: 49%;">
+    <img src="img/italianaaa.png" class="card-img-top" alt="..." style="height: 49%;">
     <div class="card-body">
       <h5 class="card-title">Casa Europa</h5>
       <p class="card-text">Com fortes referências da cozinha italiana, mas também com outras inspirações da Europa Meridional.</p>
@@ -119,7 +119,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="italia.png" class="card-img-top" alt="..." style="height: 49%;">
+    <img src="img/italia.png" class="card-img-top" alt="..." style="height: 49%;">
     <div class="card-body">
       <h5 class="card-title">Antonietta Cucina</h5>
       <p class="card-text">Um espaço clean, em clima italiano-urbano, com mesinhas na calçada para um papo descontraído com os amigos acompanhado de um bom vinho.</p>

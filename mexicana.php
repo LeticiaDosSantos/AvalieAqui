@@ -35,7 +35,7 @@
 
 <div>
 
-  <img id="image" src="mexicana3.jpg" style="width:100%; ">
+  <img id="image" src="img/mexicana3.jpg" style="width:100%; ">
   
 </div>
 
@@ -62,7 +62,7 @@
 <p></p>
 
 <div class="card" style="width: 18rem; margin-left: 3%;">
-  <img src="guacamole.png" class="card-img" alt="...">
+  <img src="img/guacamole.png" class="card-img" alt="...">
   <div class="card-body">
     <h5 class="card-title">Guacamole</h5>
     <p class="card-text">O diferencial do Guacamole, além da temática mexicana, inclui gastronomia de qualidade e muita diversão com os tequileiros e mariachis.</p>
@@ -71,7 +71,7 @@
 
 
 <div class="card" style="width: 18rem; " >
-  <img src="toto.png" class="card-img" alt="...">
+  <img src="img/toto.png" class="card-img" alt="...">
   <div class="card-body">
     <h5 class="card-title">Totopos</h5>
     <p class="card-text">Buffet de comida mexicana com pratos típicos e ambiente colorido em tons de vermelho e amarelo.</p>
@@ -88,7 +88,7 @@
   <div class="col-sm-6" >
     <div class="card">
       <div class="card-body">
-        <img src="guacamole.png" class="card-img" alt="..." >
+        <img src="img/guacamole.png" class="card-img" alt="..." >
         <h5 class="card-title" style="text-align: center;">Guacamole</h5>
         <p class="card-text">Além da temática mexicana, inclui gastronomia de qualidade e muita diversão.</p>
         <a href="#" class="btn btn-primary">Visitar</a>
@@ -99,7 +99,7 @@
   <div class="col-sm-6" >
     <div class="card">
       <div class="card-body">
-        <img src="toto.png" class="card-img" alt="...">
+        <img src="img/toto.png" class="card-img" alt="...">
         <h5 class="card-title" style="text-align: center;">Totopos</h5>
         <p class="card-text">Buffet de comida mexicana com pratos típicos e ambiente colorido em tons de vermelho e amarelo.</p>
         <a href="#" class="btn btn-primary">Visitar</a>
@@ -113,7 +113,7 @@
   <div class="col-sm-6" >
     <div class="card">
       <div class="card-body">
-        <img src="guacamole.png" class="card-img" alt="..." >
+        <img src="img/guacamole.png" class="card-img" alt="..." >
         <h5 class="card-title" style="text-align: center;">Guacamole</h5>
         <p class="card-text">Além da temática mexicana, inclui gastronomia de qualidade e muita diversão.</p>
         <a href="#" class="btn btn-primary">Visitar</a>
@@ -124,7 +124,7 @@
   <div class="col-sm-6" >
     <div class="card">
       <div class="card-body">
-        <img src="toto.png" class="card-img" alt="...">
+        <img src="img/toto.png" class="card-img" alt="...">
         <h5 class="card-title" style="text-align: center;">Totopos</h5>
         <p class="card-text">Buffet de comida mexicana com pratos típicos e ambiente colorido em tons de vermelho e amarelo.</p>
         <a href="#" class="btn btn-primary">Visitar</a>
@@ -138,7 +138,7 @@
 
 <div class="card text-center" style="width: 18rem;">
   <div class="card-body">
-  	<img src="guacamole.png" class="card-img" alt="...">
+  	<img src="img/guacamole.png" class="card-img" alt="...">
     <h5 class="card-title">Guacamole</h5>
      <p class="card-text">Além da temática mexicana, inclui gastronomia de qualidade e muita diversão.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -150,7 +150,7 @@
 
 <div class="card-deck">
   <div class="card">
-    <img src="guacamole.png" class="card-img-top" alt="...">
+    <img src="img/guacamole.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Guacamole</h5>
       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -159,7 +159,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="toto.png" class="card-img-top" alt="...">
+    <img src="img/toto.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Totopos</h5>
       <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -168,7 +168,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="toto.png" class="card-img-top" alt="...">
+    <img src="img/toto.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>

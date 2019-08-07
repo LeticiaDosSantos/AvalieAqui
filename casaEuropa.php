@@ -55,7 +55,7 @@
      <p class="card-text">Com fortes referências da cozinha italiana, mas também com outras inspirações da Europa Meridional, a Casa Europa se preocupa em oferecer os melhores ingredientes, criteriosamente selecionados, valorizando sempre o pequeno produtor artesanal. Do mesmo dono dos célebres restaurantes Adega Santiago e Taberna 474, o Casa Europa é uma escolha certeira. 
      No cardápio, preparado com produtos frescos, pratos caseiros como antepastos, massas de fabricação própria e ragus são opções para apreciar e harmonizar com mais de 80 rótulos de vinhos disponíveis, entre tintos, brancos, rosés e espumantes.</p>
     </div>
-    <img src="italianaaa.png" class="card-img-top" alt="..." style="width: 100%;">
+    <img src="img/italianaaa.png" class="card-img-top" alt="..." style="width: 100%;">
    
   </div>
 </div>
@@ -66,15 +66,15 @@
 <div class="card-deck">
 
   <div class="card">
-    <img src="italianaaa.png" class="card-img-top" alt="...">
+    <img src="img/italianaaa.png" class="card-img-top" alt="...">
    
   </div>
   <div class="card">
-    <img src="italianaaa.png" class="card-img-top" alt="...">
+    <img src="img/italianaaa.png" class="card-img-top" alt="...">
     
   </div>
   <div class="card">
-    <img src="italianaaa.png" class="card-img-top" alt="...">
+    <img src="img/italianaaa.png" class="card-img-top" alt="...">
     
   </div>
 </div>
