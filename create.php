@@ -11,8 +11,11 @@
   <title>Avalie Aqui</title>
 </head>
 
+
+<br>
+<br>
 <body>
-    <div class="container">
+    <div class="container" style="width: 50%;">
         <div clas="span10 offset1">
           <div class="card">
             <div class="card-header">
@@ -21,15 +24,7 @@
             <div class="card-body">
             <form class="form-horizontal" action="create.php" method="post">
 
-                <div class="control-group <?php echo !empty($nomeErro)?'error ' : '';?>">
-                    <label class="control-label">Nome</label>
-                    <div class="controls">
-                        <input size="50" class="form-control" name="nome" type="text" placeholder="Nome" required="" value="<?php echo !empty($nome)?$nome: '';?>">
-                        <?php if(!empty($nomeErro)): ?>
-                            <span class="help-inline"><?php echo $nomeErro;?></span>
-                            <?php endif;?>
-                    </div>
-                </div>
+                    <!--
 
                 <div class="control-group <?php echo !empty($id_userErro)?'error ': '';?>">
                     <label class="control-label">Id</label>
@@ -41,10 +36,23 @@
                     </div>
                 </div>
 
+                !-->
+                <div class="control-group <?php echo !empty($nomeErro)?'error ' : '';?>">
+                    <label class="control-label">Nome</label>
+                    <div class="controls">
+                        <input size="50" class="form-control" name="nome" type="text" placeholder="Nome" required="" value="<?php echo !empty($nome)?$nome: '';?>">
+                        <p></p>
+                        <?php if(!empty($nomeErro)): ?>
+                            <span class="help-inline"><?php echo $nomeErro;?></span>
+                            <?php endif;?>
+                    </div>
+                </div>
+
                 <div class="control-group <?php echo !empty($dt_nascimentoErro)?'error ': '';?>">
                     <label class="control-label">dt_nascimento</label>
                     <div class="controls">
-                        <input size="35" class="form-control" name="dt_nascimento" type="text" placeholder="dt_nascimento" required="" value="<?php echo !empty($dt_nascimento)?$dt_nascimento: '';?>">
+                        <input size="35" class="form-control" name="dt_nascimento" type="date" placeholder="dt_nascimento" required="" value="<?php echo !empty($dt_nascimento)?$dt_nascimento: '';?>">
+                        <p></p>
                         <?php if(!empty($emailErro)): ?>
                             <span class="help-inline"><?php echo $dt_nascimentoErro;?></span>
                             <?php endif;?>
@@ -55,6 +63,7 @@
                     <label class="control-label">Email</label>
                     <div class="controls">
                         <input size="40" class="form-control" name="email" type="text" placeholder="Email" required="" value="<?php echo !empty($email)?$email: '';?>">
+                        <p></p>
                         <?php if(!empty($emailErro)): ?>
                             <span class="help-inline"><?php echo $emailErro;?></span>
                             <?php endif;?>
@@ -63,11 +72,13 @@
 
                 <div class="control-group <?php echo !empty($sexoErro)?'error ': '';?>">
                     <label class="control-label">Sexo</label>
+                    
                     <div class="controls">
                         <div class="form-check">
                             <p class="form-check-label">
                                 <input class="form-check-input" type="radio" name="sexo" id="sexo" value="M" <?php echo ($sexo=="M" ) ? "checked" : null; ?>/> Masculino
                         </div>
+                        
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="sexo" id="sexo" value="F" <?php echo ($sexo=="F" ) ? "checked" : null; ?>/> Feminino
                         </div>
@@ -167,3 +178,13 @@
         }
     }
 ?>
+
+<p></p>
+<br>
+<br>
+<br>
+<?php 
+
+include('rodape.php');
+
+ ?>
