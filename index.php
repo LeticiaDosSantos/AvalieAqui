@@ -81,33 +81,24 @@
 
 <br>
 <br>
-<div class="media"  >
-	
 
-  
-  		<div class="media-body" >
-    	<p><img src="img/fundo.png" class="mr-3"alt="..." style="width: 25%; "></p>
-		<a href="#" class="btn btn-dark" style="margin-left: 5%;">Comida Chinesa</a>
-    
-    	
-		</div>
-
-</div>
-	
 <br>
 
-<div class="card float-lg-left" style="width: 20rem;  border-color: brown; background: url(img/fundo.png); background-size: 100%;" >
-  <div class="card-body">
-
-    <!--<p><img src="fundo.png" style="width:100%; margin-left: %; "></p>-->
-    <a href="#" class="btn btn-dark" style="margin-bottom: 45%;">Comida Chinesa</a>
+<div class="media"  >  
+    <div class="media-body" >
+      <p><img src="img/fundo.png" class="mr-3"alt="..." style="width: 75%; "></p>
+      <a href="#" class="btn btn-light" style="margin-left: 1%;">Comida Vegetariana</a>
     </div>
 
+     <div class="media-body" >
+      <p><img src="img/fast-food.jpg" class="mr-3"alt="..." style="width: 75%; "></p>
+      <a href="#" class="btn btn-light" style="margin-left: 1%;">Fast Food</a>
+    </div>
 </div>
+	
+<br>
 
 <br>
-<!----->
-
 <div class=" card text-center" style="width: 20rem;border-color: brown; background: url(img/fundo.png); background-size: 100%; " >
   <div class="card-body">
     <!--<p><img src="fundo.png" style="width:100%; margin-left: %; "></p>-->
@@ -115,19 +106,14 @@
   </div>
 </div>
 
- 
-
 <br>
 <br>
-
-
-
-
 <br>
+
 <div class="card">
   <div class="card-body" style="float: left;">
     Comida Chinesa
-  </div>
+  </div> 
 </div>
 
 <!--

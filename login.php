@@ -17,8 +17,10 @@
 
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 </head>
-<body><br>
-    <form>
+
+<body style="background-image: url(img/fundo.png)"><br>
+
+    <form style="margin-top: 4.5%">
         <center>
         <div class="card" style="width: 25%;" style="border-bottom: 50%">
       <div class="form-group">
@@ -39,3 +41,11 @@
     </p>
 </body>
 </html>
+<br>
+<br>
+<br>
+<br>
+<br>
+<?php
+  include ("rodape.php");
+?>
