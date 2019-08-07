@@ -18,10 +18,7 @@
     <nav class=" navbar sticky-top navbar navbar-expand-lg navbar-light bg-light">
       <!--!-->
 
-
   <a class="navbar-brand" href="#" ></a>
-
-  <a class="navbar-brand" href="#" >Avalie Aqui </a>
  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -43,20 +40,12 @@
     </div>
      
       <div>
-<<<<<<< HEAD
         <img src="logo1.png" style="width: 39%;" style="margin-left: 1%;">
-=======
-        <img src="logo1.png" style="width: 40%;" style="margin-left: 20%;">
->>>>>>> 97cb59b94729857308bef8c1b1824132d5a870a3
       </div>
     
     <div class="collapse navbar-collapse" id="navbarNavDropdown" style="float: right;" >
 
-<<<<<<< HEAD
     <ul class="navbar-nav" style="margin-left: 40%;">
-=======
-    <ul class="navbar-nav" style="margin-left: 48%;">
->>>>>>> 97cb59b94729857308bef8c1b1824132d5a870a3
 
       <li class="nav-item">
         <a class="nav-link" href="create_restaurante.php">Cadastre Seu Restaurante</a>

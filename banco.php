@@ -2,10 +2,7 @@
 
 class Banco
 {
-
     private static $dbNome = 'avalie_aqui_projeto';
-    private static $dbNome = 'leticia';
-
     private static $dbHost = '';
     private static $dbUsuario = 'root';
     private static $dbSenha = '';

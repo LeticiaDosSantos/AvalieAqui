@@ -57,11 +57,7 @@
   <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Australiana</a>
   <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif;">Frutos do Mar</a>
   <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Cafeteria</a>
-
   <a class="nav-link" href="hamburgueria.php" style="color: black; font-size: 15px; font-family:sans-serif; ">Hamburgueria</a>
-
-  <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif; ">Hamburgueria</a>
-
 
 </nav>
 

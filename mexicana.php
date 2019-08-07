@@ -36,7 +36,6 @@
 <div>
 
   <img id="image" src="mexicana3.jpg" style="width:100%; ">
-  <img id="image" src="mexicana1.png" style="width:100%; ">
   
 </div>
 
