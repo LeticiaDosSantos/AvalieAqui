@@ -1,5 +1,6 @@
 <?php
     include ("cabecalho.php");
+    include("crudEstado.php");
 ?>
 
 
@@ -71,9 +72,12 @@
       <label for="inputState" >Estado</label>
       <select  id="inputState" class="form-control">
         <option selected>Escolha seu Estado </option>
-        <option>Paraná</option>
-        <option>Rio Grande do Sul</option>
-        <option>Santa Catarina</option>
+        <?php foreach($data as $estado):?>
+        <option> <?= $estado['nome'];?></option>
+      <?php endforeach;?>
+
+        <!-- <option>Rio Grande do Sul</option>
+        <option>Santa Catarina</option> -->
       </select>
     </div>
       <div class="form-group col-md-4">

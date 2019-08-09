@@ -30,19 +30,16 @@
             <div class="card-body">
             <form class="form-horizontal" action="create.php" method="post">
 
-                    <!--
-
                 <div class="control-group <?php echo !empty($id_userErro)?'error ': '';?>">
                     <label class="control-label">Id</label>
                     <div class="controls">
                         <input size="80" class="form-control" name="id_user" type="text" placeholder="id_user" required="" value="<?php echo !empty($id_user)?$id_user: '';?>">
-                        <?php if(!empty($emailErro)): ?>
+                        <?php if(!empty($id_userErro)): ?>
                             <span class="help-inline"><?php echo $id_userErro;?></span>
                             <?php endif;?>
                     </div>
                 </div>
 
-                !-->
                 <div class="control-group <?php echo !empty($nomeErro)?'error ' : '';?>">
                     <label class="control-label">Nome</label>
                     <div class="controls">
@@ -116,7 +113,7 @@
 </html>
 
 <?php
-    require 'banco.php';
+	require 'banco.php';
 
     if(!empty($_POST))
     {
@@ -127,6 +124,7 @@
         $dt_nascimentoErro = null;
         $emailErro = null;
         $sexoErro = null;
+        $id_userErro = null;
 
         $nome = $_POST['nome'];
         $id_user = $_POST['id_user'];
