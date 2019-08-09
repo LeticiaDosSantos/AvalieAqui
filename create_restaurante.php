@@ -136,8 +136,8 @@
 
                         <input size="40" class="form-control" name="estado" type="text" placeholder="Estado" required="" value="<?php echo !empty($estado)?$estado: '';?>">
                         <p></p>
-                        <?php if(!empty($emailErro)): ?>
-                            <span class="help-inline"><?php echo $emailErro;?></span>
+                        <?php if(!empty($estadoErro)): ?>
+                            <span class="help-inline"><?php echo $estadoErro;?></span>
                             <?php endif;?>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 <?php
     $sexo = "Indefinido";
     include("cabecalho.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -35,7 +36,8 @@
                 <div class="control-group <?php echo !empty($id_userErro)?'error ': '';?>">
                     <label class="control-label">Id</label>
                     <div class="controls">
-                        <input size="80" class="form-control" name="id_user" type="text" placeholder="id_user" required="" value="<?php echo !empty($id_user)?$id_user: '';?>">
+
+                      <input size="80" class="form-control" name="id_user" type="text" placeholder="id_user" required="" value="<?php echo !empty($id_user)?$id_user: '';?>">
                         <?php if(!empty($emailErro)): ?>
                             <span class="help-inline"><?php echo $id_userErro;?></span>
                             <?php endif;?>
@@ -129,7 +131,7 @@
         $sexoErro = null;
 
         $nome = $_POST['nome'];
-        $id_user = $_POST['id_user'];
+       // $id_user = $_POST['id_user'];
         $dt_nascimento = $_POST['dt_nascimento'];
         $email = $_POST['email'];
         $sexo = $_POST['sexo'];
@@ -142,11 +144,11 @@
             $validacao = false;
         }
 
-        if(empty($id_user))
+        /*if(empty($id_user))
         {
             $id_userErro = 'Por favor digite o seu id!';
             $validacao = false;
-        }
+        } */
 
         if(empty($dt_nascimento))
         {
@@ -176,11 +178,12 @@
         {
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO usuario (nome, id_user, dt_nascimento, email, sexo) VALUES(?,?,?,?,?)";
+            $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo) VALUES(?,?,?,?)";
             $q = $pdo->prepare($sql);
-            $q->execute(array($nome,$id_user,$dt_nascimento,$email,$sexo));
+            $q->execute(array($nome,$dt_nascimento,$email,$sexo));
             Banco::desconectar();
             header("Location: index.php");
+            exit;
         }
     }
 ?>

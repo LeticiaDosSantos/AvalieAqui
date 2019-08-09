@@ -13,9 +13,10 @@ if(!empty($_POST))
     $id = $_POST['id'];
 
     //Delete do banco:
+
     $pdo = Banco::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "DELETE FROM pessoa where id = ?";
+    $sql = "DELETE FROM usuario where id_user = 2";
     $q = $pdo->prepare($sql);
     $q->execute(array($id));
     Banco::desconectar();
