@@ -19,11 +19,8 @@
        $q->execute(array($id));
        $data = $q->fetch(PDO::FETCH_ASSOC);
        Banco::desconectar();
-$row=1;
-        echo '<a class="btn btn-warning" href="update.php?id_user='.$row['id_user'].'">Editar</a>';
-        
-        echo '<a class="btn btn-danger" href="delete.php?id_user='.$row['id_user'].'">Excluir</a>';
-    }
+       $row=1;
+
 ?>
 
  <!DOCTYPE html>
@@ -95,5 +92,11 @@ $row=1;
         <!-- Latest compiled and minified JavaScript -->
         <script src="assets/js/bootstrap.min.js"></script>
     </body>
-
+    <br>
+    <div style="margin-left: 9.5%">
     </html>
+<?php
+        echo '<a class="btn btn-light" href="update.php?id_user='.$row['id_user'].'">Editar</a>';
+        echo '<a class="btn btn-danger" href="delete.php?id_user='.$row['id_user'].'">Excluir</a>';
+    }
+?>
