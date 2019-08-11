@@ -35,14 +35,10 @@
                     <label class="control-label">Id</label>
                     <div class="controls">
 
-                      <input size="80" class="form-control" name="id_user" type="text" placeholder="id_user" required="" value="<?php echo !empty($id_user)?$id_user: '';?>">
-                        <?php if(!empty($emailErro)): ?>
-
                         <input size="80" class="form-control" name="id_user" type="text" placeholder="id_user" required="" value="<?php echo !empty($id_user)?$id_user: '';?>">
                         <?php if(!empty($id_userErro)): ?>
-
                             <span class="help-inline"><?php echo $id_userErro;?></span>
-                            <?php endif;?>
+                        <?php endif;?>
                     </div>
                 </div>
 
@@ -53,18 +49,18 @@
                         <p></p>
                         <?php if(!empty($nomeErro)): ?>
                             <span class="help-inline"><?php echo $nomeErro;?></span>
-                            <?php endif;?>
+                        <?php endif;?>
                     </div>
                 </div>
 
-                <div class="control-group <?php echo !empty($dt_nascimentoErro)?'error ': '';?>">
-                    <label class="control-label">dt_nascimento</label>
+                <div class="control-group <?php echo !empty($dt_nascimentoErro)?'error ' : '';?>">
+                    <label class="control-label">Data de Nascimento</label>
                     <div class="controls">
-                        <input size="35" class="form-control" name="dt_nascimento" type="date" placeholder="dt_nascimento" required="" value="<?php echo !empty($dt_nascimento)?$dt_nascimento: '';?>">
+                        <input size="50" class="form-control" name="dt_nascimento" type="text" placeholder="21/12/2001" required="" value="<?php echo !empty($dt_nascimento)?$dt_nascimento: '';?>">
                         <p></p>
-                        <?php if(!empty($emailErro)): ?>
-                            <span class="help-inline"><?php echo $dt_nascimentoErro;?></span>
-                            <?php endif;?>
+                        <?php if(!empty($dt_nascimentoErro)): ?>
+                            <span class="help-inline"><?php echo $dt_nacimentoErro;?></span>
+                        <?php endif;?>
                     </div>
                 </div>
 
@@ -165,7 +161,7 @@
         }
         elseif (!filter_var($email,FILTER_VALIDATE_EMAIL))
         {
-            $emailError = 'Por favor digite um endereço de email válido!';
+            $emailErro = 'Por favor digite um endereço de email válido!';
             $validacao = false;
         }
 
@@ -184,7 +180,7 @@
             $q = $pdo->prepare($sql);
             $q->execute(array($nome,$dt_nascimento,$email,$sexo));
             Banco::desconectar();
-            header("Location: index.php");
+            header("Location: login.php");
             exit;
         }
     }
@@ -195,7 +191,5 @@
 <br>
 <br>
 <?php 
-
-include('rodape.php');
-
+	include('rodape.php');
  ?>

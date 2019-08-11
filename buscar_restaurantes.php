@@ -62,7 +62,7 @@
                             echo '<td>'. $row['descricao'] . '</td>';
                             echo '<td>'. $row['endereco'] . '</td>';
                             echo '<td>'. $row['telefone'] . '</td>';
-                            echo '<meta charset="utf-8"> <td>'. $row['horario_funcio'] . '</td>';
+                            echo '<meta charset="utf-8"> <td>'. $row['horario_funcionamento'] . '</td>';
                             echo '<td>'. $row['numero'] . '</td>';
                             echo '<td width=250>';
                             echo '<a class="btn btn-primary" href="read.php?id_rest='.$row['id_rest'].'">Info</a>';
