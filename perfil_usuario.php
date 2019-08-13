@@ -8,13 +8,13 @@
 
     if(null==$id)
     {
-        header("Location: index.php");
+        header("Location: login.php");
     }
     else
     {
        $pdo = Banco::conectar();
        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       $sql = "SELECT * FROM usuario where id_user = 1";
+       $sql = "SELECT * FROM usuario where id_user = ?";
        $q = $pdo->prepare($sql);
        $q->execute(array($id));
        $data = $q->fetch(PDO::FETCH_ASSOC);
@@ -25,7 +25,7 @@
 
  <!DOCTYPE html>
     <html lang="pt-br">
-
+<br>
     <head>
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->

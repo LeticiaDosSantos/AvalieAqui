@@ -1,26 +1,26 @@
 <?php
+require 'read.php';
 require 'banco.php';
 
-$id = 0;
 
-if(!empty($_GET['id']))
+if(!empty($_GET['id_user']))
 {
-    $id = $_REQUEST['id'];
+    $id = $_REQUEST['id_user'];
 }
 
 if(!empty($_POST))
 {
-    $id = $_POST['id'];
+    $id = $_POST['id_user'];
 
     //Delete do banco:
 
     $pdo = Banco::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "DELETE FROM usuario where id_user = 2";
+    $sql = "DELETE FROM usuario where id_user = $id";//////////////////////////////////////////////////////descobrir como deletar a id certa
     $q = $pdo->prepare($sql);
     $q->execute(array($id));
     Banco::desconectar();
-    header("Location: index.php");
+    exit;
 }
 ?>
 
@@ -31,18 +31,18 @@ if(!empty($_POST))
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <title>Deletar Contato</title>
+        <title>Deletar Conta</title>
     </head>
 
     <body>
         <div class="container">
             <div class="span10 offset1">
                 <div class="row">
-                    <h3 class="well">Excluir Contato</h3>
+                    <h3 class="well">Excluir Conta</h3>
                 </div>
                 <form class="form-horizontal" action="delete.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $id;?>" />
-                    <div class="alert alert-danger"> Deseja excluir o contato?
+                    <div class="alert alert-danger"> Tem certeza que deseja excluir sua conta?<br><br> Após excluir a ação não poderá ser desfeita.
                     </div>
                     <div class="form actions">
                         <button type="submit" class="btn btn-danger">Sim</button>

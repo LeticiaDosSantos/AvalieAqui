@@ -31,16 +31,15 @@
             <div class="card-body">
             <form class="form-horizontal" action="create.php" method="post">
 
-                <div class="control-group <?php echo !empty($id_userErro)?'error ': '';?>">
+                <!--<div class="control-group <?php //echo !empty($id_userErro)?'error ': '';?>">
                     <label class="control-label">Id</label>
                     <div class="controls">
 
-                        <input size="80" class="form-control" name="id_user" type="text" placeholder="id_user" required="" value="<?php echo !empty($id_user)?$id_user: '';?>">
-                        <?php if(!empty($id_userErro)): ?>
-                            <span class="help-inline"><?php echo $id_userErro;?></span>
-                        <?php endif;?>
-                    </div>
-                </div>
+                        <input size="80" class="form-control" name="id_user" type="text" placeholder="id_user" required="" value="<?php //echo !empty($id_user)?$id_user: '';?>">
+                        <?php //if(!empty($id_userErro)): ?>
+                            <span class="help-inline"><?php //e//cho $id_userErro;?></span>
+                        <?php// endif;?>-->
+                  
 
                 <div class="control-group <?php echo !empty($nomeErro)?'error ' : '';?>">
                     <label class="control-label">Nome</label>
@@ -56,7 +55,7 @@
                 <div class="control-group <?php echo !empty($dt_nascimentoErro)?'error ' : '';?>">
                     <label class="control-label">Data de Nascimento</label>
                     <div class="controls">
-                        <input size="50" class="form-control" name="dt_nascimento" type="text" placeholder="21/12/2001" required="" value="<?php echo !empty($dt_nascimento)?$dt_nascimento: '';?>">
+                        <input size="50" class="form-control" name="dt_nascimento" type="date" placeholder="21/12/2001" required="" value="<?php echo !empty($dt_nascimento)?$dt_nascimento: '';?>">
                         <p></p>
                         <?php if(!empty($dt_nascimentoErro)): ?>
                             <span class="help-inline"><?php echo $dt_nacimentoErro;?></span>
@@ -92,6 +91,8 @@
                             <span class="help-inline"><?php echo $sexoErro;?></span>
                             <?php endif;?>
                     </div>
+                </div>
+                  </div>
                 </div>
                 <div class="form-actions">
                     <br/>
@@ -174,14 +175,15 @@
         //Inserindo no Banco:
         if($validacao)
         {
+	       include('rodape.php'); //coloquei aquu porque lá embaixo não carregava
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo) VALUES(?,?,?,?)";
             $q = $pdo->prepare($sql);
             $q->execute(array($nome,$dt_nascimento,$email,$sexo));
             Banco::desconectar();
-            header("Location: login.php");
             exit;
+            header("Location: login.php");
         }
     }
 ?>
@@ -191,5 +193,4 @@
 <br>
 <br>
 <?php 
-	include('rodape.php');
  ?>

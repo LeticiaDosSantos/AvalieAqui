@@ -39,6 +39,7 @@
                         <?php if(!empty($id_restErro)): ?>
                             <span class="help-inline"><?php echo $id_restErro;?></span>
                         <?php endif;?>
+
                     </div>
                 </div>
 
@@ -56,7 +57,7 @@
                 <div class="control-group <?php echo !empty($descricaoErro)?'error ' : '';?>">
                     <label class="control-label">Descricao</label>
                     <div class="controls">
-                        <input size="50" class="form-control" name="descricao" type="text" placeholder="21/12/2001" required="" value="<?php echo !empty($descricao)?$descricao: '';?>">
+                        <input size="50" class="form-control" name="descricao" type="text" placeholder="Bastante variedade de pratos, estacionamento..." required="" value="<?php echo !empty($descricao)?$descricao: '';?>">
                         <p></p>
                         <?php if(!empty($descricaoErro)): ?>
                             <span class="help-inline"><?php echo $descricaoErro;?></span>
@@ -67,7 +68,7 @@
                 <div class="control-group <?php echo !empty($telefoneErro)?'error ': '';?>">
                     <label class="control-label">Telefone</label>
                     <div class="controls">
-                        <input size="40" class="form-control" name="telefone" type="text" placeholder="0000-0000" required="" value="<?php echo !empty($telefone)?$telefone: '';?>">
+                        <input size="40" class="form-control" name="telefone" type="text" placeholder="3400-0000" required="" value="<?php echo !empty($telefone)?$telefone: '';?>">
                         <p></p>
                         <?php if(!empty($telefoneErro)): ?>
                             <span class="help-inline"><?php echo $telefoneErro;?></span>
@@ -78,7 +79,7 @@
                 <div class="control-group <?php echo !empty($horario_funcionamentoErro)?'error ': '';?>">
                     <label class="control-label">Horário de Funcionamento</label>
                     <div class="controls">
-                        <input size="40" class="form-control" name="email" type="text" placeholder="Email" required="" value="<?php echo !empty($horario_funcionamento)?$horario_funcionamento: '';?>">
+                        <input size="40" class="form-control" name="email" type="text" placeholder="De segunda à sexta das 11:30 às 14:30" required="" value="<?php echo !empty($horario_funcionamento)?$horario_funcionamento: '';?>">
                         <p></p>
                         <?php if(!empty($horario_funcionamentoErro)): ?>
                             <span class="help-inline"><?php echo $horario_funcionamentoErro;?></span>
@@ -126,11 +127,11 @@
                  <div class="control-group <?php echo !empty($numeroErro)?'error ': '';?>">
                     <label class="control-label">Numero</label>
                     <div class="controls">
-                        <input size="40" class="form-control" name="numero" type="text" placeholder="000" required="" value="<?php echo !empty($numero)?$numero: '';?>">
+                        <input size="40" class="form-control" name="numero" type="number" placeholder="000" required="" value="<?php echo !empty($numero)?$numero: '';?>">
                         <p></p>
                         <?php if(!empty($numeroErro)): ?>
                             <span class="help-inline"><?php echo $numeroErro;?></span>
-                            <?php endif;?>
+                        <?php endif;?>
                     </div>
                 </div>
                     <br/>
@@ -181,51 +182,53 @@
         $validacao = true;
         if(empty($nome))
         {
-            $nomeErro = 'Por favor digite o seu nome!';
+            $nomeErro = 'Por favor digite o nome do restaurante!';
             $validacao = false;
         }
 
-        /*if(empty($id_user))
+        if(empty($id_user))
         {
             $id_userErro = 'Por favor digite o seu id!';
             $validacao = false;
-        } */
+        } 
 
         if(empty($descricao))
         {
-            $descricaoErro = 'Por favor digite o número do dt_nascimento!';
+            $descricaoErro = 'Por favor faça uma breve descrição';
             $validacao = false;
         }
 
         if(empty($telefone))
         {
-            $telefoneErro = 'Por favor digite o endereço de email';
-            $validacao = false;
-        }
-        elseif (empty($horario_funcionamento))
-        {
-            $horario_funcionamentoErro = 'Por favor digite um endereço de email válido!';
+            $telefoneErro = 'Por favor insira um telefone válido';
             $validacao = false;
         }
 
-        if(empty($estado))
+        if(empty($horario_funcionamento))
         {
-            $estadoErro = 'Por favor digite o campo!';
+            $horario_funcionamentoErro = 'Por favor adicione o horário de funcionamento';
+            $validacao = false;
+        }
+
+        elseif(empty($estado))
+        {
+            $estadoErro = 'Por favor selecione um estado';
             $validacao = false;
         }
 
         if(empty($endereco))
         {
-            $enderecoErro = 'Por favor digite o campo!';
+            $enderecoErro = 'Por favor digite o endereço do restaurante!';
             $validacao = false;
         }
 
         if(empty($numero))
         {
-            $numeroErro = 'Por favor digite o campo!';
+            $numeroErro = 'Por favor digite o numero do restaurante!';
             $validacao = false;
-        }
+        
 
+    }
         //Inserindo no Banco:
         if($validacao)
         {
@@ -233,7 +236,7 @@
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "INSERT INTO usuario (nome, descricao, telefone, estado, endereco, numero) VALUES(?,?,?,?,?,?)";
             $q = $pdo->prepare($sql);
-            $q->execute(array($nome, $descricao,$telefone,$estado,$endereço, $numero));
+            $q->execute(array($nome, $descricao,$telefone,$estado,$endereco, $numero));
             Banco::desconectar();
             header("Location: buscar_restaurantes.php");
             exit;
