@@ -1,5 +1,11 @@
 <?php
 
+$dbHost = '';
+$dbUsuario = 'root';
+$dbSenha = '';
+$dbNome = 'avalie-aqui';
+
+$mysqli = new mysqli($dbHost, $dbUsuario, $dbSenha, $dbNome);
 class Banco
 {
     private static $dbNome = 'avalie-aqui';

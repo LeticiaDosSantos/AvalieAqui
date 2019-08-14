@@ -70,15 +70,23 @@
 
     <div class="form-group col-md-4" >
       <label for="inputState" >Estado</label>
-      <select  id="inputState" class="form-control">
-        <option selected>Escolha seu Estado </option>
-        <?php foreach($data as $estado):?>
-        <option> <?= $estado['nome'];?></option>
-      <?php endforeach;?>
-
-        <!-- <option>Rio Grande do Sul</option>
-        <option>Santa Catarina</option> -->
-      </select>
+        <select  id="inputState" class="form-control">
+        <?php  
+            $sql = 'select nome from estado;';
+                $resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
+                while($consulta = $resultado->fetch_object()){
+              ?>
+              <option>
+                <?php
+                  echo $consulta->nome;
+                ?>
+              </option>
+              <?php
+                }
+              ?>
+          <!-- <option>Rio Grande do Sul</option>
+          <option>Santa Catarina</option> -->
+        </select>
     </div>
       <div class="form-group col-md-4">
       <label for="inputState">Cidade</label>
