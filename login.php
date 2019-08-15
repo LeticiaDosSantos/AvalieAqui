@@ -1,12 +1,11 @@
-<?php 
-    include ("cabecalho.php");
-?>
-<html>
+<!DOCTYPE HTML>
+<html lang="pt-BR">
 <head>
+	<meta charset="UTF-8"/>
+	<title>Sistema Login</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 
-    <title>Avalie Aqui - Login</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
@@ -17,35 +16,63 @@
 
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 </head>
-<br>
-<body style="background-image: url(img/fundo.png)"><br>
-
-    <form style="margin-top: 4.5%">
-        <center>
-        <div class="card" style="width: 25%;" style="border-bottom: 50%">
-      <div class="form-group">
-            <br>
-        <label for="exampleInputEmail1">E-mail</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="example@email.com" style="width: 80%">
-        <small id="emailHelp" class="form-text text-muted" style="margin-top: 2.5%">N√£o compartilharemos seu e-mail com mais ningu√©m</small>
-      </div>
-      <div class="form-group" style="margin-top: 3.5%">
-        <label for="exampleInputPassword1">Senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="********" style="width: 80%">
-      </div> 
-    </form>
-    <p>
-         <button type="submit" class="btn btn-primary" style="margin-top: 3.5%">Entrar</button>
-         <a href="create.php"><h5><span class="badge badge-secondary">Cadastre-se Aqui</span></h5></a>
-          </div>
-    </p>
+<body>
+		<article>
+			<form name="form_pesquisa" id="form_pesquisa" class="branco" method="post" action="">
+				<center>
+				<div id="login-box">
+					<H2>Login</H2>
+					Entre com seus dados corretamente para acessar o sistema.
+					<br/>
+					<br/>
+					<div id="login-box-name">Email:</div>
+					<div id="login-box-field">
+						<input name="email" class="form-login" title="Username" value="" size="30" />
+					</div>
+					<div id="login-box-name">Password:</div>
+					<div id="login-box-field">
+						<input name="senha" type="password" class="form-login" title="Password" value="" size="30"/>
+					<button type="submit" value="" class="btn btn-primary">Entrar</button>
+					<input type="hidden" name="acao" value="logar"/>
+					</div>
+					<br>
+				</div>
+			</form>
+		</center>
+		</article>
+		<div class="branco">
+			<div>
+			<div>
+			<div>
+			<div>
+		</div>
+		
 </body>
 </html>
-<br>
-<br>
-<br>
-<br>
-<br>
 <?php
-  include ("rodape.php");
+$action = isset($_POST['acao']) ? trim($_POST['acao']) : '';
+	if(isset($action) && $action != ""){ 
+		
+		switch($action){
+			case 'logar':
+				//requerimos nossa classe de autenticaÁ„o passando os valores dos inputs como par‚metros
+				require_once('class/Autentica.class.php');
+				//instancio a classse para podermos usar o mÈtodo nela contida
+				$Autentica = new Autentica();
+				//setamos 
+				$Autentica->email	= $_POST['email'];
+				$Autentica->senha	= $_POST['senha'];
+				//chamamos nosso mÈtodo						
+				if($Autentica->Validar_Usuario()){
+				   echo  "<script type='text/javascript'>
+							location.href='logado.php'
+						</script>";
+				  }else{
+				   echo  "<script type='text/javascript'>
+							alert('ATEN\u00c7\u00c4O, Login ou Senha inv\u00e1lidos...');location.href='index.php'
+						</script>";
+				  }
+			break;
+		}	
+	}
 ?>

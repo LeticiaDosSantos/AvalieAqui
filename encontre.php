@@ -71,30 +71,45 @@
     <div class="form-group col-md-4" >
       <label for="inputState" >Estado</label>
         <select  id="inputState" class="form-control">
-        <?php  
-            $sql = 'select nome from estado;';
+
+         <?php  
+              $sql = 'select nmoe from estado;';
                 $resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
                 while($consulta = $resultado->fetch_object()){
-              ?>
-              <option>
-                <?php
-                  echo $consulta->nome;
-                ?>
-              </option>
-              <?php
-                }
-              ?>
-          <!-- <option>Rio Grande do Sul</option>
-          <option>Santa Catarina</option> -->
+        ?>
+          <option>
+        <?php
+           echo $consulta->nome;
+        ?>
+          </option>
+
+        <?php
+           }
+        ?>
+
         </select>
     </div>
+
       <div class="form-group col-md-4">
       <label for="inputState">Cidade</label>
       <select id="inputState" class="form-control">
-        <option selected>Escolha...</option>
-        <option></option>
+         <?php  
+              $sql = 'select * from estado, cidade where id_estado=24;';
+                $resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
+                while($consulta = $resultado->fetch_object()){
+        ?>
+          <option>
+        <?php
+           echo $consulta->nome;
+        ?>
+          </option>
+
+        <?php
+           }
+        ?>
       </select>
     </div>
+
   <button type="submit" class="btn btn-outline-primary" style="height: 10%; margin-top: 3.4%;">Procurar</button>
   </div>
   </div>
