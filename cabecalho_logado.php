@@ -52,11 +52,11 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="img/user-icon.png" style="width: 10%;">
+          Login
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="perfil_usuario.php?id=1">Meu Perfil</a>
-          <a class="dropdown-item" href="login.php">Login</a>
+          <a class="dropdown-item" href="logout.php">Sair</a>
         </div>
       </li>
     </ul>

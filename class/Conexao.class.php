@@ -36,7 +36,7 @@
 		//método que conecta com o banco de dados
 		public function conectar() {
 			try{
-				$this->pdo = new PDO("mysql:host=localhost;dbname=postLogin",
+				$this->pdo = new PDO("mysql:host=localhost;dbname=avalie-aqui",
 								"root",
 								"",
 								array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));

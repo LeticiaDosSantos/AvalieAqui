@@ -30,7 +30,7 @@ class Autentica extends Conexao{
 			//instancio minha classe conexão que foi herdada
 			$pdo = new Conexao(); 
 			//chamamos nosso método select da classe conexão que nos retornará um conjunto de dados
-			$resultado = $pdo->select("SELECT * FROM user WHERE email = '".$this->email."' AND senha = '".$this->senha."'");
+			$resultado = $pdo->select("SELECT * FROM usuario WHERE email = '".$this->email."' AND senha = '".$this->senha."'");
 			//desconectamos
 			$pdo->desconectar();
 			//agora vamos resgatar os valores obtidos pelo nosso método através do foreach
@@ -42,7 +42,7 @@ class Autentica extends Conexao{
 					session_start();
 					ob_start();
 					//setamos as session com os valores obtido da tabela
-					$_SESSION['id_user'] = $res['id_user'];
+					$_SESSION['id_users'] = $res['id_users'];
 					$_SESSION['nome'] = $res['nome'];
 					$_SESSION['email'] = $res['email'];
 					$_SESSION['senha'] = $res['senha'];

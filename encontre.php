@@ -73,7 +73,7 @@
         <select  id="inputState" class="form-control">
 
          <?php  
-              $sql = 'select nmoe from estado;';
+              $sql = 'select nome from estado;';
                 $resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
                 while($consulta = $resultado->fetch_object()){
         ?>

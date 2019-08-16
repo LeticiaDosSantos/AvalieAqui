@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Ago-2019 às 13:32
--- Versão do servidor: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Generation Time: 17-Ago-2019 às 01:00
+-- Versão do servidor: 10.1.34-MariaDB
+-- PHP Version: 5.6.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `avalie_aqui_projeto`
+-- Database: `avalie-aqui`
 --
 
 -- --------------------------------------------------------
@@ -2624,7 +2626,8 @@ CREATE TABLE `restaurante` (
   `nome` varchar(100) NOT NULL,
   `descricao` varchar(300) NOT NULL,
   `telefone` varchar(255) NOT NULL,
-  `horario_funcio` char(100) NOT NULL,
+  `horario_funcionamento` char(100) NOT NULL,
+  `estado` varchar(30) NOT NULL,
   `endereco` varchar(100) NOT NULL,
   `numero` int(100) NOT NULL,
   `cidade_id_cidade` int(200) NOT NULL,
@@ -2635,8 +2638,11 @@ CREATE TABLE `restaurante` (
 -- Extraindo dados da tabela `restaurante`
 --
 
-INSERT INTO `restaurante` (`id_rest`, `nome`, `descricao`, `telefone`, `horario_funcio`, `endereco`, `numero`, `cidade_id_cidade`, `usuario_id_user`) VALUES
-(1, 'Madero Steak House', 'O hambuger do MADERO faz o mundo melhor.', '(47)3043-9100', 'segunda-feira à sábado 11:45–23:00 domingo e feriados 11:45–22:00', 'Av. Rolf Wiest, Bom Retiro', 333, 2253, 4);
+INSERT INTO `restaurante` (`id_rest`, `nome`, `descricao`, `telefone`, `horario_funcionamento`, `estado`, `endereco`, `numero`, `cidade_id_cidade`, `usuario_id_user`) VALUES
+(1, 'Madero Steak House', 'O hambuger do MADERO faz o mundo melhor.', '(47)3043-9100', 'segunda-feira à sábado 11:45–23:00 domingo e feriados 11:45–22:00', '', 'Av. Rolf Wiest, Bom Retiro', 333, 2253, 4),
+(2, 'Virado no Alho', 'Comida deliciosa, equipe sempre simpática e o chef vem ás mesas cumprimentar. É um favorito na cidade. Sagú sempre bom!', '3426-0045', 'de terça-feira a sabado, das 11:30 as 14:00 e 18:00 as 00:00, domingo e segunda somente das 11:30 as', 'sc', 'R. Simão Kruger', 50, 0, 0),
+(3, 'Virado no Alho', 'Comida deliciosa, equipe sempre simpática e o chef vem ás mesas cumprimentar. É um favorito na cidade. Sagú sempre bom!', '3426-0045', 'até o sol raiar', 'sc', 'Rua do peteleco', 1001, 0, 0),
+(4, 'Virado no Alho', 'Comida deliciosa, equipe sempre simpática e o chef vem ás mesas cumprimentar. É um favorito na cidade. Sagú sempre bom!', '3426-0045', 'até o sol raiar', 'sc', 'rua do peteleco', 1001, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -2705,9 +2711,19 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_user`, `nome`, `sexo`, `dt_nascimento`, `email`, `senha`, `tipo_user_id_tip`) VALUES
 (1, 'admin', '', '2019-05-13', 'admin@gmail.com', 'admin', 0),
-(2, 'leticia', '', '2001-12-21', 'leticia@gmail.com', 'leticia', 0),
 (3, 'julia', '', '2001-06-18', 'juh@gmail.com', 'julia', 0),
-(4, 'bianca', '', '2001-07-21', 'bianca@gmail.com', '83de6260ed1dbe549bd23d31c4b8af81', 0);
+(6, 'Leticia dos Santos', 'F', '2001-12-21', 'leticiasantos00099@gmail.com', '', 0),
+(9, 'Marcia', 'F', '1967-07-01', 'marcia@gmail.com', '', 0),
+(15, 'Julian', 'M', '0000-00-00', 'juquinha@email.com', '', 0),
+(25, 'lele', 'F', '2001-12-21', 'kekek@keke.com', '', 0),
+(33, 'ana jula', 'F', '1996-03-25', 'anajulia@gmail.com', '', 0),
+(37, 'Juliano', 'M', '2006-03-25', 'juliano@juju.com', '', 0),
+(38, 'Ágata', 'F', '2004-09-28', 'agata@email.com', '', 0),
+(40, 'Robson', 'M', '1992-08-07', 'robson@gmail.com', '', 0),
+(44, 'natalia', 'F', '1111-01-01', 'natinha@gmail.com', '', 0),
+(46, 'karen', 'F', '1111-01-11', 'karen@gmail.com', '', 0),
+(47, 'beth', 'F', '1111-01-01', 'beth@gmail.com', '', 0),
+(48, 'luana', 'F', '1111-11-11', 'luana@gmail.com', '', 0);
 
 --
 -- Indexes for dumped tables
@@ -2792,31 +2808,37 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `cidade`
   MODIFY `id_cidade` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2499;
+
 --
 -- AUTO_INCREMENT for table `midia`
 --
 ALTER TABLE `midia`
   MODIFY `id_midia` int(200) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `restaurante`
 --
 ALTER TABLE `restaurante`
-  MODIFY `id_rest` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_rest` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `tipo_comida`
 --
 ALTER TABLE `tipo_comida`
   MODIFY `id_comida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `tipo_user`
 --
 ALTER TABLE `tipo_user`
   MODIFY `id_tip` int(80) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
 --
 -- Constraints for dumped tables
 --
@@ -2834,6 +2856,7 @@ ALTER TABLE `avaliacao`
 ALTER TABLE `midia`
   ADD CONSTRAINT `fk_midia_restaurante1` FOREIGN KEY (`restaurante_id_rest`) REFERENCES `restaurante` (`id_rest`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_midia_usuario1` FOREIGN KEY (`usuario_id_user`) REFERENCES `usuario` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
