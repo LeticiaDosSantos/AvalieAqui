@@ -104,7 +104,7 @@
 <div class=" card text-center" style="width: 20rem;border-color: brown; background: url(img/fundo.png); background-size: 100%; " >
   <div class="card-body">
     <!--<p><img src="fundo.png" style="width:100%; margin-left: %; "></p>-->
-    <a href="#" class="btn btn-light " style="margin-bottom: 45%; ">Comida Japonesa</a>
+    <a href="#" class="btn btn-light " style="margin-bottom: 45%;">Comida Japonesa</a>
   </div>
 </div>
 

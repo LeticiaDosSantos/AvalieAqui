@@ -2,15 +2,21 @@ body{
 	background-image: url("../../img/fundo.png");
 }
 
-#login-box {
-	width:333px;
-	height: 352px;
-	padding: 58px 76px 0 76px;
-	color: white;
-	background-color: white;
-	
+#form_pesquisa{
+	margin-left: 80%;
+}
+.card{
 	margin-left: 30%;
-	margin-right: 30%;
+	width: 40%;
+	height: 50%;
+	background-color: white;
+}
+
+#login-box {
+	color: white;
+	
+	margin-left: 2%;
+	margin-right: 90%;
 }
 #login-box img {
 	border:none;
@@ -25,7 +31,7 @@ body{
 	display:inline;
 	width:80px;
 	text-align: right;
-	padding: 14px 10px 0 0;
+	padding: 0px 10px 0 0;
 	margin:0 0 7px 0;
 }
 #login-box-field {
@@ -37,12 +43,11 @@ body{
 }
 .form-login  {
 	width: 205px;
+	margin-left: 10%;
 	padding: 10px 4px 6px 3px;
 	border: 1px solid #0d2c52;
-	background-color:white;
 	font-size: 16px;
 	color: black;
-
 }
 
 .login-box-options  {
@@ -56,14 +61,14 @@ body{
 }
 #login-box-name{
 	margin-top:20px;
+	color: gray;
 }
 #login-box-field{
 	margin-top:20px;
 }
 
 .bt-enviar{
-	background: url('../../img/login-btn.png');
-	width:103px;
+	width: 103px;
 	height:42px;
 	margin:20px 90px;
 	border:none;

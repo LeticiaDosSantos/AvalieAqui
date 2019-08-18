@@ -25,34 +25,42 @@
 </head>
 
 <body>
+	<br>
+	<br>
 		<article>
+			<form name="form_pesquisa" id="form_pesquisa" method="post" action="" style="margin-left: 15%;">
+				 <div class="card" style="width: 25%;" style="border-bottom: 50%">
+				 	 <div class="form-group">
+						<div id="login-box">
 
-			<form name="form_pesquisa" id="form_pesquisa" method="post" action="">
-
-				<div id="login-box">
-
-					<H2 style="color: black">Login</H2>
-					<p style="color: black">Entre com seus dados corretamente para acessar o sistema.</p>
-					
+					<!--<H2 style="color: black">Login</H2>-->
+									
 					<br/>
 					<br/>
 
-					<div id="login-box-name" style="color: black">Email</div><br>
+					<div id="login-box-name">Email</div><br>
 						<div id="login-box-field">
-							<input name="email" class="form-login" title="Username" value="" size="30" />
+							<input name="email" class="form-login" title="Username" value="" size="30"  placeholder="  example@email.com"/>
 						</div>
 
-						<div id="login-box-name" style="color: black">Senha</div><br>
+						<div id="login-box-name">Senha</div><br>
 							<div id="login-box-field">
-								<input name="senha" type="password" class="form-login" title="Senha" value="" size="30"/>
+								<input name="senha" type="password" class="form-login" title="Senha" value="" size="30"  placeholder="  ********" />
 							</div>
-					<br/>
+							<br/>
+						</div>
+					</div>
 
-					<input type="submit" value="" class="bt-enviar"/>
+					<button type="submit" value="" class="btn btn-primary" style="width: 30%">Login</button>
 					<input type="hidden" name="acao" value="logar"/>
+      				   <a href="create.php"><h5><span class="badge badge-secondary" style="margin-left: 25%">Cadastre-se Aqui</span></h5></a>
+      				   <br>
 				</div>
 			</form>
 		</article>
+		  <p>
+          </div>
+    </p>
 
 </body>
 
@@ -86,7 +94,7 @@ $action = isset($_POST['acao']) ? trim($_POST['acao']) : '';
 	}
 ?>
 
-
+<br>
 <div>
 	<?=include ("rodape.php");?>
 </div>

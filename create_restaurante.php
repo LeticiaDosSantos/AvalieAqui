@@ -79,7 +79,7 @@
                 <div class="control-group <?php echo !empty($horario_funcionamentoErro)?'error ': '';?>">
                     <label class="control-label">Horário de Funcionamento</label>
                     <div class="controls">
-                        <input size="40" class="form-control" name="email" type="text" placeholder="De segunda à sexta das 11:30 às 14:30" required="" value="<?php echo !empty($horario_funcionamento)?$horario_funcionamento: '';?>">
+                        <input size="40" class="form-control" name="horario_funcionamento" type="text" placeholder="De segunda à sexta das 11:30 às 14:30" required="" value="<?php echo !empty($horario_funcionamento)?$horario_funcionamento: '';?>">
                         <p></p>
                         <?php if(!empty($horario_funcionamentoErro)): ?>
                             <span class="help-inline"><?php echo $horario_funcionamentoErro;?></span>
@@ -169,11 +169,14 @@
         $estadoErro = null;
         $enderecoErro = null;
         $numeroErro = null;
+        $id_rest = null;
+        $erroNoBaguioi = null;
 
+$id_rest = $_POST['id_rest'];
         $nome = $_POST['nome'];
         $descricao = $_POST['descricao'];
         $telefone = $_POST['telefone'];
-        //$horario_funcionamento = $_POST['horario_funcionamento'];
+        $horario_funcionamento = $_POST['horario_funcionamento'];
         $estado = $_POST['estado'];
         $endereco = $_POST['endereco'];
         $numero = $_POST['numero'];
@@ -182,59 +185,64 @@
         $validacao = true;
         if(empty($nome))
         {
-            $nomeErro = 'Por favor digite o nome do restaurante!';
+            $erroNoBaguioi = 'Por favor digite o nome do restaurante!';
             $validacao = false;
         }
 
-        if(empty($id_user))
+        if(empty($id_rest))
         {
-            $id_userErro = 'Por favor digite o seu id!';
+            $erroNoBaguioi = 'Por favor digite o seu id!';
             $validacao = false;
         } 
 
         if(empty($descricao))
         {
-            $descricaoErro = 'Por favor faça uma breve descrição';
+            $erroNoBaguioi = 'Por favor faça uma breve descrição';
             $validacao = false;
         }
 
         if(empty($telefone))
         {
-            $telefoneErro = 'Por favor insira um telefone válido';
+            $erroNoBaguioi = 'Por favor insira um telefone válido';
             $validacao = false;
         }
 
         if(empty($horario_funcionamento))
         {
-            $horario_funcionamentoErro = 'Por favor adicione o horário de funcionamento';
+            $erroNoBaguioi = 'Por favor adicione o horário de funcionamento';
             $validacao = false;
         }
 
         elseif(empty($estado))
         {
-            $estadoErro = 'Por favor selecione um estado';
+            $erroNoBaguioi = 'Por favor selecione um estado';
             $validacao = false;
         }
 
         if(empty($endereco))
         {
-            $enderecoErro = 'Por favor digite o endereço do restaurante!';
+            $erroNoBaguioi = 'Por favor digite o endereço do restaurante!';
             $validacao = false;
         }
 
         if(empty($numero))
         {
-            $numeroErro = 'Por favor digite o numero do restaurante!';
+            $erroNoBaguioi = 'Por favor digite o numero do restaurante!';
             $validacao = false;
         
 
     }
+
+    echo $erroNoBaguioi;
         //Inserindo no Banco:
+    echo "huaahuasd";
+    echo $validacao;
         if($validacao)
         {
+        	//echo "::???";
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO usuario (nome, descricao, telefone, estado, endereco, numero) VALUES(?,?,?,?,?,?)";
+            $sql = "INSERT INTO restaurante (nome, descricao, telefone, estado, endereco, numero) VALUES(?,?,?,?,?,?)";
             $q = $pdo->prepare($sql);
             $q->execute(array($nome, $descricao,$telefone,$estado,$endereco, $numero));
             Banco::desconectar();
