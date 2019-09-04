@@ -45,7 +45,7 @@
 
 	<nav class="nav justify-content-center">
 
-  <a class="btn btn-outline-dark" href="mexicana.php" style="color: black; font-size: 15px; font-family:sans-serif;">Comida Mexicana</a>
+  <a class="btn btn-light" href="mexicana.php" style="color: black; font-size: 15px; font-family:sans-serif;">Comida Mexicana</a>
   <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif;">Comida Brasileria</a>
   <a class="btn btn-light" href="japonesa.php" style="color: black; font-size: 15px; font-family:sans-serif;">Comida Japonesa</a>
   <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Chinesa</a>

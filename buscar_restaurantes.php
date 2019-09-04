@@ -55,9 +55,9 @@
                             echo '<meta charset="utf-8"> <td>'. $row['horario_funcionamento'] . '</td>';
                             echo '<td>'. $row['numero'] . '</td>';
                             echo '<td width=250>';
-                            echo '<a class="btn btn-primary" href="read_restaurante.php?id_rest='.$row['id_rest'].'">Info</a>';
+                            echo '<a class="btn btn-primary" href="read.php?id_rest='.$row['id_rest'].'">Info</a>';
                             echo ' ';
-                            echo '<a class="btn btn-warning" href="update_restaurante.php?id_rest='.$row['id_rest'].'">Atualizar</a>';
+                            echo '<a class="btn btn-warning" href="update.php?id_rest='.$row['id_rest'].'">Atualizar</a>';
                             echo ' ';
                             echo '<a class="btn btn-danger" href="delete_restaurante.php?id_rest='.$row['id_rest'].'">Excluir</a>';
                             echo '</td>';

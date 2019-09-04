@@ -95,6 +95,8 @@ $action = isset($_POST['acao']) ? trim($_POST['acao']) : '';
 ?>
 
 <br>
+<br>
+<br>
 <div>
 	<?=include ("rodape.php");?>
 </div>

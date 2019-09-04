@@ -1,5 +1,7 @@
 body{
-	background-image: url("../../img/fundo.png");
+	background-image: url("../../img/fundoLogin.jpg");
+	background-repeat: repeat; 
+	background-attachment:  fixed;"
 }
 
 #form_pesquisa{

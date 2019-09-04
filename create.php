@@ -16,8 +16,10 @@
 
 <br>
 <br>
-<body>
-    <div class="container" style="width: 50%;">
+<body style="background-image: url(img/fundoU.jpg); background-size: 130%; background-repeat: no-repeat; 
+background-attachment:  fixed;">
+
+    <div class="container" style="width: 50%; opacity: 0.92">
         <div clas="span10 offset1">
           <div class="card">
             <div class="card-header">
@@ -102,14 +104,14 @@
                             <span class="help-inline"><?php echo $sexoErro;?></span>
                             <?php endif;?>
                     </div>
-                </div>
-                  </div>
-                </div>
                 <div class="form-actions">
                     <br/>
 
                     <button type="submit" class="btn btn-success">Adicionar</button>
                     <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
+                </div>
+                  </div>
+                </div>
 
                 </div>
             </form>
