@@ -74,6 +74,17 @@
                     </div>
                 </div>
 
+                <div class="control-group <?php echo !empty($senhaErro)?'error ': '';?>">
+                    <label class="control-label">Senha</label>
+                    <div class="controls">
+                        <input size="40" class="form-control" name="senha" type="password" placeholder="Senha" required="" value="<?php echo !empty($senha)?$senha: '';?>">
+                        <p></p>
+                        <?php if(!empty($senhaErro)): ?>
+                            <span class="help-inline"><?php echo $senhaErro;?></span>
+                            <?php endif;?>
+                    </div>
+                </div>
+
                 <div class="control-group <?php echo !empty($sexoErro)?'error ': '';?>">
                     <label class="control-label">Sexo</label>
                     
@@ -128,12 +139,14 @@
         $emailErro = null;
         $sexoErro = null;
         $id_userErro = null;
+        $senhaErro = null;
 
         $nome = $_POST['nome'];
        // $id_user = $_POST['id_user'];
         $dt_nascimento = $_POST['dt_nascimento'];
         $email = $_POST['email'];
         $sexo = $_POST['sexo'];
+         $senha = $_POST['senha'];
 
         //Validaçao dos campos:
         $validacao = true;
@@ -171,6 +184,11 @@
             $sexoErro = 'Por favor digite o campo!';
             $validacao = false;
         }
+            if(empty($senha))
+        {
+            $senhaErro = 'Senha incorreta!';
+            $validacao = false;
+        }
 
         //Inserindo no Banco:
         if($validacao)
@@ -178,9 +196,9 @@
 	       include('rodape.php'); //coloquei aquu porque lá embaixo não carregava
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo) VALUES(?,?,?,?)";
+            $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo, senha) VALUES(?,?,?,?,?)";
             $q = $pdo->prepare($sql);
-            $q->execute(array($nome,$dt_nascimento,$email,$sexo));
+            $q->execute(array($nome,$dt_nascimento,$email,$sexo,$senha));
             Banco::desconectar();
             exit;
             header("Location: login.php");

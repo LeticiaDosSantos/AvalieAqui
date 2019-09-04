@@ -10,14 +10,17 @@
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/index.css">
   <title>Avalie Aqui</title>
 </head>
 
 
 <br>
 <br>
-<body>
-    <div class="container" style="width: 50%;">
+<body style="background-image: url(img/rest_fundo.jpg); background-size: 130%; background-repeat: no-repeat; 
+background-attachment:  fixed;">
+
+    <div class="container" style="width: 50%; opacity: 0.92">
         <div clas="span10 offset1">
           <div class="card">
             <div class="card-header">

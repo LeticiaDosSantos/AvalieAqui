@@ -28,7 +28,7 @@
 	<br>
 	<br>
 		<article>
-			<form name="form_pesquisa" id="form_pesquisa" method="post" action="" style="margin-left: 15%;">
+			<form name="form_pesquisa" id="form_pesquisa" method="post" action="" style="margin-left: 15%;opacity: 0.9;">
 				 <div class="card" style="width: 25%;" style="border-bottom: 50%">
 				 	 <div class="form-group">
 						<div id="login-box">
@@ -38,22 +38,22 @@
 					<br/>
 					<br/>
 
-					<div id="login-box-name">Email</div><br>
+					<div id="login-box-name" >Email</div><br>
 						<div id="login-box-field">
-							<input name="email" class="form-login" title="Username" value="" size="30"  placeholder="  example@email.com"/>
+							<input name="email" class="form-login" title="Username" value="" size="30"  placeholder="  example@email.com" style="border-radius: 0.3rem;" />
 						</div>
 
 						<div id="login-box-name">Senha</div><br>
 							<div id="login-box-field">
-								<input name="senha" type="password" class="form-login" title="Senha" value="" size="30"  placeholder="  ********" />
+								<input name="senha" type="password" class="form-login" title="Senha" value="" size="30"  placeholder="  ********"  style="border-radius: 0.3rem;"/>
 							</div>
 							<br/>
 						</div>
 					</div>
-
-					<button type="submit" value="" class="btn btn-primary" style="width: 30%">Login</button>
-					<input type="hidden" name="acao" value="logar"/>
-      				   <a href="create.php"><h5><span class="badge badge-secondary" style="margin-left: 25%">Cadastre-se Aqui</span></h5></a>
+					<br>
+					<button type="submit" value="" class="btn btn-primary" style="width: 27%; margin-left: 36%;" >Login</button>
+					<input type="hidden" name="acao" value="logar"/><br>	
+      				   <a href="create.php"><h5><span class="badge badge-secondary" style="margin-left: 27%">Cadastre-se Aqui</span></h5></a>
       				   <br>
 				</div>
 			</form>
