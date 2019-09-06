@@ -1,7 +1,6 @@
 <?php
     $sexo = "Indefinido";
     include("cabecalho.php");
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,7 +35,6 @@ background-attachment:  fixed;">
                 <!--<div class="control-group <?php //echo !empty($id_userErro)?'error ': '';?>">
                     <label class="control-label">Id</label>
                     <div class="controls">
-
                         <input size="80" class="form-control" name="id_user" type="text" placeholder="id_user" required="" value="<?php //echo !empty($id_user)?$id_user: '';?>">
                         <?php //if(!empty($id_userErro)): ?>
                             <span class="help-inline"><?php //e//cho $id_userErro;?></span>
@@ -129,8 +127,7 @@ background-attachment:  fixed;">
 </html>
 
 <?php
-	require 'banco.php';
-
+    require 'banco.php';
     if(!empty($_POST))
     {
         $sexo="Indefinido";
@@ -142,14 +139,12 @@ background-attachment:  fixed;">
         $sexoErro = null;
         $id_userErro = null;
         $senhaErro = null;
-
         $nome = $_POST['nome'];
        // $id_user = $_POST['id_user'];
         $dt_nascimento = $_POST['dt_nascimento'];
         $email = $_POST['email'];
         $sexo = $_POST['sexo'];
          $senha = $_POST['senha'];
-
         //Validaçao dos campos:
         $validacao = true;
         if(empty($nome))
@@ -157,19 +152,16 @@ background-attachment:  fixed;">
             $nomeErro = 'Por favor digite o seu nome!';
             $validacao = false;
         }
-
         /*if(empty($id_user))
         {
             $id_userErro = 'Por favor digite o seu id!';
             $validacao = false;
         } */
-
         if(empty($dt_nascimento))
         {
             $dt_nascimentoErro = 'Por favor digite o número do dt_nascimento!';
             $validacao = false;
         }
-
         if(empty($email))
         {
             $emailErro = 'Por favor digite o endereço de email';
@@ -180,7 +172,6 @@ background-attachment:  fixed;">
             $emailErro = 'Por favor digite um endereço de email válido!';
             $validacao = false;
         }
-
         if(empty($sexo))
         {
             $sexoErro = 'Por favor digite o campo!';
@@ -191,11 +182,10 @@ background-attachment:  fixed;">
             $senhaErro = 'Senha incorreta!';
             $validacao = false;
         }
-
         //Inserindo no Banco:
         if($validacao)
         {
-	       include('rodape.php'); //coloquei aquu porque lá embaixo não carregava
+           include('rodape.php'); //coloquei aquu porque lá embaixo não carregava
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo, senha) VALUES(?,?,?,?,?)";
@@ -213,4 +203,6 @@ background-attachment:  fixed;">
 <br>
 <br>
 <?php 
+
+
  ?>

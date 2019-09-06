@@ -1,23 +1,27 @@
 <?php
 require 'banco.php';
-
-$id = 0;
-
-if(!empty($_GET['id']))
+$id_rest = null;
+if(!empty($_GET['id_rest']))
 {
-    $id = $_REQUEST['id'];
-}
-
-if(!empty($_POST))
-{
-    $id = $_POST['id'];
-
+    $id_rest = $_REQUEST['id_rest'];
     //Delete do banco:
     $pdo = Banco::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "DELETE FROM restaurante where id = ?";
+    $sql = "DELETE FROM `restaurante` WHERE `restaurante`.`id_rest` = ".$_GET['id_rest'];
     $q = $pdo->prepare($sql);
-    $q->execute(array($id));
+    $q->execute(array($id_rest));
+    Banco::desconectar();
+    header("Location: buscar_restaurantes.php");
+}
+if(!empty($_POST))
+{
+    $id_rest = $_POST['id_rest'];
+    //Delete do banco:
+    $pdo = Banco::conectar();
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "DELETE FROM `restaurante` WHERE `restaurante`.`id_rest` = ".$_GET['id_rest'];
+    $q = $pdo->prepare($sql);
+    $q->execute(array($id_rest));
     Banco::desconectar();
     header("Location: index.php");
 }
@@ -39,13 +43,13 @@ if(!empty($_POST))
                 <div class="row">
                     <h3 class="well">Excluir Contato</h3>
                 </div>
-                <form class="form-horizontal" action="delete.php" method="post">
-                    <input type="hidden" name="id" value="<?php echo $id;?>" />
+                <form class="form-horizontal" action="delete_restaurante.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $id_rest;?>" />
                     <div class="alert alert-danger"> Deseja excluir o restaurante?
                     </div>
                     <div class="form actions">
                         <button type="submit" class="btn btn-danger">Sim</button>
-                        <a href="index.php" type="btn" class="btn btn-default">Não</a>
+                        <a href="buscar_restaurante.php" type="btn" class="btn btn-default">Não</a>
                     </div>
                 </form>
             </div>

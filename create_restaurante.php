@@ -33,19 +33,19 @@ background-attachment:  fixed;">
          <div class="card">   
             <div class="card-body">
             <form class="form-horizontal" action="create_restaurante.php" method="post">
-
-                <div class="control-group <?php echo !empty($id_restErro)?'error ': '';?>">
+<!--
+                <div class="control-group <?php //echo !empty($id_restErro)?'error ': '';?>">
                     <label class="control-label">Id</label>
                     <div class="controls">
 
-                        <input size="80" class="form-control" name="id_rest" type="text" placeholder="id_rest" required="" value="<?php echo !empty($id_rest)?$id_rest: '';?>">
-                        <?php if(!empty($id_restErro)): ?>
-                            <span class="help-inline"><?php echo $id_restErro;?></span>
-                        <?php endif;?>
+                        <input size="80" class="form-control" name="id_rest" type="text" placeholder="id_rest" required="" value="<?php// echo !empty($id_rest)?$id_rest: '';?>">
+                        <?php //if(!empty($id_restErro)): ?>
+                            <span class="help-inline"><?php// echo $id_restErro;?></span>
+                        <?php// endif;?>
 
                     </div>
                 </div>
-
+-->
                 <div class="control-group <?php echo !empty($nomeErro)?'error ' : '';?>">
                     <label class="control-label">Nome</label>
                     <div class="controls">
@@ -175,7 +175,7 @@ background-attachment:  fixed;">
         $id_rest = null;
         $erroNoBaguioi = null;
 
-$id_rest = $_POST['id_rest'];
+//      $id_rest = $_POST['id_rest'];
         $nome = $_POST['nome'];
         $descricao = $_POST['descricao'];
         $telefone = $_POST['telefone'];
@@ -192,11 +192,11 @@ $id_rest = $_POST['id_rest'];
             $validacao = false;
         }
 
-        if(empty($id_rest))
+        /*if(empty($id_rest))
         {
             $erroNoBaguioi = 'Por favor digite o seu id!';
             $validacao = false;
-        } 
+        } */
 
         if(empty($descricao))
         {
