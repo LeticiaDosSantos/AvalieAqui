@@ -43,37 +43,37 @@
 
 		if (empty($desricao))
                 {
-                    $descricaoErro = 'Por favor digite o email!';
+                    $descricaoErro = 'Por favor digite a descricao!';
                     $validacao = false;
 		}
                 else if ( !filter_var($telefone/*,FILTER_VALIDATE_EMAIL*/) )
                 {
-                    $telefoneErro = 'Por favor digite um email válido!';
+                    $telefoneErro = 'Por favor digite um telefone válido!';
                     $validacao = false;
 		}
 
                 if (empty($horario_funcionamento))
                 {
-                    $horario_funcionamentoErro = 'Por favor digite o telefone!';
+                    $horario_funcionamentoErro = 'Por favor digite o horrário de funcionamento!';
                     $validacao = false;
 		}
 
         if (empty($estado))
                 {
-                    $estadoErro = 'Por favor digite o endereço!';
+                    $estadoErro = 'Por favor digite o estado!';
                     $validacao = false;
         }
 
 
                 if (empty($endereco))
                 {
-                    $enderecoErro = 'Por favor preenche o campo!';
+                    $enderecoErro = 'Por favor preencha o campo de endereço!';
                     $validacao = false;
         }
 
                 if (empty($numero))
                 {
-                    $numeroErro = 'Por favor preencha o campo!';
+                    $numeroErro = 'Por favor preencha o número do restaurante!';
                     $validacao = false;
 		}
 

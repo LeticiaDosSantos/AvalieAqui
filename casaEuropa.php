@@ -42,7 +42,8 @@
 
 <p></p>
 
-<div id="linha" style="width: 70%; "> </div>
+<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
+}"> </div>
 
 <br>
 <br>  

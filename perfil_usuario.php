@@ -33,56 +33,40 @@
         <title>Avalie Aqui - Informações da Conta</title>
     </head>
 
-    <body>
-        <div class="container">
+    <body><br>
+        <nav class="nav justify-content-center">
+            <br><br><br>
+        <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Informações da Conta</a>
+           </nav><br>
+        <div class="container" style="width: 60%">
             <div class="span10 offset1">
                   <div class="card">
-                                    <div class="card-header">
-                    <h3 class="well">Informações do Contato</h3>
-                </div>
+                        <nav class="nav justify-content-center"> 
+                          <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;"><?php echo $data['nome'];?></a>
+                        </nav><br>
+
                 <div class="container">
                 <div class="form-horizontal">
+                    
                     <div class="control-group">
-                        <label class="control-label">Nome</label>
-                        <div class="controls">
-                            <label class="carousel-inner">
-                                <?php echo $data['nome'];?>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label">Data de nascimento</label>
-                        <div class="controls">
-                            <label class="carousel-inner">
-                                <?php echo $data['dt_nascimento'];?>
-                            </label>
-                        </div>
+                        <label class="control-label">Data de nascimento: </label>
+                            <?php echo $data['dt_nascimento'];?>
                     </div>
 
 
                     <div class="control-group">
-                        <label class="control-label">Email</label>
-                        <div class="controls">
-                            <label class="carousel-inner">
-                                <?php echo $data['email'];?>
+                        <label class="control-label">Email: </label>
+                            <?php echo $data['email'];?>
                             </label>
-                        </div>
                     </div>
 
                     <div class="control-group">
                         <label class="control-label">Sexo</label>
-                        <div class="controls">
-                            <label class="carousel-inner">
                                 <?php echo $data['sexo'];?>
                             </label>
-                        </div>
                     </div>
                     <br/>
-                    <div class="form-actions">
-                        <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
                     </div>
-                  </div>
                   </div>
                 </div>
             </div>
@@ -91,12 +75,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="assets/js/bootstrap.min.js"></script>
-    </body>
     <br>
     <div style="margin-left: 9.5%">
+<?php
+        echo '<a style="margin-left: 13%;" class="btn btn-warning" href="update.php?id_user='.$row['id_user'].'">Editar</a>';
+        echo '<a style="margin-left: 0.5%;" class="btn btn-danger" href="delete.php?id_user='.$row['id_user'].'">Excluir</a>';
+        echo "<br>";
+        echo "<br>";
+        echo '<a style="margin-left: 13%;" class="btn btn-light" href="index.php'.$row['id_user'].'">Voltar</a>';
+    }
+?></div>
+    </body>
     </html>
 <?php
-        echo '<a class="btn btn-light" href="update.php?id_user='.$row['id_user'].'">Editar</a>';
-        echo '<a class="btn btn-danger" href="delete.php?id_user='.$row['id_user'].'">Excluir</a>';
-    }
-?>
+    include ("rodape.php");

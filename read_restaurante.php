@@ -36,39 +36,33 @@ include "cabecalho.php";
     </head>
 
     <body>
+                            <nav class="nav justify-content-center"> 
+  <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;"><?php echo $data['nome'];?></a>
+</nav><br>
+                  <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
+}"> </div>   <br><br> 
+
         <div class="container">
             <div class="span10 offset1">
-                  <div class="card">
-    								<div class="card-header">
-                    <h3 class="well">Informações da Conta</h3>
-                </div>
+                  <div class="card"><br>
+    				<div id="linha" style="width: 70%; "> </div>
                 <div class="container">
                 <div class="form-horizontal">
                     <div class="control-group">
-                        <label class="control-label">Nome</label>
+                        <?php echo $data['descricao'];?>
                         <div class="controls">
-                            <label class="carousel-inner">
-                                <?php echo $data['nome'];?>
                             </label>
                         </div>
                     </div>
-
+<br>
                     <div class="control-group">
-                        <label class="control-label">Endereço</label>
-                        <div class="controls">
-                            <label class="carousel-inner">
+                        <label style="font-size: 14pt" class="control-label">Endereço: </label>
                                 <?php echo $data['endereco'];?>
-                            </label>
-                        </div>
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label">Telefone</label>
-                        <div class="controls">
-                            <label class="carousel-inner">
+                        <label style="font-size: 14pt" class="control-label">Telefone: </label>
                                 <?php echo $data['telefone'];?>
-                            </label>
-                        </div>
                     </div>
 
                     <!--<div class="control-group">
@@ -81,22 +75,25 @@ include "cabecalho.php";
                     </div>-->
 
                     <div class="control-group">
-                        <label class="control-label">Estado</label>
-                        <div class="controls">
-                            <label class="carousel-inner">
-                                <?php echo $data['estado'];?>
-                            </label>
-                        </div>
+                        <label style="font-size: 14pt" class="control-label">Estado: </label>
+                            <label><?php echo $data['estado'];?></label>
                     </div>
                     
                     <br/>
+                    </div>
+                    <?php //echo $data['estado'];?>
 
+  <!--  <img src="img/italianaaa.png" class="card-img-top" alt="..." style="width: 100%;">
+   
+  </div>
+-->
                     <div class="form-actions">
-                        <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
                     </div>
                   </div>
                   </div>
                 </div>
+                <br>
+                        <a href="index.php" type="btn" class="btn btn-light">Voltar</a>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
