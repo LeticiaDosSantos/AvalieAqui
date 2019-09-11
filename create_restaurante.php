@@ -1,6 +1,9 @@
 <?php
     $sexo = "Indefinido";
     include("cabecalho.php");
+    include("crudEstado.php");
+
+
 
 ?>
 <!DOCTYPE html>
@@ -68,6 +71,35 @@ background-attachment:  fixed;">
                     </div>
                 </div>
 
+
+  
+
+    <div class="control-group col-md-15" >
+      <label for="control-label" >Categoria</label>
+        <select  id="inputState" class="form-control">
+
+         <?php  
+              $sql = 'select categoria from tipo_comida;';
+                $resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
+                while($consulta = $resultado->fetch_object()){
+        ?>
+          <option>
+        <?php
+           echo $consulta->categoria;
+        ?>
+          </option>
+
+        <?php
+           }
+        ?>
+
+        </select>
+    </div>
+
+<br>
+
+
+
                 <div class="control-group <?php echo !empty($telefoneErro)?'error ': '';?>">
                     <label class="control-label">Telefone</label>
                     <div class="controls">
@@ -90,30 +122,53 @@ background-attachment:  fixed;">
                     </div>
                 </div>
 
-                <div class="control-group <?php echo !empty($estadoErro)?'error ': '';?>">
-                    <label class="control-label">Estado</label>
-                    
-                    <div class="controls">
-                        
-                        <div class="form-check">
-                            <p class="form-check-label">
-                                <input class="form-check-input" type="radio" name="estado" id="pr" value="PR" <?php echo ($sexo=="PR" ) ? "checked" : null; ?>/> Paraná
-                        </div>
+               <div class="control-group col-md-15" >
+      <label for="control-label" >Estado</label>
+        <select  id="inputState" class="form-control">
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="estado" id="rs" value="RS" <?php echo ($sexo=="RS" ) ? "checked" : null; ?>/> Rio Grande do Sul
-                        </div>
+         <?php  
+              $sql = 'select nome from estado;';
+                $resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
+                while($consulta = $resultado->fetch_object()){
+        ?>
+          <option>
+        <?php
+           echo $consulta->nome;
+        ?>
+          </option>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="estado" id="sc" value="SC" <?php echo ($sexo=="SC" ) ? "checked" : null; ?>/> Santa Catarina
-                        </div>
+        <?php
+           }
+        ?>
 
-                        </p>
-                        <?php if(!empty($estadoErro)): ?>
-                            <span class="help-inline"><?php echo $estadoErro;?></span>
-                            <?php endif;?>
-                    </div>
-                </div>
+        </select>
+    </div>
+
+<br>
+<div class="control-group col-md-15" >
+      <label for="control-label" >Cidade</label>
+        <select  id="inputState" class="form-control">
+
+         <?php  
+              $sql = 'select nome from cidade;';
+                $resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
+                while($consulta = $resultado->fetch_object()){
+        ?>
+          <option>
+        <?php
+           echo $consulta->nome;
+        ?>
+          </option>
+
+        <?php
+           }
+        ?>
+
+        </select>
+    </div>
+
+<br>
+
                 <div class="form-actions">
 
                 <div class="control-group <?php echo !empty($enderecoErro)?'error ': '';?>">
@@ -139,8 +194,8 @@ background-attachment:  fixed;">
                 </div>
                     <br/>
 
-                    <button type="submit" class="btn btn-success">Adicionar</button>
-                    <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
+                    <a href="index.php" type="btn" class="btn btn-light">Voltar</a>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
 
                 </div>
             </form>
@@ -167,10 +222,12 @@ background-attachment:  fixed;">
         $id_restErro = null;
         $nomeErro = null;
         $descricaoErro = null;
+        $categoriaErro = null;
         $telefoneErro = null;
         $horario_funcionamentoErro = null;
         $estadoErro = null;
         $enderecoErro = null;
+        $cidadeErro = null;
         $numeroErro = null;
         $id_rest = null;
         $erroNoBaguioi = null;
@@ -178,10 +235,12 @@ background-attachment:  fixed;">
 //      $id_rest = $_POST['id_rest'];
         $nome = $_POST['nome'];
         $descricao = $_POST['descricao'];
+        $categoria = $_POST['categoria'];
         $telefone = $_POST['telefone'];
         $horario_funcionamento = $_POST['horario_funcionamento'];
         $estado = $_POST['estado'];
         $endereco = $_POST['endereco'];
+        $cidade = $_POST['cidade'];
         $numero = $_POST['numero'];
 
         //Validaçao dos campos:
@@ -201,6 +260,11 @@ background-attachment:  fixed;">
         if(empty($descricao))
         {
             $erroNoBaguioi = 'Por favor faça uma breve descrição';
+            $validacao = false;
+        }
+         if(empty($categoria))
+        {
+            $erroNoBaguioi = 'Por favor selecione uma categoria';
             $validacao = false;
         }
 
@@ -228,6 +292,13 @@ background-attachment:  fixed;">
             $validacao = false;
         }
 
+          if(empty($cidade))
+        {
+            $erroNoBaguioi = 'Por favor digite a cidade do restaurante!';
+            $validacao = false;
+        }
+
+
         if(empty($numero))
         {
             $erroNoBaguioi = 'Por favor digite o numero do restaurante!';
@@ -245,9 +316,9 @@ background-attachment:  fixed;">
         	//echo "::???";
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO restaurante (nome, descricao, telefone, estado, endereco, numero) VALUES(?,?,?,?,?,?)";
+            $sql = "INSERT INTO restaurante (nome, descricao, categoria, telefone, estado, endereco, cidade, numero) VALUES(?,?,?,?,?,?,?,?)";
             $q = $pdo->prepare($sql);
-            $q->execute(array($nome, $descricao,$telefone,$estado,$endereco, $numero));
+            $q->execute(array($nome, $descricao, $categoria,$telefone,$estado,$endereco,$cidade,$numero));
             Banco::desconectar();
             header("Location: buscar_restaurantes.php");
             exit;
