@@ -60,9 +60,16 @@
                             </label>
                     </div>
 
+
                     <div class="control-group">
                         <label class="control-label">Sexo</label>
                                 <?php echo $data['sexo'];?>
+                            </label>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Senha: </label>
+                            <?php echo $data['senha'];?>
                             </label>
                     </div>
                     <br/>

@@ -65,6 +65,17 @@ include "cabecalho.php";
                                 <?php echo $data['telefone'];?>
                     </div>
 
+                     <div class="control-group">
+                        <label style="font-size: 14pt" class="control-label">Numero: </label>
+                                <?php echo $data['numero'];?>
+                    </div>
+
+                     <div class="control-group">
+                        <label style="font-size: 14pt" class="control-label">Horario de funcionamento: </label>
+                                <?php echo $data['horario_funcionamento'];?>
+                    </div>
+
+
                     <!--<div class="control-group">
                         <label class="control-label">Email</label>
                         <div class="controls">

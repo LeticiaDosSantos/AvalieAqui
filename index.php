@@ -83,9 +83,8 @@
 
 <br>
 <br>
-
-<br>
-
+<br><br><br><br>
+<!--
 <div class="media"  >  
     <div class="media-body" >
       <p><img src="img/fundo.png" class="mr-3"alt="..." style="width: 75%; "></p>
@@ -101,24 +100,7 @@
 <br>
 
 <br>
-<div class=" card text-center" style="width: 20rem;border-color: brown; background: url(img/fundo.png); background-size: 100%; " >
-  <div class="card-body">
-    <!--<p><img src="fundo.png" style="width:100%; margin-left: %; "></p>-->
-    <a href="#" class="btn btn-light " style="margin-bottom: 45%;">Comida Japonesa</a>
-  </div>
-</div>
 
-<br>
-<br>
-<br>
-
-<div class="card">
-  <div class="card-body" style="float: left;">
-    Comida Chinesa
-  </div> 
-</div>
-
-<!--
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
@@ -147,10 +129,92 @@
 -->
 <br>
 
+<div>
+  
+
+<center></center>
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="img/japao.png" src=".../100px100/" alt="Imagem de capa do card">
+    <div class="card-body">
+      <a href="madero.php" style="text-decoration: none; color: black;"><h5 class="card-title">Restaurante Madero</h5></a>
+      <p class="card-text">Este é um card mais longo com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este conteúdo é um pouco maior.</p>
+      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="img/italianaa.png" src=".../100px100/" alt="Imagem de capa do card">
+    <div class="card-body">
+     <a href="madero.php" style="text-decoration: none; color: #1a1919f0;"><h5 class="card-title">Título do card</h5></a> 
+      <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="img/italianaa.png" src=".../100px100/" alt="Imagem de capa do card">
+    <div class="card-body">
+     <a href="madero.php" style="text-decoration: none; color: #1a1919f0;"><h5 class="card-title">Título do card</h5></a> 
+      <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="img/japao.png" src=".../100px100/" alt="Imagem de capa do card">
+    <div class="card-body">
+      <a href="madero.php" style="text-decoration: none; color: black;"><h5 class="card-title">Título do card</h5></a>
+      <p class="card-text">Este é um card maior com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este card tem o conteúdo ainda maior que o primeiro, para mostrar a altura igual, em ação.</p>
+      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+    </div>
+  </div>
+</div>
+
+</center>
+
+<br><br>
+</div>
+<center></center>
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="img/japao.png" src=".../100px100/" alt="Imagem de capa do card">
+    <div class="card-body">
+      <a href="madero.php" style="text-decoration: none; color: black;"><h5 class="card-title">Restaurante Madero</h5></a>
+      <p class="card-text">Este é um card mais longo com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este conteúdo é um pouco maior.</p>
+      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="img/italianaa.png" src=".../100px100/" alt="Imagem de capa do card">
+    <div class="card-body">
+     <a href="madero.php" style="text-decoration: none; color: #1a1919f0;"><h5 class="card-title">Título do card</h5></a> 
+      <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="img/italianaa.png" src=".../100px100/" alt="Imagem de capa do card">
+    <div class="card-body">
+     <a href="madero.php" style="text-decoration: none; color: #1a1919f0;"><h5 class="card-title">Título do card</h5></a> 
+      <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="img/japao.png" src=".../100px100/" alt="Imagem de capa do card">
+    <div class="card-body">
+      <a href="madero.php" style="text-decoration: none; color: black;"><h5 class="card-title">Título do card</h5></a>
+      <p class="card-text">Este é um card maior com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este card tem o conteúdo ainda maior que o primeiro, para mostrar a altura igual, em ação.</p>
+      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+    </div>
+  </div>
+</div>
+
+</center>
+
+
 </div>
 
 
-
+</div> <!-- isso aqui fecha o container, da pra tirar dai vai ficar pros lados-->
 
 
 
