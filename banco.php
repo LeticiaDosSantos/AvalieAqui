@@ -6,8 +6,8 @@ $dbSenha = '';
 $dbNome = 'avalie-aqui';
 
 $mysqli = new mysqli($dbHost, $dbUsuario, $dbSenha, $dbNome);
-class Banco
-{
+
+class Banco{
     private static $dbNome = 'avalie-aqui';
     private static $dbHost = '';
     private static $dbUsuario = 'root';

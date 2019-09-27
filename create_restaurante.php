@@ -10,8 +10,24 @@
 <html lang="pt-br">
 
 <head>
+       <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Palavras chave separadas por virgulas" />
+    <meta name="description" content="Texto resumido aparecera nos resultados de busca atalhos" />
+    <meta name="author" content="Nome do autor">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Cidades e Estados JS - ultima versao google -->
+    <script src="cidades-estados-1.2-utf8.js"></script>
     <meta charset="utf-8">
-    <!-- Latest compiled and minified CSS -->
+
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/index.css">
   <title>Avalie Aqui</title>
@@ -27,7 +43,13 @@ background-attachment:  fixed;">
         <div clas="span10 offset1">
           <div class="card">
             <div class="card-header">
-                <h3 class="well"> Cadastre-se Aqui </h3>
+                <nav class="nav justify-content-center"> 
+          <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Cadastre seu restaurante</a>
+        </nav>
+        <br>
+        <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
+}"> </div>
+		<br>
             </div>
          </div>
 
@@ -121,24 +143,46 @@ background-attachment:  fixed;">
                             <?php endif;?>
                     </div>
                 </div>
-
-               <div class="control-group col-md-15" >
+<div class="container">
+        
+        <div class="form-group">
+          <div class="col-lg-8">
+            <label for="select" class="control-label">Selecione o Estado:</label>
+            <select id="estado" class="form-control"></select>
+            <br>
+            <label for="select" class="control-label">Selecione a Cidade:</label>
+            <select  id="cidade" class="form-control"></select>
+          </div>
+        </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+  //CIDADES E ESTADOS
+  new dgCidadesEstados({
+    cidade: document.getElementById('cidade'),
+    estado: document.getElementById('estado'),
+    change: true
+});
+  </script>
+              <!--<div class="control-group col-md-15" >
       <label for="control-label" >Estado</label>
         <select  id="inputState" class="form-control">
 
          <?php  
-              $sql = 'select nome from estado;';
+              $sql/* = 'select nome from estado;';
                 $resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
                 while($consulta = $resultado->fetch_object()){
         ?>
           <option>
-        <?php
-           echo $consulta->nome;
-        ?>
+	        <?php
+	           echo $consulta->nome;
+	        ?>
+
+
           </option>
 
         <?php
-           }
+           }*/
         ?>
 
         </select>
@@ -150,7 +194,7 @@ background-attachment:  fixed;">
         <select  id="inputState" class="form-control">
 
          <?php  
-              $sql = 'select nome from cidade;';
+              $sql /*= 'select nome from cidade;';
                 $resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
                 while($consulta = $resultado->fetch_object()){
         ?>
@@ -161,12 +205,14 @@ background-attachment:  fixed;">
           </option>
 
         <?php
-           }
+           }*/
         ?>
 
         </select>
     </div>
-
+-->
+<?php //include "consulta";
+?>
 <br>
 
                 <div class="form-actions">

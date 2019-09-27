@@ -57,79 +57,118 @@
 </nav>
 
 
-<br>
-<br>
-<br>
-<br>
 
-<p></p>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrapbuscar.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap/bootstrap.min.css">
 
-<form style="margin-left: 20%;">
-      <div  > 
-  <div class="form-row" >
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <div class="form-group col-md-4" >
-      <label for="inputState" >Estado</label>
-        <select  id="inputState" class="form-control">
-
-         <?php  
-              $sql = 'select nome from estado;';
-                $resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
-                while($consulta = $resultado->fetch_object()){
-        ?>
-          <option>
-        <?php
-           echo $consulta->nome;
-        ?>
-          </option>
-
-        <?php
-           }
-        ?>
-
-        </select>
-    </div>
-
-      <div class="form-group col-md-4">
-      <label for="inputState">Cidade</label>
-      <select id="inputState" class="form-control">
-         <?php  
-              $sql = 'select * from estado, cidade where id_estado=24;';
-                $resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
-                while($consulta = $resultado->fetch_object()){
-        ?>
-          <option>
-        <?php
-           echo $consulta->nome;
-        ?>
-          </option>
-
-        <?php
-           }
-        ?>
-      </select>
-    </div>
-
-  <button type="submit" class="btn btn-outline-primary" style="height: 10%; margin-top: 3.4%;">Procurar</button>
-  </div>
-  </div>
-</div>
-
-</form>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
 
-<br>
-<br>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-<br>
-</p>
-<br>
-<br>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
-</div>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <title>Avalie Aqui</title>
 
+    <link rel="stylesheet" type="text/css" href="css/Bootstrap-buscar.css">
+
+    <style type="text/css">
+        #pesquisaCliente{
+            width:500px;
+        }
+        #form_pesquisa{
+            margin-top:50px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+    //Aqui a ativa a imagem de load
+    function loading_show(){
+        $('#loading').html("<img src='img/loading.gif'/>").fadeIn('fast');
+    }
+    
+    //Aqui desativa a imagem de loading
+    function loading_hide(){
+        $('#loading').fadeOut('fast');
+    }       
+    
+    
+    // aqui a função ajax que busca os dados em outra pagina do tipo html, não é json
+    function load_dados(valores, page, div)
+    {
+        $.ajax
+            ({
+                type: 'POST',
+                dataType: 'html',
+                url: page,
+                beforeSend: function(){//Chama o loading antes do carregamento
+                      loading_show();
+                },
+                data: valores,
+                success: function(msg)
+                {
+                    loading_hide();
+                    var data = msg;
+                    $(div).html(data).fadeIn();             
+                }
+            });
+    }
+    
+    //Aqui eu chamo o metodo de load pela primeira vez sem parametros para pode exibir todos
+    load_dados(null, 'pesquisa.php', '#MostraPesq');
+    
+    
+    //Aqui uso o evento key up para começar a pesquisar, se valor for maior q 0 ele faz a pesquisa
+    $('#pesquisaCliente').keyup(function(){
+        
+        var valores = $('#form_pesquisa').serialize()//o serialize retorna uma string pronta para ser enviada
+        
+        //pegando o valor do campo #pesquisaCliente
+        var $parametro = $(this).val();
+        
+        if($parametro.length >= 1)
+        {
+            load_dados(valores, 'pesquisa.php', '#MostraPesq');
+        }else
+        {
+            load_dados(null, 'pesquisa.php', '#MostraPesq');
+        }
+    });
+
+    });
+    </script>   
+</head>
+<body>
+    <center>
+        <article>
+            <form name="form_pesquisa" id="form_pesquisa" method="post" action="">
+                <fieldset>
+                    <legend>Digite o nome a pesquisar</legend>
+                        <div class="input-prepend">
+                            <span class="add-on"><i class="icon-search"></i></span>
+                            <input type="text" name="pesquisaCliente" id="pesquisaCliente" value="" tabindex="1" placeholder="Pesquisar cliente..." />
+                        </div>
+                </fieldset>
+            </form>
+            <div id="contentLoading">
+                <div id="loading"></div>
+            </div>
+            <section class="jumbotron">
+                <div id="MostraPesq"></div>
+            </section>
+        </article>
+    </center>
 </body>
+</html>
 
 <?php
-  include ("rodape.php");
+    include ("rodape.php");
 ?>
+
