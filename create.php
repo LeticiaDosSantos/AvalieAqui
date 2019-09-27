@@ -130,8 +130,9 @@ background-attachment:  fixed;">
     require 'banco.php';
     if(!empty($_POST))
     {
-        $sexo="Indefinido";
+    
         //Acompanha os erros de validação
+        $sexo = null;
         $nomeErro = null;
         $id_userErro = null;
         $dt_nascimentoErro = null;
