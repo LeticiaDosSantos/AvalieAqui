@@ -28,7 +28,7 @@
 	<br>
 	<br>
 		<article>
-			<form name="form_pesquisa" id="form_pesquisa" method="post" action="" style="margin-left: 15%;opacity: 0.9;">
+			<form name="form_pesquisa" id="form_pesquisa" method="post" action="" style="margin-left: 15%;opacity: 0.91;">
 				 <div class="card" style="width: 25%;" style="border-bottom: 50%">
 				 	 <div class="form-group">
 						<div id="login-box">

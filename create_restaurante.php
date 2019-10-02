@@ -143,10 +143,9 @@ background-attachment:  fixed;">
                             <?php endif;?>
                     </div>
                 </div>
-<div class="container">
         
         <div class="form-group">
-          <div class="col-lg-8">
+          <div class="col-lg-20">
             <label for="select" class="control-label">Selecione o Estado:</label>
             <select id="estado" class="form-control"></select>
             <br>
@@ -154,7 +153,7 @@ background-attachment:  fixed;">
             <select  id="cidade" class="form-control"></select>
           </div>
         </div>
-    </div>
+    
   </body>
   <script type="text/javascript">
   //CIDADES E ESTADOS
@@ -213,7 +212,6 @@ background-attachment:  fixed;">
 -->
 <?php //include "consulta";
 ?>
-<br>
 
                 <div class="form-actions">
 
@@ -238,8 +236,10 @@ background-attachment:  fixed;">
                         <?php endif;?>
                     </div>
                 </div>
-                    <br/>
-
+                    
+                     <label>Adicione imagens</label>
+                        <input type="file" class="form-control-file" id="imagens" multiple="multiple">
+                         <br>
                     <a href="index.php" type="btn" class="btn btn-light">Voltar</a>
                     <button type="submit" class="btn btn-success">Cadastrar</button>
 

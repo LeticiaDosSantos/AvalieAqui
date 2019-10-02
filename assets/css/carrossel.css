@@ -13,3 +13,234 @@
 
 .mw-100 { max-width: 10% !important; }
 .mh-100 { max-height: 10% !important; }
+
+*/
+.slider {
+     display: block;
+     height: 293px;
+     width: 600px;
+     margin: auto;
+     margin-top: 20px;
+     position: relative;
+ }
+
+ .slider li {
+     list-style: none;
+     position: absolute;
+ }
+
+ .slider img {
+     margin: auto;
+     height: 100%;
+     width: 100%;
+     vertical-align: top;
+ } 
+
+ .slider input {
+    display: none;
+}
+
+.slider label {
+     background-color: black;
+     opacity: 0.9;
+     bottom: -20px;
+     cursor: pointer;
+     display: block;
+     height: 15px;
+     position: absolute;
+     border-radius: 11px;
+     width: 15px;
+     z-index: 10; /*aqui deixa os botao do ladinho */
+     margin-left: 34%;
+ }
+
+ .slider li:nth-child(1) label {
+     left: 10px;
+ }
+
+ .slider li:nth-child(2) label {
+     left: 40px;
+ }
+
+ .slider li:nth-child(3) label {
+     left: 70px;
+ } 
+  .slider li:nth-child(4) label {
+     left: 100px;
+ } 
+ .slider li:nth-child(5) label {
+     left: 130px;
+ } 
+  .slider li:nth-child(6) label {
+     left: 160px;
+ } 
+
+
+
+.slider img {
+     opacity: 0;
+     visibility: hidden;
+ }
+
+ .slider li input:checked ~ img {
+     opacity: 1;
+     visibility: visible;
+     z-index: 10;
+ }
+
+
+/*PROXIMO CARROSSEL*/
+
+.carousel input {
+  position: absolute;
+  left: -10000px;
+}
+
+
+
+.carousel {
+  width: 100%;
+  height: 100%;
+}
+.carousel__stage {
+  overflow: hidden;
+  font-size: 0;
+  white-space: nowrap;
+  width: 100%; /*aqui da merda*/
+  height: 100%;
+  transition: text-indent 600ms;
+  position: relative;
+}
+.carousel__item {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-indent: 0;
+  opacity: 0.6;
+  text-align: center;
+}
+.carousel__image {
+  height: 100%;
+  width: auto;
+  display: inline-block;
+
+}
+
+
+.carousel__next,
+.carousel__prev {  /*aqui muda o botao de passar foto*/
+  display: none;
+  position: absolute;
+  top: 50%;
+  color: white;
+  background-color: black;
+  opacity: 0.7;
+  z-index: 1;
+  font-size: 1rem;
+  padding: 20px;
+  cursor: pointer;
+}
+.carousel__prev { /*AQUI MUDA A POSIÇÃO DO BOTAO DE PASSAR*/
+  left: 0%;
+}
+.carousel__prev:after {
+  content: ' << ';
+  display: inline-block;
+}
+.carousel__next {
+  right: 0;
+}
+.carousel__next:after {
+  content: ' >> ';
+  display: inline-block;
+}
+
+
+#carousel1:checked ~ .carousel__stage .carousel__item:nth-child(1),
+#carousel2:checked ~ .carousel__stage .carousel__item:nth-child(2), 
+#carousel3:checked ~ .carousel__stage .carousel__item:nth-child(3), 
+#carousel4:checked ~ .carousel__stage .carousel__item:nth-child(4) {
+  opacity: 1;
+}
+
+#carousel1:checked ~ .carousel__stage {
+  text-indent: 0;
+}
+#carousel2:checked ~ .carousel__stage {
+  text-indent: -100%;
+}
+#carousel3:checked ~ .carousel__stage {
+  text-indent: -200%;
+}
+#carousel4:checked ~ .carousel__stage {
+  text-indent: -300%;
+}
+
+
+
+
+
+#carousel1:checked ~ .carousel__stage .carousel__item:nth-child(1) .carousel__prev,
+#carousel1:checked ~ .carousel__stage .carousel__item:nth-child(1) .carousel__next,
+#carousel2:checked ~ .carousel__stage .carousel__item:nth-child(2) .carousel__prev,
+#carousel2:checked ~ .carousel__stage .carousel__item:nth-child(2) .carousel__next,
+#carousel3:checked ~ .carousel__stage .carousel__item:nth-child(3) .carousel__prev,
+#carousel3:checked ~ .carousel__stage .carousel__item:nth-child(3) .carousel__next,
+#carousel4:checked ~ .carousel__stage .carousel__item:nth-child(4) .carousel__prev,
+#carousel4:checked ~ .carousel__stage .carousel__item:nth-child(4) .carousel__next {
+  display: block;
+}
+
+
+
+
+
+
+
+
+   img{
+                        border-radius:10px;
+                        cursor:pointer;
+                  }
+
+                  .modalVisual{
+                        display:none;
+                        position:fixed;
+                        z-index:1;
+                        padding-top:100px;
+                        left:0;
+                        top:0;
+                        width:100%;
+                        height:100%;
+                        overflow:auto;
+                        background-color:rgba(0,0,0,0.8);
+                  }
+
+                  .modalConteudo{
+                        margin:auto;
+                        display:block;
+                        width:100%;
+                        max-width:800px;
+                  }
+
+                  #txtImg{
+                        margin:auto;
+                        display:block;
+                        width:80%;
+                        max-width:700px;
+                        text-align:center;
+                        color:#ccc;
+                        padding:10px 0;
+                        height:150px;
+                  }
+
+                  .fechar{
+                        position:absolute;
+                        top:15px;
+                        right:35px;
+                        color:#fff;
+                        font-size:40px;
+                        font-weight:bold;
+                        cursor:pointer;
+                  }

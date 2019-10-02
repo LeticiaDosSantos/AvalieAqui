@@ -1,5 +1,6 @@
 <?php
     include ("cabecalho.php");
+  
 ?>
 
 
@@ -42,8 +43,7 @@
 
 <p></p>
 
-<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
-}"> </div>
+<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;"> </div>
 
 <br>
 <br>  
@@ -64,6 +64,35 @@
 
 <br>
 
+<br>
+<br>
+<br>
+<div class="container">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Faça a sua avaliação aqui </h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary"></a>
+  </div>
+</div>
+</div>
+<br><br>
+<br>
+
+ <nav class="nav justify-content-center"> 
+  <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Galeria de imagens </a>
+</nav>
+<br>
+<br>
+
+
+<p></p>
+
+<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;"> </div>
+<br>
+<br>
+<br>
+
 <div class="card-deck">
 
   <div class="card">
@@ -81,3 +110,110 @@
 </div>
 
 <br>
+
+<br>
+
+<br>
+
+<ul class="slider">
+     <li>
+           <input type="radio" id="slide1" name="slide" checked>
+           <label for="slide1"></label>
+           <img src="img/italianaaa.png" />
+     </li>
+     <li>
+           <input type="radio" id="slide2" name="slide">
+           <label for="slide2"></label>
+           <img src="img/guacamole.png" />
+     </li>
+     <li>
+           <input type="radio" id="slide3" name="slide" >
+           <label for="slide3" ></label> <!--isso aqui é os botao-->
+           <img src="img/italianaaa.png" />
+     </li>
+     <li>
+           <input type="radio" id="slide4" name="slide" >
+           <label for="slide4" ></label> <!--isso aqui é os botao-->
+           <img src="img/guacamole.png" />
+     </li>
+     <li>
+           <input type="radio" id="slide5" name="slide" >
+           <label for="slide5" ></label> <!--isso aqui é os botao-->
+           <img src="img/italianaaa.png" />
+     </li>
+     <li>
+           <input type="radio" id="slide6" name="slide" >
+           <label for="slide6" ></label> <!--isso aqui é os botao-->
+           <img src="img/guacamole.png" />
+     </li>
+</ul>
+
+<br>
+<p>
+  <br><br>
+<br>
+<!--PROXIMO CARROSSEL-->
+
+<section class="carousel">
+  <input type="radio" name="carousel" id="carousel1" checked="checked" />
+  <input type="radio" name="carousel" id="carousel2" />
+  <input type="radio" name="carousel" id="carousel3" />
+  <input type="radio" name="carousel" id="carousel4" />
+  
+  <main class="carousel__stage">  
+    <aside class="carousel__item">      
+      <img class="carousel__image" src="img/italianaaa.png" />
+      <label for="carousel2" class="carousel__next"></label>
+    </aside>
+    
+    <aside class="carousel__item">
+      <label for="carousel1" class="carousel__prev"></label>
+      <img class="carousel__image" src="img/guacamole.png" />
+      <label for="carousel3" class="carousel__next"></label>
+    </aside>
+    
+    <aside class="carousel__item">
+      <label for="carousel2" class="carousel__prev"></label>
+      <img class="carousel__image" src="img/italianaaa.png" />
+      <label for="carousel4" class="carousel__next"></label>
+    </aside>
+    
+    <aside class="carousel__item">
+      <label for="carousel3" class="carousel__prev" ></label>
+      <img class="carousel__image" src="img/guacamole.png"/>
+    </aside>
+  </main>
+</section>
+
+<br><br><br>
+<!--PROXIMA GALERIA-->
+<div class="container">
+  
+ <img id="imagem1" src="img/italianaaa.png" alt="Balneário Camboriú - Praia 1" width="300" height="200" onclick="clique(this)">
+            <img id="imagem2" src="img/guacamole.png" alt="Guacamole  - Praia 2" width="300" height="200" onclick="clique(this)">
+            <img id="imagem3" src="img/italianaaa.png" alt="Balneário Camboriú - Praia 3" width="300" height="200" onclick="clique(this)">
+
+            <div id="janelaModal" class="modalVisual">
+                  <span class="fechar">x</span>
+                  <img class="modalConteudo" id="imgModal">
+                  <div id="txtImg"></div>
+            </div>
+</div>
+<script>
+                  function clique(img){
+                        var modal=document.getElementById('janelaModal');
+                        var modalImg=document.getElementById("imgModal");
+                        var captionTexto=document.getElementById("txtImg");
+                        var btFechar=document.getElementsByClassName("fechar")[0];
+
+                        modal.style.display="block";
+                        modalImg.src=img.src;
+                        modalImg.alt=img.alt;
+                        captionTexto.innerHTML=img.alt;
+
+                        btFechar.onclick=function(){
+                              modal.style.display="none";
+                        }
+                  }
+
+            </script>

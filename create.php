@@ -22,7 +22,14 @@ background-attachment:  fixed;">
         <div clas="span10 offset1">
           <div class="card">
             <div class="card-header">
-                <h3 class="well"> Cadastre-se Aqui </h3>
+            
+           <nav class="nav justify-content-center"> 
+          <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Cadastre-se aqui</a>
+        </nav>
+        <br>
+        <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
+}"> </div>
+        <br>
             </div>
          </div>
 

@@ -55,8 +55,8 @@
  <nav class="nav justify-content-center"> 
   <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Encontre o seu restaurante aqui! </a>
 </nav>
-
-
+<br>
+<br>
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/bootstrapbuscar.css">
@@ -79,11 +79,14 @@
     <style type="text/css">
         #pesquisaCliente{
             width:500px;
+            margin-top: 2%;
         }
         #form_pesquisa{
             margin-top:50px;
+            margin-top: 2%;
         }
     </style>
+    <br>
     <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
 
     <script type="text/javascript">
@@ -123,6 +126,8 @@
     
     //Aqui eu chamo o metodo de load pela primeira vez sem parametros para pode exibir todos
     load_dados(null, 'pesquisa.php', '#MostraPesq');
+
+
     
     
     //Aqui uso o evento key up para começar a pesquisar, se valor for maior q 0 ele faz a pesquisa
@@ -150,11 +155,13 @@
         <article>
             <form name="form_pesquisa" id="form_pesquisa" method="post" action="">
                 <fieldset>
-                    <legend>Digite o nome a pesquisar</legend>
+                    <legend style="font-family:all;">Digite o nome a pesquisar</legend>
                         <div class="input-prepend">
                             <span class="add-on"><i class="icon-search"></i></span>
-                            <input type="text" name="pesquisaCliente" id="pesquisaCliente" value="" tabindex="1" placeholder="Pesquisar cliente..." />
+                            <input type="text" name="pesquisaCliente" id="pesquisaCliente" value="" tabindex="1" placeholder="Pesquisar restaurante..." />
                         </div>
+                        <br>
+
                 </fieldset>
             </form>
             <div id="contentLoading">

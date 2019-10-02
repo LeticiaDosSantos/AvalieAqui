@@ -8,6 +8,8 @@
 	$msg .="		<tr>";
 	$msg .="			<th>Nome:</th>";
 	$msg .="			<th>Endereço:</th>";
+	$msg .="			<th>Numero:</th>";
+	$msg .="			<th>horario_funcionamento:</th>";
 	$msg .="		</tr>";
 	$msg .="	</thead>";
 	$msg .="	<tbody>";
@@ -28,7 +30,9 @@
 
 	$msg .="				<tr>";
 	$msg .="					<td>".$res['nome']."</td>";
-	$msg .="					<td>".$res['endereco'].", ".$res['numero']."</td>";
+	$msg .="					<td>".$res['endereco']."</td>";
+	$msg .="					<td>".$res['numero']."</td>";
+	$msg .="					<td>".$res['horario_funcionamento'].", ".$res['horario_funcionamento']."</td>";
 	$msg .="				</tr>";
 							}	
 						}else{

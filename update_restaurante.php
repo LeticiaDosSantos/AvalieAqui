@@ -171,24 +171,26 @@
                         </div>
                     </div>
 
-                    <div class="control-group <?php echo !empty($estadoErro)?'error':'';?>">
-                        <label class="control-label">Estado</label>
-                        <div class="controls">
-                            <div class="form-check">
-                            </div>  <div class="form-check">
-                                <input class="form-check-input" type="radio" name="estado" id="estado" value="PR" <?php echo ($estado=="PR" ) ? "checked" : null; ?>/> Paraná
-                            </div>
-                                <p class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="estado" id="estado" value="RS" <?php echo ($estado=="RS" ) ? "checked" : null; ?>/> Rio Grande do Sul
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="estado" id="estado" value="SC" <?php echo ($estado=="SC" ) ? "checked" : null; ?>/> Santa Catarina
-                            </p>
-                            <?php if (!empty($estadoErro)): ?>
-                                <span class="help-inline"><?php echo $estadoErro;?></span>
-                                <?php endif; ?>
-                        </div>
-                    </div>
+                
+          <div class="col-lg-20">
+            <label for="select" class="control-label">Selecione o Estado:</label>
+            <select id="estado" class="form-control"></select>
+            
+            <label for="select" class="control-label">Selecione a Cidade:</label>
+            <select  id="cidade" class="form-control"></select>
+          
+       
+    
+  </body>
+  <script type="text/javascript">
+  //CIDADES E ESTADOS
+  new dgCidadesEstados({
+    cidade: document.getElementById('cidade'),
+    estado: document.getElementById('estado'),
+    change: true
+});
+  </script>
+                             </div>
 
                     <div class="control-group <?php echo !empty($enderecoErro)?'error':'';?>">
                         <label class="control-label">Endereço</label>
