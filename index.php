@@ -45,21 +45,21 @@
 
 	<nav class="nav justify-content-center">
 
-  <a class="btn btn-outline-light" href="mexicana.php" style="color: black; font-size: 15px; font-family:sans-serif;">Comida Mexicana</a>
-  <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif;">Comida Brasileria</a>
+  <a class="btn btn-light" href="mexicana.php" style="color: black; font-size: 15px; font-family:sans-serif;">Comida Mexicana</a>
+  <a class="btn btn-light" href="brasileira.php" style="color: black; font-size: 15px; font-family:sans-serif;">Comida Brasileria</a>
   <a class="btn btn-light" href="japonesa.php" style="color: black; font-size: 15px; font-family:sans-serif;">Comida Japonesa</a>
-  <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Chinesa</a>
-  <a class="nav-link" href="italiana.php" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Italiana</a>
+  <a class="btn btn-light" href="chinesa.php" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Chinesa</a>
+  <a class="btn btn-light" href="italiana.php" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Italiana</a>
 
 </nav>
 <br>
  <nav class="nav justify-content-center"> 
-  <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif;">Comida Francesa</a>
-  <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Tailandesa</a>
-  <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Australiana</a>
-  <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif;">Frutos do Mar</a>
-  <a class="nav-link" href="#" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Cafeteria</a>
-  <a class="nav-link" href="hamburgueria.php" style="color: black; font-size: 15px; font-family:sans-serif; ">Hamburgueria</a>
+  <a class="btn btn-light" href="fracesa.php" style="color: black; font-size: 15px; font-family:sans-serif;">Comida Francesa</a>
+  <a class="btn btn-light" href="tailandesa.php" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Tailandesa</a>
+  <a class="btn btn-light" href="australiana.php" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Australiana</a>
+  <a class="btn btn-light" href="frutosMar.php" style="color: black; font-size: 15px; font-family:sans-serif;">Frutos do Mar</a>
+  <a class="btn btn-light" href="cafeteria.php" style="color: black; font-size: 15px; font-family:sans-serif; ">Comida Cafeteria</a>
+  <a class="btn btn-light" href="hamburgueria.php" style="color: black; font-size: 15px; font-family:sans-serif; ">Hamburgueria</a>
 
 </nav>
 

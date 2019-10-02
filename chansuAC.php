@@ -31,67 +31,50 @@
     <title>Avalie Aqui</title>
 </head>
 
-<body>
-
-<div>
-
-  <img id="image" src="img/mexicana3.jpg" style="width:100%; ">
-  
-</div>
-
-<br>
-<br> 
-
-	
-
-
-	<div id="linha" style="width: 70%; "> </div>
-
 <br>
 <br>
  <nav class="nav justify-content-center"> 
-  <h3 class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Encontre os melhores restaurantes Mexicanos </h3>
+  <h3 class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;"> Chansu Asian Cuisine </h3>
 </nav>
+<br>
+<br>
 
-
-<br>
-<br>
-<br>
-<br>
 
 <p></p>
 
+<div id="linha" style="width: 70%; "> </div>
 
 <br>
+<br>  
+<p></p>
+
+<div class="container">
+
+  <div class="card" style="width: 70rem;">
+     <div class="card-body">
+     <p class="card-text">Restaurante contemporâneo chique de ares serenos serve iguarias japonesas e asiáticas chamativas com requinte.</p>
+    </div>
+    <img src="img/italianaaa.png" class="card-img-top" alt="..." style="width: 100%;">
+   
+  </div>
+</div>
+
+
 <br>
 
 <div class="card-deck">
+
   <div class="card">
-    <img src="img/guacamole.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Guacamole</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <a href="guacamole.php" class="btn btn-outline-dark">Visitar</a>
-     
-    </div>
+    <img src="img/italianaaa.png" class="card-img-top" alt="...">
+   
   </div>
   <div class="card">
-    <img src="img/toto.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Totopos</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-outline-dark">Visitar</a>
-      
-    </div>
+    <img src="img/italianaaa.png" class="card-img-top" alt="...">
+    
   </div>
   <div class="card">
-    <img src="img/toto.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <a href="#" class="btn btn-outline-dark">Visitar</a>
-      
-    </div>
+    <img src="img/italianaaa.png" class="card-img-top" alt="...">
+    
   </div>
 </div>
 
