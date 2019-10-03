@@ -92,7 +92,19 @@ include "cabecalho.php";
                     
                     <br/>
                     </div>
-                    <?php //echo $data['estado'];?>
+                    <?php 
+                        $img_dir = "imagens/restaurantes/". $id_rest . "/";
+                        if (is_dir($img_dir)) {
+                            $images = glob($img_dir . "*");
+                                foreach($images as $image)
+                                {
+                                    echo '<img src='.$image.' width=300 height=300> </img>';
+                                }
+                        } else {
+                            echo "Eu não tenho imagens.";
+                        }
+
+                    ?>
 
   <!--  <img src="img/italianaaa.png" class="card-img-top" alt="..." style="width: 100%;">
    
