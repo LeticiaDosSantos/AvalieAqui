@@ -111,7 +111,9 @@ background-attachment:  fixed;">
                     </div>
                 <div class="form-actions">
                     <br/>
-
+                    <label>Adicione imagens</label>
+                    <input type="file" class="form-control-file" id="imagens" name="imagens[]" multiple="multiple">
+                    <br>
                     <button type="submit" class="btn btn-success">Adicionar</button>
                     <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
                 </div>
@@ -125,10 +127,12 @@ background-attachment:  fixed;">
         </div>
     </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <footer>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <?=include('rodape.php');?>
+    </footer>
 </body>
 
 </html>
@@ -140,19 +144,22 @@ background-attachment:  fixed;">
     
         //Acompanha os erros de validação
         $sexo = null;
-        $nomeErro = null;
         $id_userErro = null;
+        $nomeErro = null;
         $dt_nascimentoErro = null;
         $emailErro = null;
         $sexoErro = null;
         $id_userErro = null;
         $senhaErro = null;
-        $nome = $_POST['nome'];
+
        // $id_user = $_POST['id_user'];
+        $nome = $_POST['nome'];
         $dt_nascimento = $_POST['dt_nascimento'];
         $email = $_POST['email'];
         $sexo = $_POST['sexo'];
-         $senha = $_POST['senha'];
+        $senha = $_POST['senha'];
+        $imagens = $_FILES['imagens'];
+
         //Validaçao dos campos:
         $validacao = true;
         if(empty($nome))
@@ -193,12 +200,28 @@ background-attachment:  fixed;">
         //Inserindo no Banco:
         if($validacao)
         {
-           include('rodape.php'); //coloquei aquu porque lá embaixo não carregava
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo, senha) VALUES(?,?,?,?,?)";
             $q = $pdo->prepare($sql);
             $q->execute(array($nome,$dt_nascimento,$email,$sexo,$senha));
+
+            
+            $target_dir = "imagens/";
+            $count_img = 0;
+            $uploaddir = $target_dir . "usuarios/". $last_id . "/";
+                if (!is_dir($uploaddir)) {
+                    mkdir($uploaddir);
+                }
+            
+            foreach ($imagens['name'] as $imagem) {
+                $target_file = $uploaddir . $count_img."-".basename($imagem);
+       
+                move_uploaded_file($imagens["tmp_name"][$count_img], $target_file);
+                $count_img = $count_img + 1;
+            }
+
+
             Banco::desconectar();
             exit;
             header("Location: login.php");

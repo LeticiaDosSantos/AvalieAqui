@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 03-Out-2019 às 22:27
+-- Generation Time: 17-Ago-2019 às 01:00
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -2627,10 +2627,10 @@ CREATE TABLE `restaurante` (
   `descricao` varchar(300) NOT NULL,
   `telefone` varchar(255) NOT NULL,
   `horario_funcionamento` char(100) NOT NULL,
-  `estado` varchar(2) NOT NULL,
+  `estado` varchar(30) NOT NULL,
   `endereco` varchar(100) NOT NULL,
   `numero` int(100) NOT NULL,
-  `cidade` varchar(200) NOT NULL,
+  `cidade_id_cidade` int(200) NOT NULL,
   `usuario_id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -2638,38 +2638,11 @@ CREATE TABLE `restaurante` (
 -- Extraindo dados da tabela `restaurante`
 --
 
-INSERT INTO `restaurante` (`id_rest`, `nome`, `descricao`, `telefone`, `horario_funcionamento`, `estado`, `endereco`, `numero`, `cidade`, `usuario_id_user`) VALUES
-(1, 'Madero Steak House', 'O hambuger do MADERO faz o mundo melhor.', '(47)3043-9100', 'segunda-feira à sábado 11:45–23:00 domingo e feriados 11:45–22:00', 'PR', 'Av. Rolf Wiest, Bom Retiro', 333, '2253', 4),
-(2, 'Virado no Alho', 'Comida deliciosa, equipe sempre simpática e o chef vem ás mesas cumprimentar. É um favorito na cidade. Sagú sempre bom!', '3426-0045', 'de terça-feira a sabado, das 11:30 as 14:00 e 18:00 as 00:00, domingo e segunda somente das 11:30 as', 'sc', 'R. Simão Kruger', 50, '0', 0),
-(10, 'Socha Restaurante', 'Excelente Restaurante com comida variada de primeira qualidade. Perfeito serviço de catering e organização de eventos.', '(47) 3423-3492', '', 'SC', ' Rua Aubé - Saguaçu, Joinville', 177, '0', 0),
-(11, 'Santa Mistura', 'Restaurante super caro', '34443444', '', 'SC', 'Rua Otto Boehm', 648, 'Joinville', 0),
-(12, 'rest', 'restaurantzão', '3434-3434', '', 'PA', 'lalalala', 366, 'Bagre', 0),
-(13, 'kkk', 'kakakaka', 'asdasdas', '', 'PE', 'lalalalala', 366, 'Angelim', 0);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `restaurante_categoria`
---
-
-CREATE TABLE `restaurante_categoria` (
-  `id` int(11) NOT NULL,
-  `id_restaurante` int(11) NOT NULL,
-  `id_tipo_comida` int(11) NOT NULL,
-  `status` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `restaurante_categoria`
---
-
-INSERT INTO `restaurante_categoria` (`id`, `id_restaurante`, `id_tipo_comida`, `status`) VALUES
-(1, 11, 3, NULL),
-(2, 11, 4, NULL),
-(3, 12, 2, NULL),
-(4, 12, 3, NULL),
-(5, 13, 1, NULL),
-(6, 13, 2, NULL);
+INSERT INTO `restaurante` (`id_rest`, `nome`, `descricao`, `telefone`, `horario_funcionamento`, `estado`, `endereco`, `numero`, `cidade_id_cidade`, `usuario_id_user`) VALUES
+(1, 'Madero Steak House', 'O hambuger do MADERO faz o mundo melhor.', '(47)3043-9100', 'segunda-feira à sábado 11:45–23:00 domingo e feriados 11:45–22:00', '', 'Av. Rolf Wiest, Bom Retiro', 333, 2253, 4),
+(2, 'Virado no Alho', 'Comida deliciosa, equipe sempre simpática e o chef vem ás mesas cumprimentar. É um favorito na cidade. Sagú sempre bom!', '3426-0045', 'de terça-feira a sabado, das 11:30 as 14:00 e 18:00 as 00:00, domingo e segunda somente das 11:30 as', 'sc', 'R. Simão Kruger', 50, 0, 0),
+(3, 'Virado no Alho', 'Comida deliciosa, equipe sempre simpática e o chef vem ás mesas cumprimentar. É um favorito na cidade. Sagú sempre bom!', '3426-0045', 'até o sol raiar', 'sc', 'Rua do peteleco', 1001, 0, 0),
+(4, 'Virado no Alho', 'Comida deliciosa, equipe sempre simpática e o chef vem ás mesas cumprimentar. É um favorito na cidade. Sagú sempre bom!', '3426-0045', 'até o sol raiar', 'sc', 'rua do peteleco', 1001, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -2689,7 +2662,7 @@ CREATE TABLE `tipo_comida` (
 
 INSERT INTO `tipo_comida` (`id_comida`, `categoria`, `restaurante_id_rest`) VALUES
 (1, 'Japonesa', 0),
-(2, 'Hamburgueria', 0),
+(2, 'Fast Food', 0),
 (3, 'Italiana', 0),
 (4, 'Vegetariana', 0),
 (5, 'Cafeteria', 0);
@@ -2750,9 +2723,7 @@ INSERT INTO `usuario` (`id_user`, `nome`, `sexo`, `dt_nascimento`, `email`, `sen
 (44, 'natalia', 'F', '1111-01-01', 'natinha@gmail.com', '', 0),
 (46, 'karen', 'F', '1111-01-11', 'karen@gmail.com', '', 0),
 (47, 'beth', 'F', '1111-01-01', 'beth@gmail.com', '', 0),
-(48, 'luana', 'F', '1111-11-11', 'luana@gmail.com', '', 0),
-(49, 'Luiza', 'F', '2000-10-25', 'luiza@gmail.com', 'luiza1', 0),
-(50, 'Leticia dos Santos', 'F', '2001-12-21', 'leticia50@hotmail.com', 'supersenha', 0);
+(48, 'luana', 'F', '1111-11-11', 'luana@gmail.com', '', 0);
 
 --
 -- Indexes for dumped tables
@@ -2799,15 +2770,8 @@ ALTER TABLE `midia`
 --
 ALTER TABLE `restaurante`
   ADD PRIMARY KEY (`id_rest`),
+  ADD KEY `fk_restaurante_cidade1_idx` (`cidade_id_cidade`),
   ADD KEY `fk_restaurante_usuario1_idx` (`usuario_id_user`);
-
---
--- Indexes for table `restaurante_categoria`
---
-ALTER TABLE `restaurante_categoria`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_restaurante` (`id_restaurante`),
-  ADD KEY `fk_tipo_comida` (`id_tipo_comida`);
 
 --
 -- Indexes for table `tipo_comida`
@@ -2855,13 +2819,7 @@ ALTER TABLE `midia`
 -- AUTO_INCREMENT for table `restaurante`
 --
 ALTER TABLE `restaurante`
-  MODIFY `id_rest` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `restaurante_categoria`
---
-ALTER TABLE `restaurante_categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_rest` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tipo_comida`
@@ -2879,7 +2837,7 @@ ALTER TABLE `tipo_user`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- Constraints for dumped tables
@@ -2898,13 +2856,6 @@ ALTER TABLE `avaliacao`
 ALTER TABLE `midia`
   ADD CONSTRAINT `fk_midia_restaurante1` FOREIGN KEY (`restaurante_id_rest`) REFERENCES `restaurante` (`id_rest`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_midia_usuario1` FOREIGN KEY (`usuario_id_user`) REFERENCES `usuario` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `restaurante_categoria`
---
-ALTER TABLE `restaurante_categoria`
-  ADD CONSTRAINT `fk_restaurante` FOREIGN KEY (`id_restaurante`) REFERENCES `restaurante` (`id_rest`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_tipo_comida` FOREIGN KEY (`id_tipo_comida`) REFERENCES `tipo_comida` (`id_comida`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
