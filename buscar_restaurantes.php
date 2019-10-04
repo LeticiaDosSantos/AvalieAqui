@@ -35,7 +35,7 @@
                             <th scope="col">Endereço</th>
                             <th scope="col">Telefone</th>
                             <th scope="col">Horario de Funcionamento</th>
-                            <th scope="col">numero</th>                            
+                            <th scope="col">Número</th>                            
                         </tr>
                     </thead>
                     <tbody>

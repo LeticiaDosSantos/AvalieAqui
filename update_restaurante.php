@@ -120,12 +120,13 @@
 <br>
     <body>
         <div class="container">
-
+<center>
+          <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Atualizar Informações</a>
+        </nav><br>
+        <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
+}"> </div>   <br><br> </center>
             <div class="span10 offset1">
 							<div class="card">
-								<div class="card-header">
-                    <h3 class="well"> Atualizar Contato </h3>
-                </div>
 								<div class="card-body">
                 <form class="form-horizontal" action="update.php?id=<?php echo $id?>" method="post">
 
@@ -172,14 +173,17 @@
                     </div>
 
                 
-          <div class="col-lg-20">
-            <label for="select" class="control-label">Selecione o Estado:</label>
-            <select id="estado" class="form-control"></select>
-            
-            <label for="select" class="control-label">Selecione a Cidade:</label>
-            <select  id="cidade" class="form-control"></select>
+                    <div class="form-group">
+                        <div class="col-lg-20">
+                            <label for="select" class="control-label">Selecione o Estado:</label>
+                            <select id="estado" name="estado" class="form-control"><?php //echo $data['estado'];?></select>
+                            <br>
+                            <label for="select" class="control-label">Selecione a Cidade:</label>
+                            <select  id="cidade" name="cidade" class="form-control"></select>
+                        </div>
+                    </div>
           
-       
+       </form>
     
   </body>
   <script type="text/javascript">
@@ -190,7 +194,7 @@
     change: true
 });
   </script>
-                             </div>
+                           
 
                     <div class="control-group <?php echo !empty($enderecoErro)?'error':'';?>">
                         <label class="control-label">Endereço</label>
@@ -215,7 +219,7 @@
                     <br/>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-warning">Atualizar</button>
-                        <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
+                        <a href="index.php" type="btn" class="btn btn-light">Voltar</a>
                     </div>
                 </form>
 							</div>
@@ -226,6 +230,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="assets/js/bootstrap.min.js"></script>
+        <script src="cidades-estados-1.2-utf8.js"></script>
+        <script>
+
+
+            new dgCidadesEstados({
+            cidade: document.getElementById('cidade'),
+            estado: document.getElementById('estado'),
+            change: true
+        });
+        </script>
     </body>
 
     </html>
