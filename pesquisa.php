@@ -10,6 +10,7 @@
 	$msg .="			<meta><th>Endereço:</th>";
 	$msg .="			<th>Numero:</th>";
 	$msg .="			<th>horario_funcionamento:</th>";
+	$msg .="			<th>Ação</th>";
 	$msg .="		</tr>";
 	$msg .="	</thead>";
 	$msg .="	<tbody>";
@@ -25,14 +26,18 @@
 						}	
 						//resgata os dados na tabela
 						if(count($resultado)){
-							foreach ($resultado as $res) {
+							foreach ($resultado as $row) {
 
 	$msg .="				<tr>";
-	$msg .="					<td>".$res['nome']."</td>";
-	$msg .="					<td>".$res['endereco']."</td>";
-	$msg .="					<td>".$res['numero']."</td>";
-	$msg .="					<td>".$res['horario_funcionamento'].", ".$res['horario_funcionamento']."</td>";
+	$msg .="					<td>".$row['nome']."</td>";
+	$msg .="					<td>".$row['endereco']."</td>";
+	$msg .="					<td>".$row['numero']."</td>";
+	$msg .="					<td>".$row['horario_funcionamento'].", ".$row['horario_funcionamento']."</td>";
+
+	   echo '<a class="btn btn-light" href="read_restaurante.php?id_rest='.$row['id_rest'].'">Visualizar</a>';
+                            echo ' ';
 	$msg .="				</tr>";
+
 							}	
 						}else{
 							$msg = "";
@@ -40,6 +45,7 @@
 						}
 	$msg .="	</tbody>";
 	$msg .="</table>";
+
 	//retorna a msg concatenada
 	echo $msg;
 
