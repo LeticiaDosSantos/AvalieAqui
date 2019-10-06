@@ -85,11 +85,11 @@
     <br>
     <div style="margin-left: 9.5%">
 <?php
-        echo '<a style="margin-left: 13%;" class="btn btn-warning" href="update.php?id_user='.$row['id_user'].'">Editar</a>';
-        echo '<a style="margin-left: 0.5%;" class="btn btn-danger" href="delete.php?id_user='.$row['id_user'].'">Excluir</a>';
+        echo '<a style="margin-left: 13%;" class="btn btn-warning" href="update_usuario.php?id_user='.$row['id_user'].'">Editar</a>';
+        echo '<a style="margin-left: 0.5%;" class="btn btn-danger" href="delete_usuario.php?id_user='.$row['id_user'].'">Excluir</a>';
         echo "<br>";
         echo "<br>";
-        echo '<a style="margin-left: 13%;" class="btn btn-light" href="index.php'.$row['id_user'].'">Voltar</a>';
+        echo '<a style="margin-left: 13%;" class="btn btn-light" href="index_usuario.php'.$row['id_user'].'">Voltar</a>';
     }
 ?></div>
     </body>

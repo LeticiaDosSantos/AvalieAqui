@@ -37,7 +37,7 @@ background-attachment:  fixed;">
          <br>
          <div class="card">   
             <div class="card-body">
-            <form class="form-horizontal" action="create.php" method="post">
+            <form class="form-horizontal" action="create_usuario.php" enctype="multipart/form-data" method="post">
 
                 <!--<div class="control-group <?php //echo !empty($id_userErro)?'error ': '';?>">
                     <label class="control-label">Id</label>
@@ -197,6 +197,15 @@ background-attachment:  fixed;">
             $senhaErro = 'Senha incorreta!';
             $validacao = false;
         }
+                echo
+
+        $id_userErro.
+        $nomeErro.
+        $dt_nascimentoErro.
+        $emailErro.
+        $sexoErro.
+        $id_userErro.
+        $senhaErro;
         //Inserindo no Banco:
         if($validacao)
         {
@@ -205,7 +214,7 @@ background-attachment:  fixed;">
             $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo, senha) VALUES(?,?,?,?,?)";
             $q = $pdo->prepare($sql);
             $q->execute(array($nome,$dt_nascimento,$email,$sexo,$senha));
-
+            $last_id = $pdo->lastInsertId();
             
             $target_dir = "imagens/";
             $count_img = 0;

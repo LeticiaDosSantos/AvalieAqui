@@ -21,6 +21,7 @@
         $telefoneErro = null;
         $horario_funcionamentoErro = null;
         $estadoErro = null;
+        $cidadeErro = null;
         $enderecoErro = null;
         $numeroErro = null;
 
@@ -29,10 +30,10 @@
         $telefone = $_POST['telefone'];
 		$horario_funcionamento = $_POST['horario_funcionamento'];
         $estado = $_POST['estado'];
+        $cidade = $_POST['cidade'];
         $endereco = $_POST['endereco'];
         $numero = $_POST['numero'];
         
-
 		//Validação
 		$validacao = true;
 		if (empty($nome))
@@ -41,12 +42,13 @@
                     $validacao = false;
                 }
 
-		if (empty($desricao))
+		if (empty($descricao))
                 {
                     $descricaoErro = 'Por favor digite a descricao!';
                     $validacao = false;
 		}
-                else if ( !filter_var($telefone/*,FILTER_VALIDATE_EMAIL*/) )
+
+                if ( !filter_var($telefone/*,FILTER_VALIDATE_EMAIL*/) )
                 {
                     $telefoneErro = 'Por favor digite um telefone válido!';
                     $validacao = false;
@@ -64,6 +66,12 @@
                     $validacao = false;
         }
 
+        if (empty($cidade))
+                {
+                    $cidadeErro = 'Por favor selecione a cidade!';
+                    $validacao = false;
+        }
+
 
                 if (empty($endereco))
                 {
@@ -78,13 +86,14 @@
 		}
 
 		// update data
+
 		if ($validacao)
                 {
                     $pdo = Banco::conectar();
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $sql = "UPDATE restaurante set nome = ?, descricao = ?, telefone = ?, horario_funcionamento = ?, estado = ?, endereco = ?, numero = ? WHERE id_rest = ?";
+                    $sql = "UPDATE restaurante set nome = ?, descricao = ?, telefone = ?, horario_funcionamento = ?, estado = ?, cidade = ?, endereco = ?, numero = ? WHERE id_rest = ?";
                     $q = $pdo->prepare($sql);
-                    $q->execute(array($nome,$descricao,$telefone,$horario_funcionamento,$estado,$endereco,$numero,$id_rest));
+                    $q->execute(array($nome,$descricao,$telefone,$horario_funcionamento,$estado,$cidade,$endereco,$numero,$id_rest));
                     Banco::desconectar();
                     header("Location: buscar_restaurantes.php");
 		}
@@ -102,6 +111,7 @@
         $telefone = $data['telefone'];
         $horario_funcionamento = $data['horario_funcionamento'];
         $estado = $data['estado'];
+        $cidade = $data['cidade'];
         $endereco = $data['endereco'];
         $numero = $data['numero'];
 		Banco::desconectar();
@@ -128,7 +138,7 @@
             <div class="span10 offset1">
 							<div class="card">
 								<div class="card-body">
-                <form class="form-horizontal" action="update.php?id=<?php echo $id?>" method="post">
+                <form class="form-horizontal" action="./update_restaurante.php?id_rest=<?php echo $id_rest?>" method="post">
 
 
                     <div class="control-group <?php echo !empty($nomeErro)?'error':'';?>">
@@ -176,14 +186,14 @@
                     <div class="form-group">
                         <div class="col-lg-20">
                             <label for="select" class="control-label">Selecione o Estado:</label>
-                            <select id="estado" name="estado" class="form-control"><?php //echo $data['estado'];?></select>
+                            <select id="estado" name="estado" class="form-control" value="<?php echo $estado;?>"></select>
                             <br>
                             <label for="select" class="control-label">Selecione a Cidade:</label>
-                            <select  id="cidade" name="cidade" class="form-control"></select>
+                            <select id="cidade" name="cidade" class="form-control" value="<?php echo $cidade;?>"></select>
                         </div>
                     </div>
           
-       </form>
+
     
   </body>
   <script type="text/javascript">

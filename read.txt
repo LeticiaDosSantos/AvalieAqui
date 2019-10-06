@@ -1,0 +1,9 @@
+Para que o projeto funcione corretamente siga o passo a passo:
+
+- instale o xampp
+- dê "start" no MySQL e Apache
+- coloque o projeto na pasta htdocs
+- cria uma base de dados chamada "avalie-aqui"
+- importe para a base de dados (avalie-aqui) o arquivo sql que está na pasta "banco"
+- abra o aquivo "banco" e mude dbname/dbsenha conforme suas configurações (ex.: "root"/" " ou "root"/"root")
+- abra a pasta do projeto através do localhost

@@ -119,8 +119,25 @@ include "cabecalho.php";
   <input type="radio" name="carousel" id="carousel2" />
   <input type="radio" name="carousel" id="carousel3" />
   <input type="radio" name="carousel" id="carousel4" />
-  
+   <?php 
+                $img_dir = "imagens/restaurantes/". $id_rest . "/";
+                if (is_dir($img_dir)) {
+                    $images = glob($img_dir . "*");
+                    $index = 4;
+                        foreach($images as $image)
+                        {
+                          $index++;
+                          echo '<input type="radio" name="carousel" id="carousel'.$index.'" />';
+                            
+                        }
+                } else {
+                    echo "Eu não tenho imagens.";
+                }
+
+            ?>
+
   <main class="carousel__stage">  
+
     <aside class="carousel__item">      
       <img class="carousel__image" src="img/italianaaa.png" />
       <label for="carousel2" class="carousel__next"></label>
@@ -138,23 +155,30 @@ include "cabecalho.php";
       <label for="carousel4" class="carousel__next"></label>
     </aside>
     
-    <aside class="carousel__item">
-      <label for="carousel3" class="carousel__prev" ></label>
-      <img class="carousel__image" />
             <?php 
                 $img_dir = "imagens/restaurantes/". $id_rest . "/";
                 if (is_dir($img_dir)) {
                     $images = glob($img_dir . "*");
+                    $index = 3;
                         foreach($images as $image)
                         {
-                            echo '<img src='.$image.' width=80% height=40%> </img>';
+                          $index++;
+                          echo '<aside class="carousel__item">
+
+                            <label for="carousel'.($index-1).'" class="carousel__prev" ></label>
+
+                            <img src="'.$image.'" class="carousel__image"></img>
+
+                            <label for="carousel'.($index+1).'" class="carousel__next"></label>
+
+                          </aside>';
+                            
                         }
                 } else {
                     echo "Eu não tenho imagens.";
                 }
 
             ?>
-    </aside>
   </main>
 </section>
 

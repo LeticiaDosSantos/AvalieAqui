@@ -53,7 +53,7 @@
 					<br>
 					<button type="submit" value="" class="btn btn-primary" style="width: 27%; margin-left: 36%;" >Login</button>
 					<input type="hidden" name="acao" value="logar"/><br>	
-      				   <a href="create.php"><h5><span class="badge badge-secondary" style="margin-left: 27%">Cadastre-se Aqui</span></h5></a>
+      				   <a href="create_usuario.php"><h5><span class="badge badge-secondary" style="margin-left: 27%">Cadastre-se Aqui</span></h5></a>
       				   <br>
 				</div>
 			</form>

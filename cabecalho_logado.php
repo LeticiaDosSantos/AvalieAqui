@@ -32,6 +32,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="buscar_restaurantes.php">Restaurantes</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="buscar_usuarios.php">Usuários</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="encontre.php">Encontre o seu restaurante</a>

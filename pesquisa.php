@@ -7,13 +7,12 @@
 	$msg .="	<thead>";
 	$msg .="		<tr>";
 	$msg .="			<th>Nome:</th>";
-	$msg .="			<th>Endereço:</th>";
+	$msg .="			<meta><th>Endereço:</th>";
 	$msg .="			<th>Numero:</th>";
 	$msg .="			<th>horario_funcionamento:</th>";
 	$msg .="		</tr>";
 	$msg .="	</thead>";
 	$msg .="	<tbody>";
-				
 				//requerimos a classe de conexão
 				require_once('class/Conexao2.class.php');
 					try {
