@@ -6,7 +6,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Avalie Aqui - Restaurantes</title>
+    <title>Avalie Aqui - Usuários</title>
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -47,15 +47,14 @@
                             echo '<tr>';
                             echo '<th scope="row">'. $row['id_user'] . '</th>';
                             echo '<td>'. $row['nome'] . '</td>';
-                            echo '<td>'. $row['email'] . '</td>';
                             echo '<td>'. $row['sexo'] . '</td>';
                             echo '<td>'. $row['dt_nascimento'] . '</td>';
-                            echo '<meta charset="utf-8"> <td>'. $row['email'] . '</td>';
+                            echo '<td>'. $row['email'] . '</td>';
                             echo '<td width=250>';
                             
                             echo '<a class="btn btn-primary" href="read_usuario.php?id_user='.$row['id_user'].'">Info</a>';
                             echo ' ';
-                            echo '<a class="btn btn-warning" href="update_usuario.php?id_rest='.$row['id_user'].'">Atualizar</a>';
+                            echo '<a class="btn btn-warning" href="update_usuario.php?id_user='.$row['id_user'].'">Atualizar</a>';
                             echo ' ';
                             echo '<a class="btn btn-danger" href="delete_usuario.php?id_user='.$row['id_user'].'">Excluir</a>';
                             echo '</td>';

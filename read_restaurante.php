@@ -32,9 +32,9 @@ include "cabecalho.php";
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <title>Avalie Aqui - Dados da Conta</title>
+        <title>Avalie Aqui - Dados do Restaurante</title>
 
-         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/Bootstrap/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/index.css">
     <link rel="stylesheet" type="text/css" href="assets/css/carrossel.css">

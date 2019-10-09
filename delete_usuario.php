@@ -1,24 +1,24 @@
 <?php
-require 'read.php';
+require 'read_usuario.php';
 require 'banco.php';
 
 
 if(!empty($_GET['id_user']))
 {
-    $id = $_REQUEST['id_user'];
+    $id_user = $_REQUEST['id_user'];
 }
 
 if(!empty($_POST))
 {
-    $id = $_POST['id_user'];
+    $id_user = $_POST['id_user'];
 
     //Delete do banco:
 
     $pdo = Banco::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "DELETE FROM usuario where id_user = $id";//////////////////////////////////////////////////////descobrir como deletar a id certa
+    $sql = "DELETE FROM usuario where id_user = $id_user";//////////////////////////////////////////////////////descobrir como deletar a id certa
     $q = $pdo->prepare($sql);
-    $q->execute(array($id));
+    $q->execute(array($id_user));
     Banco::desconectar();
     exit;
 }
@@ -41,7 +41,7 @@ if(!empty($_POST))
                     <h3 class="well">Excluir Conta</h3>
                 </div>
                 <form class="form-horizontal" action="delete.php" method="post">
-                    <input type="hidden" name="id" value="<?php echo $id;?>" />
+                    <input type="hidden" name="id" value="<?php echo $id_user;?>" />
                     <div class="alert alert-danger"> Tem certeza que deseja excluir sua conta?<br><br> Após excluir a ação não poderá ser desfeita.
                     </div>
                     <div class="form actions">

@@ -1,97 +1,84 @@
 <?php
 
-	require 'banco.php';
+    include "cabecalho.php";
 
-	$id = null;
-	if ( !empty($_GET['id']))
+    require 'banco.php';
+
+    $id_user = null;
+    if ( !empty($_GET['id_user']))
             {
-		$id = $_REQUEST['id'];
+        $id_user = $_REQUEST['id_user'];
             }
 
-	if ( null==$id )
-            {
-		header("Location: index.php");
-            }
+    if ( null==$id_user ){
+        header("Location: index.php");
+    }
 
-	if ( !empty($_POST))
-            {
+    if ( !empty($_POST)){
 
-		$nomeErro = null;
-		$enderecoErro = null;
-		$telefoneErro = null;
-                $emailErro = null;
-                $sexoErro = null;
+        $nomeErro = null;
+        $sexoErro = null;
+        $dt_nascimentoErro = null;
+        $emailErro = null;
 
-		$nome = $_POST['nome'];
-		$endereco = $_POST['endereco'];
-		$telefone = $_POST['telefone'];
-                $email = $_POST['email'];
-                $sexo = $_POST['sexo'];
-
-		//Validação
-		$validacao = true;
-		if (empty($nome))
+        $nome = $_POST['nome'];
+        $sexo = $_POST['sexo'];
+        $dt_nascimento = $_POST['dt_nascimento'];
+        $email = $_POST['email'];
+        
+        //Validação
+        $validacao = true;
+        if (empty($nome))
                 {
                     $nomeErro = 'Por favor digite o nome!';
                     $validacao = false;
                 }
 
-		if (empty($email))
+        if (empty($sexo))
                 {
-                    $emailErro = 'Por favor digite o email!';
+                    $sexoErro = 'Por favor selecione seu sexo!';
                     $validacao = false;
-		}
-                else if ( !filter_var($email,FILTER_VALIDATE_EMAIL) )
+        }
+                if (empty($dt_nascimento))
                 {
-                    $emailErro = 'Por favor digite um email válido!';
+                    $dt_nascimentoErro = 'Por favor digite o horrário de funcionamento!';
                     $validacao = false;
-		}
+        }
 
-		if (empty($endereco))
+                if ( !filter_var($email,FILTER_VALIDATE_EMAIL) )
                 {
-                    $endereco = 'Por favor digite o endereço!';
+                    $emailErro = 'Por favor digite seu email!';
                     $validacao = false;
-		}
+        }
 
-                if (empty($telefone))
-                {
-                    $telefone = 'Por favor digite o telefone!';
-                    $validacao = false;
-		}
 
-                if (empty($endereco))
-                {
-                    $endereco = 'Por favor preenche o campo!';
-                    $validacao = false;
-		}
+        // update data
 
-		// update data
-		if ($validacao)
+        if ($validacao)
                 {
                     $pdo = Banco::conectar();
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $sql = "UPDATE usuario  set nome = ?, endereco = ?, telefone = ?, email = ?, sexo = ? WHERE id = ?";
+                    $sql = "UPDATE usuario set nome = ?, sexo = ?, dt_nascimento = ?, email = ? WHERE id_user = ?";
                     $q = $pdo->prepare($sql);
-                    $q->execute(array($nome,$endereco,$telefone,$email,$sexo,$id));
+                    $q->execute(array($nome,$sexo,$dt_nascimento,$email,$id_user));
                     Banco::desconectar();
-                    header("Location: index.php");
-		}
-	}
+                    header("Location: buscar_usuarios.php");
+        }
+    }
         else
             {
-                $pdo = Banco::conectar();
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "SELECT * FROM usuario where id_rest = ?";
-		$q = $pdo->prepare($sql);
-		$q->execute(array($id));
-		$data = $q->fetch(PDO::FETCH_ASSOC);
-		$nome = $data['nome'];
-                $endereco = $data['endereco'];
-                $telefone = $data['telefone'];
-		$email = $data['email'];
-		$sexo = $data['sexo'];
-		Banco::desconectar();
-	}
+        $pdo = Banco::conectar();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT * FROM usuario where id_user = ?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($id_user));
+        $data = $q->fetch(PDO::FETCH_ASSOC);
+        $nome = $data['nome'];
+        $sexo = $data['sexo'];
+        $dt_nascimento = $data['dt_nascimento'];
+        $email = $data['email'];
+        Banco::desconectar();
+    }
 ?>
 
     <!DOCTYPE html>
@@ -101,19 +88,21 @@
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-				<title>Atualizar Contato</title>
+                <title>Atualizar Contato</title>
     </head>
-
+<br>
     <body>
         <div class="container">
-
+<center>
+          <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Atualizar Informações</a>
+        </nav><br>
+        <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
+}"> </div>   <br><br> </center>
             <div class="span10 offset1">
-							<div class="card">
-								<div class="card-header">
-                    <h3 class="well"> Atualizar Contato </h3>
-                </div>
-								<div class="card-body">
-                <form class="form-horizontal" action="update_usuario.php?id=<?php echo $id?>" method="post">
+                            <div class="card">
+                                <div class="card-body">
+                <form class="form-horizontal" action="./update_usuario.php?id_user=<?php echo $id_user?>" method="post">
+
 
                     <div class="control-group <?php echo !empty($nomeErro)?'error':'';?>">
                         <label class="control-label">Nome</label>
@@ -125,67 +114,79 @@
                         </div>
                     </div>
 
-                    <div class="control-group <?php echo !empty($enderecoErro)?'error':'';?>">
-                        <label class="control-label">Endereço</label>
-                        <div class="controls">
-                            <input name="endereco" class="form-control" size="80" type="text" placeholder="Endereço" value="<?php echo !empty($endereco)?$endereco:'';?>">
-                            <?php if (!empty($enderecoErro)): ?>
-                                <span class="help-inline"><?php echo $enderecoErro;?></span>
-                                <?php endif; ?>
-                        </div>
-                    </div>
-
-                    <div class="control-group <?php echo !empty($telefoneErro)?'error':'';?>">
-                        <label class="control-label">Telefone</label>
-                        <div class="controls">
-                            <input name="telefone" class="form-control" size="30" type="text" placeholder="Telefone" value="<?php echo !empty($telefone)?$telefone:'';?>">
-                            <?php if (!empty($telefoneErro)): ?>
-                                <span class="help-inline"><?php echo $telefoneErro;?></span>
-                                <?php endif; ?>
-                        </div>
-                    </div>
-
-                    <div class="control-group <?php echo !empty($email)?'error':'';?>">
-                        <label class="control-label">Email</label>
-                        <div class="controls">
-                            <input name="email" class="form-control" size="40" type="text" placeholder="Email" value="<?php echo !empty($email)?$email:'';?>">
-                            <?php if (!empty($emailErro)): ?>
-                                <span class="help-inline"><?php echo $emailErro;?></span>
-                                <?php endif; ?>
-                        </div>
-                    </div>
 
                     <div class="control-group <?php echo !empty($sexoErro)?'error':'';?>">
                         <label class="control-label">Sexo</label>
                         <div class="controls">
-                            <div class="form-check">
-                                <p class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="sexo" id="sexo" value="M" <?php echo ($sexo=="M" ) ? "checked" : null; ?>/> Masculino
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="sexo" id="sexo" value="F" <?php echo ($sexo=="F" ) ? "checked" : null; ?>/> Feminino
-                            </div>
-                            </p>
+                            <input name="sexo" class="form-control" size="50" type="text" value="<?php echo !empty($sexo)?$sexo:'';?>">
                             <?php if (!empty($sexoErro)): ?>
                                 <span class="help-inline"><?php echo $sexoErro;?></span>
                                 <?php endif; ?>
                         </div>
                     </div>
 
+                    <div class="control-group <?php echo !empty($dt_nascimentoErro)?'error':'';?>">
+                        <label class="control-label">Data de Nascimento</label>
+                        <div class="controls">
+                            <input name="dt_nascimento" class="form-control" size="30" type="text" placeholder="Telefone" value="<?php echo !empty($dt_nascimento)?$dt_nascimento:'';?>">
+                            <?php if (!empty($dt_nascimentoErro)): ?>
+                                <span class="help-inline"><?php echo $dt_nascimentoErro;?></span>
+                                <?php endif; ?>
+                        </div>
+                    </div>
+    
+                    <div class="control-group <?php echo !empty($emailErro)?'error':'';?>">
+                        <label class="control-label">Horário de Email</label>
+                        <div class="controls">
+                            <input name="email" class="form-control" size="30" type="text" placeholder="Digite aqui" value="<?php echo !empty($email)?$email:'';?>">
+                            <?php if (!empty($emailErro)): ?>
+                                <span class="help-inline"><?php echo $emailErro;?></span>
+                                <?php endif; ?>
+                        </div>
+                    </div>
+
+
+    
+  </body>
+  <script type="text/javascript">
+  //CIDADES E ESTADOS
+  new dgCidadesEstados({
+    cidade: document.getElementById('cidade'),
+    estado: document.getElementById('estado'),
+    change: true
+});
+  </script>
+                           
+                   
+
                     <br/>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-warning">Atualizar</button>
-                        <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
+                        <a href="index.php" type="btn" class="btn btn-light">Voltar</a>
                     </div>
                 </form>
-							</div>
-						</div>
+                            </div>
+                        </div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="assets/js/bootstrap.min.js"></script>
+        <script src="cidades-estados-1.2-utf8.js"></script>
+        <script>
+
+
+            new dgCidadesEstados({
+            cidade: document.getElementById('cidade'),
+            estado: document.getElementById('estado'),
+            change: true
+        });
+        </script>
     </body>
 
     </html>
+
+<?php
+    include "rodape.php";
+?>
