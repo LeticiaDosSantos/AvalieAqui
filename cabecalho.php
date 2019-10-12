@@ -6,11 +6,11 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/css" href="/assets/SemanticUI/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/SemanticUI/components/icon.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap/bootstrap.min.css">
 
     <script src="/assets/jQuery/jquery-3.3.1.min.js"></script>
-    <script src="/assets/SemanticUI/semantic.min.js"></script>
+    
 </head>
 
 <body>

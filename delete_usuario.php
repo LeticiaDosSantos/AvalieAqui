@@ -1,11 +1,17 @@
 <?php
-require 'read_usuario.php';
 require 'banco.php';
-
 
 if(!empty($_GET['id_user']))
 {
-    $id_user = $_REQUEST['id_user'];
+   $id_rest = $_REQUEST['id_user'];
+    //Delete do banco:
+    $pdo = Banco::conectar();
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "DELETE FROM `usuario` WHERE `usuario`.`id_user` = ".$_GET['id_user'];
+    $q = $pdo->prepare($sql);
+    $q->execute(array($id_user));
+    Banco::desconectar();
+    header("Location: buscar_usuarios.php");
 }
 
 if(!empty($_POST))
@@ -40,7 +46,7 @@ if(!empty($_POST))
                 <div class="row">
                     <h3 class="well">Excluir Conta</h3>
                 </div>
-                <form class="form-horizontal" action="delete.php" method="post">
+                <form class="form-horizontal" action="delete_usuario.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $id_user;?>" />
                     <div class="alert alert-danger"> Tem certeza que deseja excluir sua conta?<br><br> Após excluir a ação não poderá ser desfeita.
                     </div>

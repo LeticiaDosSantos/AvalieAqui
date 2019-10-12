@@ -1,5 +1,6 @@
 <?php
     include ("cabecalho.php");
+    include ("encontre_usuario.php");
 ?>
 
 <!DOCTYPE html>
@@ -46,11 +47,11 @@
                         {
                             echo '<tr>';
                             echo '<th scope="row">'. $row['id_user'] . '</th>';
-                            echo '<td>'. $row['nome'] . '</td>';
-                            echo '<td>'. $row['sexo'] . '</td>';
-                            echo '<td>'. $row['dt_nascimento'] . '</td>';
-                            echo '<td>'. $row['email'] . '</td>';
-                            echo '<td width=250>';
+                            echo "<td>". $row['nome'] . '</td>';
+                            echo "<td>". $row['sexo'] . '</td>';
+                            echo "<td>". $row['dt_nascimento'] . '</td>';
+                            echo "<td>". $row['email'] . '</td>';
+                            echo "<td width=250>";
                             
                             echo '<a class="btn btn-primary" href="read_usuario.php?id_user='.$row['id_user'].'">Info</a>';
                             echo ' ';
