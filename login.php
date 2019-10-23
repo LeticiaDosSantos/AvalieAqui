@@ -26,40 +26,57 @@
 
 <body>
 	<br>
-	<br>
+	
+
+
+<br>
+<br>
+
+
 		<article>
-			<form name="form_pesquisa" id="form_pesquisa" method="post" action="" style="margin-left: 15%;opacity: 0.91;">
-				 <div class="card" style="width: 25%;" style="border-bottom: 50%">
-				 	 <div class="form-group">
-						<div id="login-box">
+
+
+
+		
+
+	<form name="form_pesquisa" id="form_pesquisa" method="post" action="" style="margin-left: 13.50%;opacity: 0.91;position: center;">
+		 <div class="card" style="width: 25%;" style="border-bottom: 50%">
+			<div class="form-group">
+				<div id="login-box">
+					
+					<nav class="nav justify-content-center"> 
+       	 				<a class="nav-link" style="color: black; font-size: 30px; font-family:all; margin-left: 1000%;">Login</a>
+   					</nav>
+
 
 					<!--<H2 style="color: black">Login</H2>-->
-									
-					<br/>
-					<br/>
+					
 
 					<div id="login-box-name" >Email</div><br>
 						<div id="login-box-field">
 							<input name="email" class="form-login" title="Username" value="" size="30"  placeholder="  example@email.com" style="border-radius: 0.3rem;" />
 						</div>
-
-						<div id="login-box-name">Senha</div><br>
-							<div id="login-box-field">
-								<input name="senha" type="password" class="form-login" title="Senha" value="" size="30"  placeholder="  ********"  style="border-radius: 0.3rem;"/>
-							</div>
-							<br/>
+					<div id="login-box-name">Senha</div><br>
+						<div id="login-box-field">
+							<input name="senha" type="password" class="form-login" title="Senha" value="" size="30"  placeholder="  ********"  style="border-radius: 0.3rem;"/>
 						</div>
-					</div>
+							<br/>
+				</div>
+			</div>
 					<br>
 					<button type="submit" value="" class="btn btn-primary" style="width: 27%; margin-left: 36%;" >Login</button>
 					<input type="hidden" name="acao" value="logar"/><br>	
       				   <a href="create_usuario.php"><h5><span class="badge badge-secondary" style="margin-left: 27%">Cadastre-se Aqui</span></h5></a>
       				   <br>
-				</div>
+		</div>
+
 			</form>
+	
 		</article>
+
 		  <p>
           </div>
+
     </p>
 
 </body>
