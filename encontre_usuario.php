@@ -26,13 +26,13 @@
 <body id="fundo">
 <br>
 <br> 
-  <div id="linha" style="width: 70%; "> </div>
 <br>
 <br>
 
 <div class="container">
  <nav class="nav justify-content-center"> 
-  <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Encontre o seu restaurante aqui! </a>
+  <div id="linha" style="width: 70%; "> </div>
+  <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Encontre o usuário aqui! </a>
 </nav>
 <br>
 <br>

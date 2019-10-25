@@ -28,15 +28,21 @@
 						if(count($resultado)){
 							foreach ($resultado as $row) {
 
-	$msg .="				<tr>";
+	$msg .="				<div><tr>";
 	$msg .="					<td>".$row['nome']."</td>";
 	$msg .="					<td>".$row['endereco']."</td>";
 	$msg .="					<td>".$row['numero']."</td>";
 	$msg .="					<td>".$row['horario_funcionamento'].", ".$row['horario_funcionamento']."</td>";
 
-	   echo '<a class="btn btn-light" href="read_restaurante.php?id_rest='.$row['id_rest'].'">Visualizar</a>';
+	$msg .=' <th><a class="btn btn-light" href="read_restaurante.php?id_rest='.$row['id_rest'].'">Visualizar</a></th>'; //n pega id
+	$msg .="				</tr></div>";
+ 
                             echo ' ';
-	$msg .="				</tr>";
+
+
+                  //$msg .=" <th><a class='btn btn-light' href='read_restaurante.php?id_rest='".$row['id_rest'].">Visualizar</a></th>"; //não pega id
+
+                            echo ' ';
 
 							}	
 						}else{
