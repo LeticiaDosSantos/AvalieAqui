@@ -20,16 +20,49 @@ include  'cabecalho.php';
 <br>
 <?php
 						
-    include 'banco.php';
-    $pdo = Banco::conectar();
-    $sql = 'SELECT * FROM restaurante_categoria c inner join restaurante r on (r.id_rest=c.id_restaurante) where id_tipo_comida=3';
+    require 'banco.php';
 
-    
+
+ $id_tipo_comida = null;
+    if(!empty($_GET['id_tipo_comida']))
+    {
+        $id_tipo_comida = $_REQUEST['id_tipo_comida'];
+    }
+
+    if(null==$id_tipo_comida)
+    {
+        header("Location: index.php");
+    }
+    else
+    {
+       $pdo = Banco::conectar();
+       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+       $sql = "SELECT * FROM restaurante where id_rest = ?";
+       $q = $pdo->prepare($sql);
+       $q->execute(array($id_rest));
+       $data = $q->fetch(PDO::FETCH_ASSOC);
+       Banco::desconectar();
+    }
+
+    $pdo = Banco::conectar();
+    $sql = 'SELECT * FROM restaurante_categoria c inner join restaurante r on (r.id_rest=c.id_restaurante) where id_tipo_comida=1';
+
 ?>
 
 <?php foreach($pdo->query($sql)as $row)
     {
     	?>
+
+  <nav class="nav justify-content-center"> 
+  </nav>
+  <center>
+    <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Restaurante de Comida <?php echo $row['id_tipo_comida'];?></a>
+  </center>
+  <br>
+  <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
+}">
+  </div> 
+  <br>
 
 <div>
 <div>
