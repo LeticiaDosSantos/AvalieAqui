@@ -1,6 +1,6 @@
 <?php
     include ("cabecalho.php");
-    include ("encontre_usuario.php");
+    //include ("encontre_usuario.php");
 ?>
 
 <!DOCTYPE html>

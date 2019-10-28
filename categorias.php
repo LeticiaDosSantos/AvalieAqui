@@ -22,41 +22,17 @@ include  'cabecalho.php';
 						
     require 'banco.php';
 
-
- $id_tipo_comida = null;
-    if(!empty($_GET['id_tipo_comida']))
-    {
-        $id_tipo_comida = $_REQUEST['id_tipo_comida'];
-    }
-
-    if(null==$id_tipo_comida)
-    {
-        header("Location: index.php");
-    }
-    else
-    {
-       $pdo = Banco::conectar();
-       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       $sql = "SELECT * FROM restaurante where id_rest = ?";
-       $q = $pdo->prepare($sql);
-       $q->execute(array($id_rest));
-       $data = $q->fetch(PDO::FETCH_ASSOC);
-       Banco::desconectar();
-    }
+$a = $_GET['id_tipo_comida'];
 
     $pdo = Banco::conectar();
-    $sql = 'SELECT * FROM restaurante_categoria c inner join restaurante r on (r.id_rest=c.id_restaurante) where id_tipo_comida=1';
+    $sql = 'SELECT * FROM restaurante_categoria c inner join restaurante r on (r.id_rest=c.id_restaurante) inner join tipo_comida t on (c.id_tipo_comida=t.id_comida) where id_tipo_comida='.$a;
 
 ?>
-
-<?php foreach($pdo->query($sql)as $row)
-    {
-    	?>
 
   <nav class="nav justify-content-center"> 
   </nav>
   <center>
-    <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Restaurante de Comida <?php echo $row['id_tipo_comida'];?></a>
+    <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Restaurante de Comida <?php// echo $row['categoria'];?></a>
   </center>
   <br>
   <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
@@ -64,21 +40,21 @@ include  'cabecalho.php';
   </div> 
   <br>
 
-<div>
-<div>
-<div class="card-deck" style="margin-bottom: 1% ;margin-left: 2.5%; width: 21.5%;">
+<div class="card-deck" style="margin-bottom: 1% ;margin-left: 0.1%; margin-right: 10%; width: 100%;">
+<?php foreach($pdo->query($sql)as $row)
+    {
+    	?>
 
-  <div class="card">
+  <div class="card" style="width: 20%">
   <!-- <img src="img/localizacao.jpg" class="card-img-top" alt="..." style="width: 50%"></center>-->
  
       <center><p class="card-text"><h5 class="card-title"><?php echo $row['nome'];?></h5></center>
             <?php 
                 $img_dir = "imagens/restaurantes/".$row['id_rest'] . "/";
                 if (is_dir($img_dir)) {
-                    $images = glob($img_dir . "*");
+                    $image = glob($img_dir . "*")[0];
                     $index = 1;
-                        foreach($images as $image)
-                        {
+
                           $index++;
                           echo '<center><div>
 
@@ -87,9 +63,9 @@ include  'cabecalho.php';
 
                           </div></center>';
                             
-                        }
+                        
                 } else {
-                    echo "Eu não tenho imagens.";
+                    echo '<img src="img/sem-foto.png">';
                 }
 
             ?>
@@ -100,18 +76,17 @@ include  'cabecalho.php';
         <p class="card-text">Estado: <?php echo $row['estado'];?></p></p>
         <p class="card-text">Cidade: <?php echo $row['cidade'];?></p></p>
         <p class="card-text">Endereço: <?php echo $row['endereco'];?>, <?php echo $row['numero'];?></p></p>
+    
     </div>
   </div>
 
-</div>
-</div>
-                        	<?php  }
+                  	<?php  }
                            
                         Banco::desconectar();
                         ?>
    
 
-</body>
+</body></p></center></div></div>
 <footer>
 	<?php include "rodape.php"; ?>
 </footer>

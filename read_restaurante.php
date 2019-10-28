@@ -89,31 +89,13 @@ include "cabecalho.php";
 
 
 <div>
-   <?php 
-                $img_dir = "imagens/restaurantes/". $id_rest . "/";
-                if (is_dir($img_dir)) {
-                    $images = glob($img_dir . "*");
-                    $index = 4;
-                        foreach($images as $image)
-                        {
-                          $index++;
-                          echo '<input'.$index.'" />';
-                            
-                        }
-                } else {
-                    echo "Eu não tenho imagens.";
-                }
-
-            ?>
-
  
             <?php 
                 $img_dir = "imagens/restaurantes/". $id_rest . "/";
                 if (is_dir($img_dir)) {
-                    $images = glob($img_dir . "*");
+                    $image = glob($img_dir . "*")[0];
                     $index = 3;
-                        foreach($images as $image)
-                        {
+                       
                           $index++;
                           echo '<center><div>
 
@@ -122,12 +104,13 @@ include "cabecalho.php";
 
                           </div></center>';
                             
-                        }
+                        
                 } else {
                     echo "Eu não tenho imagens.";
                 }
 
             ?>
+
 </div>
                     <div class="form-actions">
                     </div>
@@ -184,7 +167,7 @@ include "cabecalho.php";
     </center>
     <div class="card-body">
       <h5 class="card-title">Cardápio</h5>
-      <p class="card-text"><?php echo $data['horario_funcionamento'];?></p>
+      <p class="card-text"><?php echo $data['categoria'];?></p>
     </div>
   </div>
 
@@ -259,6 +242,34 @@ $(document).ready(function(){
 <a href="img/italianaaa.png"><img class="fotogrande" src="img/italianaaa.png"/></a>
 <a href="img/guacamole.png"><img  class="fotogrande"src="img/guacamole.png"/></a>
 <a href="img/italianaaa.png"><img class="fotogrande" src="img/italianaaa.png"/></a>
+
+</div>
+          
+<div id="gallery">
+ <?php 
+                $img_dir = "imagens/restaurantes/". $id_rest . "/";
+                if (is_dir($img_dir)) {
+                    $images = glob($img_dir . "*");
+                    $index = 3;
+                       foreach ($images as $image) {
+                         
+                          $index++;
+                          echo '<center><div>
+
+                          <img class="fotogrande" src="'.$image.'" style="width: 25%";/></img>
+
+
+                          </div></center>';
+                            
+                       }
+                        
+                } else {
+                    echo "Eu não tenho imagens.";
+                }
+
+
+            ?>
+
 
 </div>
 

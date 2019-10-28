@@ -94,7 +94,7 @@
     <body>
         <div class="container">
 <center>
-          <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Atualizar Informações</a>
+          <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Atualizar Informações</a>
         </nav><br>
         <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
 }"> </div>   <br><br> </center>

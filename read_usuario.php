@@ -30,12 +30,11 @@
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <title>Avalie Aqui - Dados da Conta</title>
     </head>
 
     <body>
          <nav class="nav justify-content-center"> 
-          <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;"><?php echo $data['nome'];?></a>
+          <a class="nav-link" style="color: black; font-size: 30px; font-family:all;"><?php echo $data['nome'];?></a>
         </nav><br>
         <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
 }"> </div>   <br><br> 

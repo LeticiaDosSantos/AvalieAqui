@@ -36,13 +36,13 @@
     <body><br>
         <nav class="nav justify-content-center">
             <br><br><br>
-        <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Informações da Conta</a>
+        <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Informações da Conta</a>
            </nav><br>
         <div class="container" style="width: 60%">
             <div class="span10 offset1">
                   <div class="card">
                         <nav class="nav justify-content-center"> 
-                          <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;"><?php echo $data['nome'];?></a>
+                          <a class="nav-link" style="color: black; font-size: 30px; font-family:all;"><?php echo $data['nome'];?></a>
                         </nav><br>
 
                 <div class="container">
@@ -89,7 +89,7 @@
         echo '<a style="margin-left: 0.5%;" class="btn btn-danger" href="delete_usuario.php?id_user='.$row['id_user'].'">Excluir</a>';
         echo "<br>";
         echo "<br>";
-        echo '<a style="margin-left: 13%;" class="btn btn-light" href="index_usuario.php'.$row['id_user'].'">Voltar</a>';
+        echo '<a style="margin-left: 13%;" class="btn btn-light" href="index.php'.$row['id_user'].'">Voltar</a>';
     }
 ?></div>
     </body>
