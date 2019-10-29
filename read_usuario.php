@@ -31,10 +31,6 @@
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/blueimp-gallery.css" />
-    <link rel="stylesheet" href="css/blueimp-gallery-indicator.css" />
     </head>
 
     <body>
