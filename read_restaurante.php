@@ -68,7 +68,7 @@ include "cabecalho.php";
 
     <body>
         <nav class="nav justify-content-center"> 
-          <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;"><?php echo $data['nome'];?></a>
+          <a class="nav-link" style="color: black; font-size: 30px; font-family:all;"><?php echo $data['nome'];?></a>
         </nav>
         <br>
         <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
@@ -235,7 +235,7 @@ $(document).ready(function(){
   }
 </style>
 
-
+<!--
 <div id="gallery">
 <a href="img/italianaaa.png"><img class="fotogrande" src="img/italianaaa.png"/></a>
 <a href="img/guacamole.png"><img  class="fotogrande"src="img/guacamole.png"/></a>
@@ -244,8 +244,8 @@ $(document).ready(function(){
 <a href="img/italianaaa.png"><img class="fotogrande" src="img/italianaaa.png"/></a>
 
 </div>
-          
-<div id="gallery">
+    -->      
+<div>
  <?php 
                 $img_dir = "imagens/restaurantes/". $id_rest . "/";
                 if (is_dir($img_dir)) {

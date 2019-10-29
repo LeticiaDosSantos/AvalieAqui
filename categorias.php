@@ -31,8 +31,11 @@ $a = $_GET['id_tipo_comida'];
 
   <nav class="nav justify-content-center"> 
   </nav>
-  <center>
-    <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Restaurante de Comida <?php// echo $row['categoria'];?></a>
+  <center><?php foreach($pdo->query($sql)as $row)
+    {
+    }
+      ?>
+    <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Restaurante de Comida <?php echo $row['categoria'];?></a>
   </center>
   <br>
   <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
@@ -50,12 +53,10 @@ $a = $_GET['id_tipo_comida'];
  
       <center><p class="card-text"><h5 class="card-title"><?php echo $row['nome'];?></h5></center>
             <?php 
-                $img_dir = "imagens/restaurantes/".$row['id_rest'] . "/";
+               $img_dir = "imagens/restaurantes/". $row['id_rest'] . "/";
                 if (is_dir($img_dir)) {
                     $image = glob($img_dir . "*")[0];
-                    $index = 1;
-
-                          $index++;
+                    $index = 3;
                           echo '<center><div>
 
                             <a href="read_restaurante.php?id_rest='.$row['id_rest'].'"><img src="'.$image.'" style="width: 100%";></img></a>
@@ -65,7 +66,7 @@ $a = $_GET['id_tipo_comida'];
                             
                         
                 } else {
-                    echo '<img src="img/sem-foto.png">';
+                    echo "<img src='img/sem-imagem.png'>";
                 }
 
             ?>

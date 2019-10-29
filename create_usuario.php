@@ -98,11 +98,11 @@ background-attachment:  fixed;">
                     <div class="controls">
                         <div class="form-check">
                             <p class="form-check-label">
-                                <input class="form-check-input" type="radio" name="sexo" id="sexo" value="M" <?php echo ($sexo=="M" ) ? "checked" : null; ?>/> Masculino
+                                <input class="form-check-input" type="radio" name="sexo" id="sexo" value="Masculino" <?php echo ($sexo=="Masculino" ) ? "checked" : null; ?>/> Masculino
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sexo" id="sexo" value="F" <?php echo ($sexo=="F" ) ? "checked" : null; ?>/> Feminino
+                            <input class="form-check-input" type="radio" name="sexo" id="sexo" value="Feminino" <?php echo ($sexo=="Feminino" ) ? "checked" : null; ?>/> Feminino
                         </div>
                         </p>
                         <?php if(!empty($sexoErro)): ?>
@@ -214,22 +214,21 @@ background-attachment:  fixed;">
             $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo, senha) VALUES(?,?,?,?,?)";
             $q = $pdo->prepare($sql);
             $q->execute(array($nome,$dt_nascimento,$email,$sexo,$senha));
-            $last_id = $pdo->lastInsertId();
-            
-            $target_dir = "imagens/";
-            $count_img = 0;
-            $uploaddir = $target_dir . "usuarios/". $last_id . "/";
-                if (!is_dir($uploaddir)) {
-                    mkdir($uploaddir);
-                }
-            
-            foreach ($imagens['name'] as $imagem) {
-                $target_file = $uploaddir . $count_img."-".basename($imagem);
-       
-                move_uploaded_file($imagens["tmp_name"][$count_img], $target_file);
-                $count_img = $count_img + 1;
-            }
+           $last_id = $pdo->lastInsertId();
 
+        $target_dir = "imagens/";
+        $count_img = 0;
+        $uploaddir = $target_dir . "usuarios/". $last_id . "/";
+        if (!is_dir($uploaddir)) {
+            mkdir($uploaddir);
+        }
+
+        foreach ($imagens['name'] as $imagem) {
+            $target_file = $uploaddir . $count_img."-".basename($imagem);
+
+            move_uploaded_file($imagens["tmp_name"][$count_img], $target_file);
+            $count_img = $count_img + 1;
+        }
 
             Banco::desconectar();
             exit;

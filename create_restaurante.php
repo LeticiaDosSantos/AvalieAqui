@@ -299,7 +299,9 @@ if(!empty($_POST))
 			$q->execute(array($last_id, $categoria));
 		}
 		exit;
-		header('Location: index.php');
+			Banco::desconectar();
+            exit;
+            header("Location: index.php");
 
 	}
 }

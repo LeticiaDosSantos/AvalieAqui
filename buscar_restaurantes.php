@@ -55,7 +55,7 @@
                             echo '<td width=250>';
                             echo '<a class="btn btn-primary" href="read_restaurante.php?id_rest='.$row['id_rest'].'">Info</a>';
                             echo ' ';
-                            echo '<a class="btn btn-warning" href="update_restaurante.php?id_rest='.$row['id_rest'].'">Atualizar</a>';
+                            echo '<a class="btn btn-warning" href="update_restaurante.php?id_rest='.$row['id_rest'].'">Editar</a>';
                             echo ' ';
                             echo '<a class="btn btn-danger" href="delete_restaurante.php?id_rest='.$row['id_rest'].'">Excluir</a>';
                             echo '</td>';
