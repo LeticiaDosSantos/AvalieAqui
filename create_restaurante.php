@@ -281,11 +281,13 @@ if(!empty($_POST))
 		$target_dir = "imagens/";
 		$count_img = 0;
 		$uploaddir = $target_dir . "restaurantes/". $last_id . "/";
-		if (!is_dir($uploaddir)) {
+		
+
+		foreach ($imagens['name'] as $imagem) {
+		if (!is_dir($uploaddir) && strlen($imagem) > 0) {
 			mkdir($uploaddir);
 		}
 
-		foreach ($imagens['name'] as $imagem) {
 			$target_file = $uploaddir . $count_img."-".basename($imagem);
 
 			move_uploaded_file($imagens["tmp_name"][$count_img], $target_file);

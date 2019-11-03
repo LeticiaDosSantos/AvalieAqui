@@ -106,7 +106,7 @@ include "cabecalho.php";
                             
                         
                 } else {
-                    echo "Eu não tenho imagens.";
+                    echo '<center><img src="img/sem-imagem.png"; style="width: 30%;"></center>';
                 }
 
             ?>
@@ -264,7 +264,7 @@ $(document).ready(function(){
                        }
                         
                 } else {
-                    echo "Eu não tenho imagens.";
+                  echo '<center>Este restaurante não possui imagens cadastradas</center><br></br>';
                 }
 
 

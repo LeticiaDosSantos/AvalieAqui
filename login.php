@@ -1,5 +1,54 @@
 <?php
-	include ("cabecalho.php");
+	include ("cabecalho_login.php");
+	require ("banco.php");
+
+	if(isset($_POST['login'])) {
+		$errMsg = '';
+
+		// Get data from FORM
+		$email = null;
+		$senha = null;
+
+		$a = 'SELECT * FROM usuario';
+
+		$email = $_POST['email'];
+		$senha = $_POST['senha'];
+
+		if($email == '')
+			$errMsg = 'Enter username';
+		if($senha == '')
+			$errMsg = 'Enter password';
+
+		if($errMsg == '') {
+			try {
+				$stmt = $connect->prepare('SELECT id_user, nome, email, senha FROM usuario WHERE email = :email');
+				$stmt->execute(array(
+					':email' => $email
+					));
+				$data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+				if($data == false){
+					$errMsg = "User $email not found.";
+				}
+				else {
+					if($senha == $data['senha']) {
+						session_start();
+						$_SESSION['nome'] = $data['nome'];
+						$_SESSION['email'] = $data['email'];
+						$_SESSION['senha'] = $data['senha'];
+						$_SESSION['id_user'] = $data['id_user'];
+						header('Location: index.php');
+						exit;
+					}
+					else
+						$errMsg = 'Password not match.';
+				}
+			}
+			catch(PDOException $e) {
+				$errMsg = $e->getMessage();
+			}
+		}
+	}
 ?>
 
 <!DOCTYPE HTML>
@@ -25,21 +74,13 @@
 </head>
 
 <body>
-	<br>
-	
-
-
-<br>
-<br>
-
-
-		<article>
-
-
-
-		
-
-	<form name="form_pesquisa" id="form_pesquisa" method="post" action="" style="margin-left: 13.50%;opacity: 0.91;position: center;">
+		<br>
+			<?php
+				if(isset($errMsg)){
+					echo '<div style="color:#FF0000;text-align:center;font-size:17px;">'.$errMsg.'</div>';
+				}
+			?>
+			<form name="form_pesquisa" id="form_pesquisa" method="post" action="" style="margin-left: 13.50%;opacity: 0.91;position: center;">
 		 <div class="card" style="width: 25%;" style="border-bottom: 50%">
 			<div class="form-group">
 				<div id="login-box">
@@ -54,64 +95,24 @@
 
 					<div id="login-box-name" >Email</div><br>
 						<div id="login-box-field">
-							<input name="email" class="form-login" title="Username" value="" size="30"  placeholder="  example@email.com" style="border-radius: 0.3rem;" />
-						</div>
+
+					<input type="text" name="email" placeholder="example@email.com" class="form-login" value="<?php if(isset($_POST['email'])) echo $_POST['email'] ?>" autocomplete="off" class="box"/><br /><br /></div>
+
 					<div id="login-box-name">Senha</div><br>
 						<div id="login-box-field">
-							<input name="senha" type="password" class="form-login" title="Senha" value="" size="30"  placeholder="  ********"  style="border-radius: 0.3rem;"/>
-						</div>
-							<br/>
-				</div>
-			</div>
-					<br>
-					<button type="submit" value="" class="btn btn-primary" style="width: 27%; margin-left: 36%;" >Login</button>
-					<input type="hidden" name="acao" value="logar"/><br>	
-      				   <a href="create_usuario.php"><h5><span class="badge badge-secondary" style="margin-left: 27%">Cadastre-se Aqui</span></h5></a>
-      				   <br>
-		</div>
 
-			</form>
-	
-		</article>
+					<input type="password" placeholder="********" class="form-login" name="senha" value="<?php if(isset($_POST['senha'])) echo $_POST['senha'] ?>" autocomplete="off" class="box" /><br/><br />
+					<center>
 
-		  <p>
-          </div>
+					<input type="submit" style="margin-left: 17%" class="btn btn-primary" name='login' value="Login" class='submit'/><br /></div></div><input type="hidden" name="acao" value="logar"/><br>
 
-    </p>
+				  <a href="create_usuario.php"><h5><span class="badge badge-secondary" style="margin-left: 27%">Cadastre-se Aqui</span></h5></a>
 
-</body>
+      				   <br></div>
+				</center>
 
-</html>
 
-<?php
-$action = isset($_POST['acao']) ? trim($_POST['acao']) : '';
-	if(isset($action) && $action != ""){ 
-		
-		switch($action){
-			case 'logar':
-				//requerimos nossa classe de autenticação passando os valores dos inputs como parâmetros
-				require_once('class/Autentica.class.php');
-				//instancio a classse para podermos usar o método nela contida
-				$Autentica = new Autentica();
-				//setamos 
-				$Autentica->email	= $_POST['email'];
-				$Autentica->senha	= $_POST['senha'];
-				//chamamos nosso método						
-				if($Autentica->Validar_Usuario()){
-				   echo  "<script type='text/javascript'>
-							location.href='logado.php'
-						</script>";
-				  }else{
-				   echo  "<script type='text/javascript'>
-							alert('ATEN\u00c7\u00c4O, Login ou Senha inv\u00e1lidos...');location.href='index.php'
-						</script>";
-				  }
-			break;
-		}	
-	}
-?>
-
-<br><br><br>
-<div>
+					</div></form>
+				
 	<?=include ("rodape.php");?>
 </div>

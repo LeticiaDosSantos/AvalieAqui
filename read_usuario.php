@@ -1,6 +1,8 @@
 <?php
+
     include "cabecalho.php";
     require 'banco.php';
+  
     $id = null;
     if(!empty($_GET['id_user']))
     {
@@ -15,7 +17,7 @@
     {
        $pdo = Banco::conectar();
        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       $sql = "SELECT * FROM usuario where id_user = ?";
+       $sql = "SELECT * FROM usuario where id_user =".$_SESSION['id_user'];
        $q = $pdo->prepare($sql);
        $q->execute(array($id));
        $data = $q->fetch(PDO::FETCH_ASSOC);
@@ -88,7 +90,7 @@
         </nav><br>
         
  <div class="card-body">
-    <p class="card-text" style="margin-left: 17%; margin-top: 5%"><h1><strong style="margin-left: 2%"><?php echo $data['nome'];?></strong></h1></p>
+    <p class="card-text" style="margin-left: 17%; margin-top: 5%"><h1><strong style="margin-left: 2%"><?php echo $_SESSION['nome'];?></strong></h1></p>
    <p  style="margin-left: 17%"><?php echo $data['email'];?></p>
                        
   </div>
@@ -131,7 +133,7 @@
 <br>
                         <a style="margin-left: 10%" href="index.php" type="btn" class="btn btn-light">Voltar</a>
                         <?php
-                        echo '<a class="btn btn-warning" href="update_usuario.php?id_rest='.$data['id_user'].'">Editar</a>';
+                        echo '<a class="btn btn-warning" href="update_usuario.php?id_user='.$_GET['id_user'].'">Editar</a>';
                         ?>
         </div></div><br>
 

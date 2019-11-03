@@ -1,11 +1,23 @@
 <?php
+    
 
-$dbHost = '';
-$dbUsuario = 'root';
-$dbSenha = '';
-$dbNome = 'avalie-aqui';
 
-$mysqli = new mysqli($dbHost, $dbUsuario, $dbSenha, $dbNome);
+    // Definições da base de dados
+    define('dbhost', 'localhost');
+    define('dbuser', 'root');
+    define('dbpass', '');
+    define('dbname', 'avalie-aqui');
+  try {
+        $connect = new PDO("mysql:host=".dbhost."; dbname=".dbname, dbuser, dbpass);
+        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+
+
+
+    $mysqli = new mysqli(dbhost, dbuser, dbpass, dbname);
 
 class Banco{
     private static $dbNome = 'avalie-aqui';
