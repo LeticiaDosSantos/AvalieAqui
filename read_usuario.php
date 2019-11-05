@@ -1,4 +1,10 @@
 <?php
+   
+    //include ("encontre_usuario.php");
+  if(empty($_SESSION['nome']))
+    header("Location: kkk.php");
+  else{
+    
 
     include "cabecalho.php";
     require 'banco.php';
@@ -146,5 +152,6 @@
 
     </html>
 <?php
+}
     include "rodape.php";
 ?>

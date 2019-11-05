@@ -28,13 +28,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="buscar_restaurantes.php">Restaurantes</a>
-      </li>
       
-      <li class="nav-item">
-        <a class="nav-link" href="buscar_usuarios.php">Usuários</a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="encontre.php">Encontre o seu restaurante</a>
       </li>
@@ -57,8 +51,8 @@
           <!--<img src="img/user-icon.png" style="width: 10%;">-->Entrar
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="read_usuario.php?id_user=1">Meu Perfil</a>
           <a class="dropdown-item" href="login.php">Login</a>
+          <a class="dropdown-item" href="create_usuario.php?id_user=1">Cadastre-se</a>
         </div>
       </li>
     </ul>

@@ -91,7 +91,7 @@ background-attachment:  fixed;">
 			<div class="control-group <?php echo !empty($telefoneErro)?'error ': '';?>">
 				<label class="control-label">Telefone</label>
 				<div class="controls">
-					<input size="40" class="form-control" name="telefone" type="text" placeholder="3400-0000" required="" value="<?php echo !empty($telefone)?$telefone: '';?>">
+					<input size="40" class="form-control" name="telefone" type="text" placeholder="3400-0000" required="" maxlength="20" value="<?php echo !empty($telefone)?$telefone: '';?>">
 					<p></p>
 					<?php if(!empty($telefoneErro)): ?>
 						<span class="help-inline"><?php echo $telefoneErro;?></span>
@@ -124,7 +124,7 @@ background-attachment:  fixed;">
 				<div class="control-group <?php echo !empty($enderecoErro)?'error ': '';?>">
 					<label class="control-label">Endereço</label>
 					<div class="controls">
-						<input size="40" class="form-control" name="endereco" type="text" placeholder="Endereço" required="" value="<?php echo !empty($endereco)?$endereco: '';?>">
+						<input size="40" class="form-control" name="endereco" type="text" placeholder="Endereço" required="" maxlength="32" value="<?php echo !empty($endereco)?$endereco: '';?>">
 						<p></p>
 						<?php if(!empty($enderecoErro)): ?>
 							<span class="help-inline"><?php echo $enderecoErro;?></span>

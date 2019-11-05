@@ -1,6 +1,13 @@
 <?php
     include ("cabecalho.php");
+
+    //include ("encontre_usuario.php");
+  if(empty($_SESSION['nome']))
+    header("Location: kkk.php");
+  else{
+    
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -77,5 +84,6 @@
 </html>
 
 <?php
+}
     include ("rodape.php");
 ?>

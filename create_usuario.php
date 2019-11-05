@@ -15,6 +15,17 @@
 
 <br>
 <br>
+
+<center>
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h5 class="card-title">Já possui uma conta?</h5>
+    <a class="card-text" href="login.php" style="color: black">Clique para efetuar login</p></a>
+  </div></div>
+</center>
+<br>
+<br>
 <body style="background-image: url(img/fundoU.jpg); background-size: 130%; background-repeat: no-repeat; 
 background-attachment:  fixed;">
 
@@ -112,7 +123,7 @@ background-attachment:  fixed;">
                 <div class="form-actions">
                     <br/>
                     <label>Adicione imagens</label>
-                    <input type="file" class="form-control-file" id="imagens" name="imagens[]" multiple="multiple">
+                    <input type="file" class="form-control-file" id="imagens" name="imagens[]">
                     <br>
                     <button type="submit" class="btn btn-success">Adicionar</button>
                     <a href="index.php" type="btn" class="btn btn-default">Voltar</a>

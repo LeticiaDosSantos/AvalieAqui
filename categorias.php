@@ -22,36 +22,37 @@ include  'cabecalho.php';
 						
     require 'banco.php';
 
-$a = $_GET['id_tipo_comida'];
+  $a = $_GET['id_tipo_comida'];
 
     $pdo = Banco::conectar();
     $sql = 'SELECT * FROM restaurante_categoria c inner join restaurante r on (r.id_rest=c.id_restaurante) inner join tipo_comida t on (c.id_tipo_comida=t.id_comida) where id_tipo_comida='.$a;
 
 ?>
 
-  <nav class="nav justify-content-center"> 
-  </nav>
-  <center><?php foreach($pdo->query($sql)as $row)
-    {
-    }
+  <center>
+    <?php foreach($pdo->query($sql)as $row)
+      { }
       ?>
+
     <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Restaurante de Comida <?php echo $row['categoria'];?></a>
   </center>
   <br>
+
   <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
 }">
   </div> 
+
+  <br>
   <br>
 
-<div class="card-deck" style="margin-bottom: 1% ;margin-left: 0.1%; margin-right: 10%; width: 100%;">
+<div class="card-deck" style="margin-bottom: 1% ;margin-left: 10%; margin-right: 10%; width: 100%;">
 <?php foreach($pdo->query($sql)as $row)
     {
     	?>
 
-  <div class="card" style="width: 20%">
-  <!-- <img src="img/localizacao.jpg" class="card-img-top" alt="..." style="width: 50%"></center>-->
- 
-      <center><p class="card-text"><h5 class="card-title"><?php echo $row['nome'];?></h5></center>
+  <div style="width: 20%">
+  <div class="card">
+        <center><p class="card-text"><h5 class="card-title"><?php echo $row['nome'];?></h5></center>
             <?php 
                $img_dir = "imagens/restaurantes/". $row['id_rest'] . "/";
                 if (is_dir($img_dir)) {
@@ -66,7 +67,7 @@ $a = $_GET['id_tipo_comida'];
                             
                         
                 } else {
-                    echo "<img src='img/sem-imagem.png'>";
+                    echo ' <a href="read_restaurante.php?id_rest='.$row['id_rest'].'"><img src=".img/sem-foto.png." style="width: 100%";></img></a>';
                 }
 
             ?>
@@ -80,14 +81,14 @@ $a = $_GET['id_tipo_comida'];
     
     </div>
   </div>
+  </div>
 
                   	<?php  }
                            
                         Banco::desconectar();
                         ?>
-   
+   </p></center></div></div></body></html>
 
-</body></p></center></div></div>
 <footer>
 	<?php include "rodape.php"; ?>
 </footer>
