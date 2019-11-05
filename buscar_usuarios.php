@@ -1,9 +1,9 @@
 <?php
-    
-    //include ("encontre_usuario.php");
-  if(empty($_SESSION['nome']))
-    header("Location: que.php");
-  else{
+session_start();
+  if(empty($_SESSION['nome'])){
+    header("Location: not-found.php");
+ } else{
+    include ("cabecalho_logado.php");
     
 ?>
 

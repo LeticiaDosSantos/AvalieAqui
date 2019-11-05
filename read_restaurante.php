@@ -18,6 +18,7 @@ include "cabecalho.php";
        $pdo = Banco::conectar();
        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
        $sql = "SELECT * FROM restaurante where id_rest = ?";
+       $a = 'SELECT * FROM `avalie-aqui`.`tipo_comida` WHERE `id_comida` = 11';
        $q = $pdo->prepare($sql);
        $q->execute(array($id_rest));
        $data = $q->fetch(PDO::FETCH_ASSOC);
