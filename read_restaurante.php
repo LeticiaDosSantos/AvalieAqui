@@ -56,6 +56,8 @@ include "cabecalho.php";
 
       <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
         <!--aqui é da galeria-->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -188,6 +190,7 @@ include "cabecalho.php";
   <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Galeria de imagens </a>
 </nav>
 
+<br>
 
 <p></p>
 
@@ -221,31 +224,10 @@ include "cabecalho.php";
             <br>
             <br>
 
-          
-<script type="text/javascript">
-$(document).ready(function(){
-  $('#gallery').gallerie();
-});
+         
 
-</script>
 
-<style>
-    #gallery {
-    
-    margin-right: auto;
-  }
-</style>
-
-<!--
-<div id="gallery">
-<a href="img/italianaaa.png"><img class="fotogrande" src="img/italianaaa.png"/></a>
-<a href="img/guacamole.png"><img  class="fotogrande"src="img/guacamole.png"/></a>
-<a href="img/italianaaa.png"><img class="fotogrande" src="img/italianaaa.png"/></a>
-<a href="img/guacamole.png"><img  class="fotogrande"src="img/guacamole.png"/></a>
-<a href="img/italianaaa.png"><img class="fotogrande" src="img/italianaaa.png"/></a>
-
-</div>
-    -->      
+  
 <div>
  <?php 
                 $img_dir = "imagens/restaurantes/". $id_rest . "/";
@@ -255,12 +237,13 @@ $(document).ready(function(){
                        foreach ($images as $image) {
                          
                           $index++;
-                          echo '<center><div>
+                          echo '<div data-toggle="modal" data-target="#exampleModal" style="">
+                          
 
                           <img class="fotogrande" src="'.$image.'" style="width: 25%";/></img>
 
 
-                          </div></center>';
+                         </div> ';
                             
                        }
                         
@@ -274,6 +257,54 @@ $(document).ready(function(){
 
 </div>
 
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="margin-top: 7%;" >
+    <div class="modal-content" style="">
+      <div class="modal-header">
+        
+        <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 25px;  font-family:all;"><?php echo $data['nome'];?></a>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div >
+        <?php
+
+        $img_dir = "imagens/restaurantes/". $id_rest . "/";
+                if (is_dir($img_dir)) {
+                    $images = glob($img_dir . "*");
+                    $index = 3;
+                       foreach ($images as $image) {
+                         
+                          $index++;
+
+         echo '<div class="modal-body">
+
+                          <img class="fotogrande" src="'.$image.'" style="width:100%;";/></img>
+
+
+                         
+                           </div> ';
+                            
+                       }
+                        
+                } else {
+                  echo '<center>Este restaurante não possui imagens cadastradas</center><br></br>';
+                }
+
+
+        ?>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
      
 
 
@@ -283,7 +314,10 @@ $(document).ready(function(){
 
 
 
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     </body>
     </html>
