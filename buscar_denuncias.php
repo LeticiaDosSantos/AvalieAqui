@@ -11,7 +11,7 @@ if(empty($_SESSION['nome'])){
     <html lang="pt-br">
 
     <head>
-        <title>Avalie Aqui - Restaurantes</title>
+        <title>Avalie Aqui - Usuários</title>
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -35,38 +35,33 @@ if(empty($_SESSION['nome'])){
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Descricao</th>
-                    <th scope="col">Endereço</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Horario de Funcionamento</th>                            
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Descricao</th>                           
+                    <th scope="col">Ação</th>                           
                 </tr>
             </thead>
             <tbody>
                 <?php
-                include 'banco.php';
+                require 'banco.php';
                 $pdo = Banco::conectar();
-                $sql = 'SELECT * FROM restaurante ORDER BY id_rest ASC';
+                $sql = 'SELECT * FROM denuncia ORDER BY id ASC';
 
                 foreach($pdo->query($sql)as $row)
                 {
                     echo '<tr>';
-                    echo '<th scope="row">'. $row['id_rest'] . '</th>';
-                    echo '<td>'. $row['nome'] . '</td>';
-                    echo '<td>'. $row['descricao'] . '</td>';
-                    echo '<td>'. $row['endereco'] .', '. $row['numero'].'</td>';
-                    echo '<td>'. $row['telefone'] . '</td>';
-                    echo '<meta charset="utf-8"> <td style="width:20%">'. $row['horario_funcionamento'] . '</td>';
-                    echo '<td width=250>';
-                    echo '<a class="btn btn-secondary" href="read_restaurante.php?id_rest='.$row['id_rest'].'">Info</a>';
-                    echo ' ';
-                    echo '<a class="btn btn-light" href="update_restaurante.php?id_rest='.$row['id_rest'].'">Editar</a>';
-                    echo ' ';
-                    echo '<a class="btn btn-dark" href="delete_restaurante.php?id_rest='.$row['id_rest'].'">Excluir</a>';
+                    echo '<th scope="row">'. $row['id'] . '</th>';
+                    echo '<th scope="row">'. $row['titulo'] . '</th>';
+                    echo '<th scope="row">'. $row['descricao'] . '</th>';
+                    echo "<td width=250>";
+
+                    echo '<a class="btn btn-secondary" href="read_denuncia.php?id_user='.$row['id'].'">Analisar</a>';
                     echo '</td>';
                     echo '</tr>';
                 }
                 Banco::desconectar();
+
+
+
                 ?>
             </tbody>
         </table>

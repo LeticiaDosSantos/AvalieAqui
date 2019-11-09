@@ -10,36 +10,36 @@
     <link rel="stylesheet" type="text/css" href="assets/css/index.css">
     <link rel="stylesheet" type="text/css" href="assets/css/carrossel.css">
 
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
     <title>Avalie Aqui</title>
 </head>
 
 <body id="fundo">
-<br>
-<br> 
-<br>
-<br>
+    <br>
+    <br> 
+    <br>
+    <br>
 
-<div class="container">
- <nav class="nav justify-content-center"> 
-  <div id="linha" style="width: 70%; "> </div>
-  <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Encontre o usuário aqui! </a>
-</nav>
-<br>
-<br>
+    <div class="container">
+       <nav class="nav justify-content-center"> 
+          <div id="linha" style="width: 70%; "> </div>
+          <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Encontre o usuário aqui! </a>
+      </nav>
+      <br>
+      <br>
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrapbuscar.css">
-    <link rel="stylesheet" href="assets/css/Bootstrap/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/css/bootstrapbuscar.css">
+      <link rel="stylesheet" href="assets/css/Bootstrap/bootstrap.min.css">
 
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -51,11 +51,11 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-    <title>Avalie Aqui</title>
+      <title>Avalie Aqui</title>
 
-    <link rel="stylesheet" type="text/css" href="css/Bootstrap-buscar.css">
+      <link rel="stylesheet" type="text/css" href="css/Bootstrap-buscar.css">
 
-    <style type="text/css">
+      <style type="text/css">
         #pesquisaCliente{
             width:500px;
             margin-top: 2%;
@@ -69,7 +69,7 @@
     <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
 
     <script type="text/javascript">
-    $(document).ready(function(){
+        $(document).ready(function(){
 
     //Aqui a ativa a imagem de load
     function loading_show(){
@@ -86,21 +86,21 @@
     function load_dados(valores, page, div)
     {
         $.ajax
-            ({
-                type: 'POST',
-                dataType: 'html',
-                url: page,
+        ({
+            type: 'POST',
+            dataType: 'html',
+            url: page,
                 beforeSend: function(){//Chama o loading antes do carregamento
-                      loading_show();
-                },
-                data: valores,
-                success: function(msg)
-                {
-                    loading_hide();
-                    var data = msg;
-                    $(div).html(data).fadeIn();             
-                }
-            });
+                  loading_show();
+              },
+              data: valores,
+              success: function(msg)
+              {
+                loading_hide();
+                var data = msg;
+                $(div).html(data).fadeIn();             
+            }
+        });
     }
     
     //Aqui eu chamo o metodo de load pela primeira vez sem parametros para pode exibir todos
@@ -126,8 +126,8 @@
         }
     });
 
-    });
-    </script>   
+});
+</script>   
 </head>
 <body>
     <center>
@@ -135,11 +135,11 @@
             <form name="form_pesquisa" id="form_pesquisa" method="post" action="">
                 <fieldset>
                     <legend style="font-family:all;">Digite o nome a pesquisar</legend>
-                        <div class="input-prepend">
-                            <span class="add-on"><i class="icon-search"></i></span>
-                            <input type="text" name="pesquisaCliente" id="pesquisaCliente" value="" tabindex="1" placeholder="Pesquisar restaurante..." />
-                        </div>
-                        <br>
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-search"></i></span>
+                        <input type="text" name="pesquisaCliente" id="pesquisaCliente" value="" tabindex="1" placeholder="Pesquisar restaurante..." />
+                    </div>
+                    <br>
 
                 </fieldset>
             </form>

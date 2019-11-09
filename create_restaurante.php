@@ -1,159 +1,181 @@
 <?php
-$sexo = "Indefinido";
-require 'banco.php';
-include("cabecalho.php");
-?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
+session_start();
+if(empty($_SESSION['nome'])){
+	header("Location: login.php");
+} else{
+	include ("cabecalho_logado.php");
+	
 
-<head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="Palavras chave separadas por virgulas" />
-	<meta name="description" content="Texto resumido aparecera nos resultados de busca atalhos" />
-	<meta name="author" content="Nome do autor">
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	$sexo = "Indefinido";
+	require 'banco.php';
+	?>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<!DOCTYPE html>
+	<html lang="pt-br">
 
-	<meta charset="utf-8">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="Palavras chave separadas por virgulas" />
+		<meta name="description" content="Texto resumido aparecera nos resultados de busca atalhos" />
+		<meta name="author" content="Nome do autor">
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/index.css">
-	<title>Avalie Aqui</title>
-</head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<body style="background-image: url(img/rest_fundo.jpg); background-size: 130%; background-repeat: no-repeat; 
-background-attachment:  fixed;">
-<br> <br>
-<div class="container" style="width: 50%; opacity: 0.92">
-	<div clas="span10 offset1">
-		<div class="card">
-			<div class="card-header">
-				<nav class="nav justify-content-center"> 
-					<a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Cadastre seu restaurante</a>
-				</nav>
-				<br>
-				<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
-			}"> 
-		</div>
-		<br>
-	</div>
-</div>
+		<meta charset="utf-8">
 
-<br>
-<br>
-<div class="card">   
-	<div class="card-body">
-		<form class="form-horizontal" action="create_restaurante.php" enctype="multipart/form-data" method="post">
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/index.css">
+		<title>Avalie Aqui</title>
+	</head>
 
-			<div class="control-group <?php echo !empty($nomeErro)?'error ' : '';?>">
-				<label class="control-label">Nome</label>
-				<div class="controls">
-					<input size="50" class="form-control" name="nome" type="text" placeholder="Nome" required="" value="<?php echo !empty($nome)?$nome: '';?>">
-					<p></p>
-					<?php if(!empty($nomeErro)): ?>
-						<span class="help-inline"><?php echo $nomeErro;?></span>
-					<?php endif;?>
-				</div>
-			</div>
-
-			<div class="control-group <?php echo !empty($descricaoErro)?'error ' : '';?>">
-				<label class="control-label">Descrição</label>
-				<div class="controls">
-					<input size="50" class="form-control" name="descricao" type="text" placeholder="Bastante variedade de pratos, estacionamento..." required="" value="<?php echo !empty($descricao)?$descricao: '';?>">
-					<p></p>
-					<?php if(!empty($descricaoErro)): ?>
-						<span class="help-inline"><?php echo $descricaoErro;?></span>
-					<?php endif;?>
-				</div>
-			</div>
-
-			<div class="control-group col-md-15" >
-				<label for="control-label">Categoria</label>
-				<select multiple id="inputState" name="categorias[]" class="form-control">
-					<?php  
-					$sql = 'select id_comida, categoria from tipo_comida;';
-					$resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
-					while($consulta = $resultado->fetch_object()){
-						echo '<option value='.$consulta->id_comida.'>';
-						echo $consulta->categoria;
-						echo '</option>';
-					}
-					?>
-
-				</select>
+	<body style="background-image: url(img/rest_fundo.jpg); background-size: 130%; background-repeat: no-repeat; 
+	background-attachment:  fixed;">
+	<br> <br>
+	<div class="container" style="width: 50%; opacity: 0.92">
+		<div clas="span10 offset1">
+			<div class="card">
+				<div class="card-header">
+					<nav class="nav justify-content-center"> 
+						<a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Cadastre seu restaurante</a>
+					</nav>
+					<br>
+					<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
+				}"> 
 			</div>
 			<br>
-
-			<div class="control-group <?php echo !empty($telefoneErro)?'error ': '';?>">
-				<label class="control-label">Telefone</label>
-				<div class="controls">
-					<input size="40" class="form-control" name="telefone" type="text" placeholder="3400-0000" required="" maxlength="20" value="<?php echo !empty($telefone)?$telefone: '';?>">
-					<p></p>
-					<?php if(!empty($telefoneErro)): ?>
-						<span class="help-inline"><?php echo $telefoneErro;?></span>
-					<?php endif;?>
-				</div>
-			</div>
-
-			<div class="control-group <?php echo !empty($horario_funcionamentoErro)?'error ': '';?>">
-				<label class="control-label">Horário de Funcionamento</label>
-				<div class="controls">
-					<input size="40" class="form-control" name="horario_funcionamento" type="text" placeholder="De segunda à sexta das 11:30 às 14:30" required="" value="<?php echo !empty($horario_funcionamento)?$horario_funcionamento: '';?>">
-					<p></p>
-					<?php if(!empty($horario_funcionamentoErro)): ?>
-						<span class="help-inline"><?php echo $horario_funcionamentoErro;?></span>
-					<?php endif;?>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class="col-lg-20">
-					<label for="select" class="control-label">Selecione o Estado:</label>
-					<select id="estado" name="estado" class="form-control"></select>
-					<br>
-					<label for="select" class="control-label">Selecione a Cidade:</label>
-					<select  id="cidade" name="cidade" class="form-control"></select>
-				</div>
-			</div>
-
-			<div class="form-actions">
-				<div class="control-group <?php echo !empty($enderecoErro)?'error ': '';?>">
-					<label class="control-label">Endereço</label>
-					<div class="controls">
-						<input size="40" class="form-control" name="endereco" type="text" placeholder="Endereço" required="" maxlength="32" value="<?php echo !empty($endereco)?$endereco: '';?>">
-						<p></p>
-						<?php if(!empty($enderecoErro)): ?>
-							<span class="help-inline"><?php echo $enderecoErro;?></span>
-						<?php endif;?>
-					</div>
-				</div>
-
-				<div class="control-group <?php echo !empty($numeroErro)?'error ': '';?>">
-					<label class="control-label">Numero</label>
-					<div class="controls">
-						<input size="40" class="form-control" name="numero" type="number" placeholder="000" required="" value="<?php echo !empty($numero)?$numero: '';?>">
-						<p></p>
-						<?php if(!empty($numeroErro)): ?>
-							<span class="help-inline"><?php echo $numeroErro;?></span>
-						<?php endif;?>
-					</div>
-				</div>
-
-				<label>Adicione imagens</label>
-				<input type="file" class="form-control-file" id="imagens" name="imagens[]" multiple="multiple">
-				<br>
-				<a href="index.php" type="btn" class="btn btn-light">Voltar</a>
-				<button type="submit" class="btn btn-success">Cadastrar</button>
-
-			</div>
-		</form>
+		</div>
 	</div>
-</div>
-</div>
+
+	<br>
+	<br>
+	<div class="card">   
+		<div class="card-body">
+			<form class="form-horizontal" action="create_restaurante.php" enctype="multipart/form-data" method="post">
+
+				<div class="control-group <?php echo !empty($nomeErro)?'error ' : '';?>">
+					<label class="control-label">Nome</label>
+					<div class="controls">
+						<input size="50" class="form-control" name="nome" type="text" placeholder="Nome" required="" value="<?php echo !empty($nome)?$nome: '';?>">
+						<p></p>
+						<?php if(!empty($nomeErro)): ?>
+							<span class="help-inline"><?php echo $nomeErro;?></span>
+						<?php endif;?>
+					</div>
+				</div>
+
+				<div class="control-group <?php echo !empty($descricaoErro)?'error ' : '';?>">
+					<label class="control-label">Descrição</label>
+					<div class="controls">
+						<input size="50" class="form-control" name="descricao" type="text" placeholder="Bastante variedade de pratos, estacionamento..." required="" value="<?php echo !empty($descricao)?$descricao: '';?>">
+						<p></p>
+						<?php if(!empty($descricaoErro)): ?>
+							<span class="help-inline"><?php echo $descricaoErro;?></span>
+						<?php endif;?>
+					</div>
+				</div>
+
+				<div class="control-group col-md-15" >
+					<label for="control-label">Categoria</label>
+					<select multiple id="inputState" name="categorias[]" class="form-control">
+						<?php  
+						$sql = 'select id_comida, categoria from tipo_comida;';
+						$resultado = $mysqli->query($sql) OR trigger_error($mysqli->error, E_USER_ERROR);
+						while($consulta = $resultado->fetch_object()){
+							echo '<option value='.$consulta->id_comida.'>';
+							echo $consulta->categoria;
+							echo '</option>';
+						}
+						?>
+
+					</select>
+				</div>
+				<br>
+
+				<div class="control-group <?php echo !empty($telefoneErro)?'error ': '';?>">
+					<label class="control-label">Telefone</label>
+					<div class="controls">
+						<input size="40" class="form-control" name="telefone" type="text" placeholder="3400-0000" required="" maxlength="20" value="<?php echo !empty($telefone)?$telefone: '';?>">
+						<p></p>
+						<?php if(!empty($telefoneErro)): ?>
+							<span class="help-inline"><?php echo $telefoneErro;?></span>
+						<?php endif;?>
+					</div>
+				</div>
+
+				<div class="control-group <?php echo !empty($horario_funcionamentoErro)?'error ': '';?>">
+					<label class="control-label">Horário de Funcionamento</label>
+					<div class="controls">
+						<input size="40" class="form-control" name="horario_funcionamento" type="text" placeholder="De segunda à sexta das 11:30 às 14:30" required="" value="<?php echo !empty($horario_funcionamento)?$horario_funcionamento: '';?>">
+						<p></p>
+						<?php if(!empty($horario_funcionamentoErro)): ?>
+							<span class="help-inline"><?php echo $horario_funcionamentoErro;?></span>
+						<?php endif;?>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-20">
+						<label for="select" class="control-label">Selecione o Estado:</label>
+						<select id="estado" name="estado" class="form-control"></select>
+						<br>
+						<label for="select" class="control-label">Selecione a Cidade:</label>
+						<select  id="cidade" name="cidade" class="form-control"></select>
+					</div>
+				</div>
+
+				<div class="form-actions">
+					<div class="control-group <?php echo !empty($enderecoErro)?'error ': '';?>">
+						<label class="control-label">Endereço</label>
+						<div class="controls">
+							<input size="40" class="form-control" name="endereco" type="text" placeholder="Endereço" required="" maxlength="32" value="<?php echo !empty($endereco)?$endereco: '';?>">
+							<p></p>
+							<?php if(!empty($enderecoErro)): ?>
+								<span class="help-inline"><?php echo $enderecoErro;?></span>
+							<?php endif;?>
+						</div>
+					</div>
+
+					<div class="control-group <?php echo !empty($numeroErro)?'error ': '';?>">
+						<label class="control-label">Numero</label>
+						<div class="controls">
+							<input size="40" class="form-control" name="numero" type="number" placeholder="000" required="" value="<?php echo !empty($numero)?$numero: '';?>">
+							<p></p>
+							<?php if(!empty($numeroErro)): ?>
+								<span class="help-inline"><?php echo $numeroErro;?></span>
+							<?php endif;?>
+						</div>
+					</div>
+
+					<label>Adicione imagens</label>
+
+
+
+					<div class="input-group mb-3">
+						
+						<div class="input-group">
+							<div class="custom-file">
+
+								<input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"  id="imagens" name="imagens[]" multiple="multiple">
+								<label class="custom-file-label" for="inputGroupFile04">Escolher Arquivo...</label>
+							</div>
+							<div class="input-group-append">
+							</div>
+						</div>
+
+						<br>
+						<br>
+						<a href="index.php" type="btn" class="btn btn-light">Voltar</a>
+						<button type="submit" class="btn btn-success">Cadastrar</button>
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 <footer>
 	<?php 
@@ -306,5 +328,6 @@ if(!empty($_POST))
 		header("Location: index.php");
 
 	}
+}
 }
 ?>
