@@ -6,8 +6,7 @@ include ("cabecalho.php");
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/Bootstrap/bootstrap.min.css">

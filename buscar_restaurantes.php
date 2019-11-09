@@ -58,11 +58,11 @@ session_start();
                             echo '<td>'. $row['telefone'] . '</td>';
                             echo '<meta charset="utf-8"> <td style="width:20%">'. $row['horario_funcionamento'] . '</td>';
                             echo '<td width=250>';
-                            echo '<a class="btn btn-primary" href="read_restaurante.php?id_rest='.$row['id_rest'].'">Info</a>';
+                            echo '<a class="btn btn-secondary" href="read_restaurante.php?id_rest='.$row['id_rest'].'">Info</a>';
                             echo ' ';
-                            echo '<a class="btn btn-warning" href="update_restaurante.php?id_rest='.$row['id_rest'].'">Editar</a>';
+                            echo '<a class="btn btn-light" href="update_restaurante.php?id_rest='.$row['id_rest'].'">Editar</a>';
                             echo ' ';
-                            echo '<a class="btn btn-danger" href="delete_restaurante.php?id_rest='.$row['id_rest'].'">Excluir</a>';
+                            echo '<a class="btn btn-dark" href="delete_restaurante.php?id_rest='.$row['id_rest'].'">Excluir</a>';
                             echo '</td>';
                             echo '</tr>';
                         }

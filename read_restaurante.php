@@ -308,6 +308,7 @@ include "cabecalho.php";
      
 
 
+                        <a href="denunciar_restaurante.php" type="btn" class="btn btn-dark" style="margin-right: 5% ; float: right;">Denunciar</a>
                         <a href="index.php" type="btn" class="btn btn-light" style="margin-left: 2%">Voltar</a>
 <br>
       

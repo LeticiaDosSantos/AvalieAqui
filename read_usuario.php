@@ -83,13 +83,44 @@
                                 margin-left: 5%'></img>";
                 }
                 ?>
+<br>
+                 <?php
+          echo '<a style="margin-left: 23%; margin-right: 0.5%" class="btn btn-light" href="read_usuario.php?id_user='.$data['id_user'].'">Meus dados</a>';
+          echo '<a class="btn btn-light" href="#">Minhas Denuncias</a>';?>
  
          <nav class="nav justify-content-center"> 
           
         </nav><br>
         
  <div class="card-body">
-    <p class="card-text" style="margin-left: 17%; margin-top: 5%"><h1><strong style="margin-left: 2%"><?php echo $_SESSION['nome'];?></strong></h1></p>
+
+<?php
+ foreach($pdo->query($sql)as $row)
+                        {
+  echo '<div class="btn-group"  style="float: right; margin-right: 10%">
+  <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Avançado
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="delete_usuario.php?id_user='.$row['id_user'].'">Excluir Conta</a>
+   </div>
+  </div>
+</div>';
+
+}
+
+
+
+?>
+
+
+
+
+
+
+
+
+    <p class="card-text" style="margin-left: 17%;"><h1><strong style="margin-left: 2%"><?php echo $_SESSION['nome'];?></strong></h1></p>
    <p  style="margin-left: 17%"><?php echo $data['email'];?></p>
                        
   </div>

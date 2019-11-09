@@ -72,7 +72,7 @@ background-attachment:  fixed;">
 			</div>
 
 			<div class="control-group col-md-15" >
-				<label for="control-label" >Categoria</label>
+				<label for="control-label">Categoria</label>
 				<select multiple id="inputState" name="categorias[]" class="form-control">
 					<?php  
 					$sql = 'select id_comida, categoria from tipo_comida;';
@@ -284,9 +284,9 @@ if(!empty($_POST))
 		
 
 		foreach ($imagens['name'] as $imagem) {
-		if (!is_dir($uploaddir) && strlen($imagem) > 0) {
-			mkdir($uploaddir);
-		}
+			if (!is_dir($uploaddir) && strlen($imagem) > 0) {
+				mkdir($uploaddir);
+			}
 
 			$target_file = $uploaddir . $count_img."-".basename($imagem);
 
@@ -301,9 +301,9 @@ if(!empty($_POST))
 			$q->execute(array($last_id, $categoria));
 		}
 		exit;
-			Banco::desconectar();
-            exit;
-            header("Location: index.php");
+		Banco::desconectar();
+		exit;
+		header("Location: index.php");
 
 	}
 }

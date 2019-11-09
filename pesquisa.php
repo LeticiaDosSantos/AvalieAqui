@@ -1,6 +1,12 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
+</head>
+<body>
 <div class="card-deck" style="margin-bottom: 1% ;margin-left: 0.1%; margin-right: 10%; width: 100%;">
 <?php
+header('Content-Type: text/html; charset=utf-8');
 	//recebemos nosso parâmetro vindo do form
 	$parametro = isset($_POST['pesquisaCliente']) ? $_POST['pesquisaCliente'] : null;
 	$msg = "";
@@ -77,3 +83,5 @@
 
 	
 ?>
+</body>
+</html>
