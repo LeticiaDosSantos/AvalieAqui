@@ -54,7 +54,7 @@ if(empty($_SESSION['nome'])){
                     echo '<th scope="row">'. $row['descricao'] . '</th>';
                     echo "<td width=250>";
 
-                    echo '<a class="btn btn-secondary" href="read_denuncia.php?id_user='.$row['id'].'">Analisar</a>';
+                    echo '<a class="btn btn-secondary" href="read_denuncia.php?id='.$row['id'].'">Analisar</a>';
                     echo '</td>';
                     echo '</tr>';
                 }

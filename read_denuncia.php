@@ -3,9 +3,9 @@ include "cabecalho.php";
 require 'banco.php';
 
 $id = null;
-if(!empty($_GET['id_user']))
+if(!empty($_GET['id']))
 {
-  $id = $_REQUEST['id_user'];
+  $id = $_REQUEST['id'];
 }
 
 if(null==$id)
@@ -16,7 +16,7 @@ else
 {
  $pdo = Banco::conectar();
  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- $sql = "SELECT * FROM usuario where id_user =".$_SESSION['id_user'];
+ $sql = "SELECT * FROM denuncia where id =".$_SESSION['id'];
  $q = $pdo->prepare($sql);
  $q->execute(array($id));
  $data = $q->fetch(PDO::FETCH_ASSOC);

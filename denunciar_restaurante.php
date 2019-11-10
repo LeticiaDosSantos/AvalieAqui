@@ -53,18 +53,18 @@ if(empty($_SESSION['nome'])){
     <br>
     <div class="card">   
         <div class="card-body">
-            <form class="form-horizontal" action="index.php" enctype="multipart/form-data" method="post">
+            <?php echo'<form class="form-horizontal" action="denunciar_restaurante.php?id_rest='.$_GET['id_rest'].'" enctype="multipart/form-data" method="post">';?>
 
-              <!--  <div class="control-group <?php// echo !empty($nomeErro)?'error ' : '';?>">
+                <div class="control-group <?php echo !empty($tituloErro)?'error ' : '';?>">
                     <label class="control-label">Título</label>
                     <div class="controls">
-                        <input size="50" class="form-control" name="nome" type="text" placeholder="Titulo da sua denúncia"  value="<?php //echo !empty($nome)?$nome: '';?>">
+                        <input size="50" class="form-control" name="titulo" type="text" placeholder="Título da sua denúncia" required="" value="<?php echo !empty($titulo)?$titulo: '';?>">
                         <p></p>
-                        <?php //if(!empty($nomeErro)): ?>
-                            <span class="help-inline"><?php// echo $nomeErro;?></span>
-                        <?php //endif;?>
+                        <?php if(!empty($tituloErro)): ?>
+                            <span class="help-inline"><?php echo $tituloErro;?></span>
+                        <?php endif;?>
                     </div>
-                </div>-->
+                </div>
 
                 <div class="control-group <?php echo !empty($descricaoErro)?'error ' : '';?>">
                     <label class="control-label">Descrição</label>
@@ -130,24 +130,19 @@ if(!empty($_POST))
     $sexo="Indefinido";
     //Acompanha os erros de validação
     $id_restErro = null;
-    $nomeErro = null;
+    $tituloErro = null;
     $descricaoErro = null;
-    $categoriaErro = null;
     $id_rest = null;
 
         //      $id_rest = $_POST['id_rest'];
-    $nome = $_POST['nome'];
+   // $nome = $_POST['nome'];
+    $titulo = $_POST['titulo'];
     $descricao = $_POST['descricao'];
-    $categoria = $_POST['categorias'];
     $imagens = $_FILES['imagens'];
 
     //Validaçao dos campos:
     $validacao = true;
-    if(empty($nome))
-    {
-        $nomeErro = 'Por favor digite o nome do restaurante!';
-        $validacao = false;
-    }
+   
 
     if(empty($descricao))
     {
@@ -155,20 +150,20 @@ if(!empty($_POST))
         $validacao = false;
     }
 
-    if(empty($categoria))
+    if(empty($titulo))
     {
-        $categoriaErro = 'Por favor selecione uma categoria';
+        $tituloErro = 'Por favor insira um título';
         $validacao = false;
     }
 
-
     if($validacao)
     {
+
         $pdo = Banco::conectar();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       // $sql = "INSERT INTO `denuncia` (`id`, `descricao`, `id_rest`, `id_user`) VALUES (?,?,?);"
+        $sql = "INSERT INTO `denuncia` (`descricao`, `titulo`, `id_rest`, `id_user`) VALUES (?,?,?,?)";
         $q = $pdo->prepare($sql);
-        $q->execute(array($descricao));
+        $q->execute(array($descricao, $titulo, $_GET['id_rest'],$_SESSION['id_user']));
         $last_id = $pdo->lastInsertId();
 
         $target_dir = "imagens/";
