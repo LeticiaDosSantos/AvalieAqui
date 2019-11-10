@@ -41,7 +41,9 @@ if(isset($_POST['login'])) {
 					exit;
 				}
 				else
-					$errMsg = 'Password not match.';
+					$errMsg = '<center><div style="width: 20%"><div class="alert alert-danger" role="alert">
+  Usuário e senha não correspondem!
+</div></div></center>';
 			}
 		}
 		catch(PDOException $e) {
@@ -93,15 +95,15 @@ if(isset($_POST['login'])) {
 					<!--<H2 style="color: black">Login</H2>-->
 					
 
-					<div id="login-box-name"x>Email</div><br>
+					<div id="login-box-name">Email</div><br>
 					<div id="login-box-field">
 
 						<input class="form-control" type="text" name="email" placeholder="example@email.com" class="form-login" value="<?php if(isset($_POST['email'])) echo $_POST['email'] ?>" autocomplete="off" class="box" style="margin-left: 10%"/><br /><br /></div>
 
-						<div id="login-box-name">Senha</div><br>
+						<div id="login-box-name" style="cursor: default;">Senha</div><br>
 						<div id="login-box-field">
 
-							<input class="form-control" type="password" placeholder="********" class="form-login" name="senha" value="<?php if(isset($_POST['senha'])) echo $_POST['senha'] ?>" autocomplete="off" class="box" style="margin-left: 10%"/><br/><br />
+							<input class="form-control" type="password" placeholder="********" class="form-login" name="senha" value="<?php if(isset($_POST['senha'])) echo $_POST['senha'] ?>" autocomplete="off" class="box" style="margin-left: 10%;"/><br/><br />
 							<center>
 
 								<input type="submit" style="margin-left: 17%" class="btn btn-primary" name='login' value="Login" class='submit'/><br /></div></div><input type="hidden" name="acao" value="logar"/><br>

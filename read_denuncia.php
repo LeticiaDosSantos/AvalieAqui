@@ -16,7 +16,7 @@ else
 {
  $pdo = Banco::conectar();
  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- $sql = "SELECT * FROM denuncia where id =".$_SESSION['id'];
+ $sql = "SELECT * FROM denuncia where id =".$_GET['id'];
  $q = $pdo->prepare($sql);
  $q->execute(array($id));
  $data = $q->fetch(PDO::FETCH_ASSOC);
@@ -37,11 +37,11 @@ else
 <body>
 
   <div class="card bg-dark text-white">
-    <img src="img/perfil.png" class="card-img" alt="...">
+    <img src="img/denuncia.jpg" style="height: 10%" class="card-img" alt="...">
     <div class="card-img-overlay">
       <center>
-        <h1 style="margin-top: 8%" class="card-title">Perfil</h1>
-        <p class="card-text">Veja aqui todas as suas informações</p>
+        <h1 style="margin-top: 24%" class="card-title">...</h1>
+        <p class="card-text">Informações acerca da denúncia</p>
       </center>
     </div>
   </div>
@@ -79,14 +79,12 @@ else
     border: 3px solid gray;
     border-radius: 50%;
     float: left;
-    margin-top: 8%;
+    margin-top: 5%;
     margin-left: 5%'></img>";
   }
   ?>
   <br>
-  <?php
-  echo '<a style="margin-left: 23%; margin-right: 0.5%" class="btn btn-light" href="read_usuario.php?id_user='.$data['id_user'].'">Meus dados</a>';
-  echo '<a class="btn btn-light" href="#">Minhas Denuncias</a>';?>
+ 
   
   <nav class="nav justify-content-center"> 
     
@@ -96,33 +94,25 @@ else
 
     <?php
     foreach($pdo->query($sql)as $row)
+
     {
-      echo '<div class="btn-group"  style="float: right; margin-right: 10%">
+      echo '<div class="btn-group"  style="float: right; margin-right: 10%; margin-top: 5%">
       <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Avançado
       </button>
       <div class="dropdown-menu">
-      <a class="dropdown-item" href="delete_usuario.php?id_user='.$row['id_user'].'">Excluir Conta</a>
+      <a class="dropdown-item" href="delete_usuario.php?id_user='.$row['id_user'].'">Visitar Restaurante</a>
+      <a class="dropdown-item" href="delete_usuario.php?id_user='.$row['id_user'].'">Excluir Denúncia</a>
       </div>
       </div>
       </div>';
 
     }
 
-
-
     ?>
 
 
-
-
-
-
-
-
-    <p class="card-text" style="margin-left: 17%;"><h1><strong style="margin-left: 2%"><?php echo $_SESSION['nome'];?></strong></h1></p>
-    <p  style="margin-left: 17%"><?php echo $data['email'];?></p>
-    
+    <p class="card-text" style="margin-left: 17%;"><h1><strong style="margin-left: 2%; margin-top: 10%"><?php echo $data['titulo'];?></strong></h1></p>
   </div>
 </div></center>
 
@@ -143,11 +133,7 @@ else
 
   <div class="card" style="margin-right: 1%;">
    <div>
-    <img src="img/calendario.png" style="width: 10%">
-    <?php echo $data['dt_nascimento'];?>
-  </div><div>
-    <img src="img/se.png" style="width: 10%">
-    <?php echo $data['sexo'];?>
+    <?php echo $data['descricao'];?>
   </div>
   
 </div>
@@ -162,9 +148,7 @@ else
 <br>
 <br>
 <a style="margin-left: 10%" href="index.php" type="btn" class="btn btn-light">Voltar</a>
-<?php
-echo '<a class="btn btn-warning" href="update_usuario.php?id_user='.$_GET['id_user'].'">Editar</a>';
-?>
+
 </div></div><br>
 
 

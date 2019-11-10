@@ -226,24 +226,21 @@ else
 
 
 
-
-
-<div>
+<div style="width: 10%; display: inline">
  <?php 
  $img_dir = "imagens/restaurantes/". $id_rest . "/";
  if (is_dir($img_dir)) {
   $images = glob($img_dir . "*");
   $index = 3;
+  $contador = 1;
+    $contador++;
+    echo '<div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 13%; margin-right: 13%">';
   foreach ($images as $image) {
    
     $index++;
-    echo '<div data-toggle="modal" data-target="#exampleModal" style="">
     
 
-    <img class="fotogrande" src="'.$image.'" style="width: 25%";/></img>
-
-
-    </div> ';
+    echo '<img class="fotogrande" src="'.$image.'" style="width: 15%";/></img>';
     
   }
   
@@ -251,9 +248,9 @@ else
   echo '<center>Este restaurante não possui imagens cadastradas</center><br></br>';
 }
 
-
 ?>
-
+</div> 
+</div> 
 
 </div>
 
@@ -261,59 +258,61 @@ else
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document" style="margin-top: 7%;" >
-    <div class="modal-content" style="">
-      <div class="modal-header">
-        
-        <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 25px;  font-family:all;"><?php echo $data['nome'];?></a>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div >
+
         <?php
 
         $img_dir = "imagens/restaurantes/". $id_rest . "/";
         if (is_dir($img_dir)) {
           $images = glob($img_dir . "*");
           $index = 3;
+          $contador = 1;
           foreach ($images as $image) {
            
             $index++;
+            $contador++;
 
-            echo '<div class="modal-body">
+            echo '
+            <div class="modal fade" id="exampleModal'.$contador.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="margin-top: 7%;" >
+    <div class="modal-content" style="">
+      <div class="modal-header">
+        
+        <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 25px;  font-family:all;">'.$data['nome'].'</a>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div >
 
-            <img class="fotogrande" src="'.$image.'" style="width:100%;";/></img>
 
 
-            
+
+            <div class="modal-body">
+            <img class="fotogrande" src="'.$image.'" style="width:100%;";/></img> 
             </div> ';
             
+echo '
+
+      </div>
+      
+    </div>
+  </div>
+  </div>
+</div>
+
+';
           }
           
         } else {
           echo '<center>Este restaurante não possui imagens cadastradas</center><br></br>';
         }
 
-
         ?>
-      </div>
-      
-    </div>
-  </div>
-</div>
 
-
-
-
-
-<?php echo '<a href="denunciar_restaurante.php?id_rest='.$_GET['id_rest'].'" type="btn" class="btn btn-dark" style="margin-right: 5% ; float: right;">Denunciar</a>';?>
+<br>
+<?php echo '<a href="create_denuncia.php?id_rest='.$_GET['id_rest'].'" type="btn" class="btn btn-dark" style="margin-right: 5% ; float: right;">Denunciar</a>';?>
 <a href="index.php" type="btn" class="btn btn-light" style="margin-left: 2%">Voltar</a>
 <br>
-
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
