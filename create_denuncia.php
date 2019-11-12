@@ -159,7 +159,7 @@ if(!empty($_POST))
         $last_id = $pdo->lastInsertId();
         $target_dir = "imagens/";
         $count_img = 0;
-        $uploaddir = $target_dir . "restaurantes/". $last_id . "/";
+        $uploaddir = $target_dir . "denuncias/". $last_id . "/";
         
         foreach ($imagens['name'] as $imagem) {
             if (!is_dir($uploaddir) && strlen($imagem) > 0) {

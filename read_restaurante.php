@@ -75,7 +75,6 @@ else
 }"> </div>   
 <br><br> 
 
-<!--CARROSSEL-->
 <br>
 <center>
   <div class="card bg-light mb-3" style="max-width: 59rem;">
