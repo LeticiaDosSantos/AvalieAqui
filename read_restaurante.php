@@ -1,14 +1,11 @@
 <?php
-
 include "cabecalho.php";
-
 require 'banco.php';
 $id_rest = null;
 if(!empty($_GET['id_rest']))
 {
   $id_rest = $_REQUEST['id_rest'];
 }
-
 if(null==$id_rest)
 {
   header("Location: index.php");
@@ -82,7 +79,7 @@ else
 <br>
 <center>
   <div class="card bg-light mb-3" style="max-width: 59rem;">
-    
+
     <div class="card-body">
       <h5 class="card-title">Descrição</h5>
       <p class="card-text"> <?php echo $data['descricao'];?></p>
@@ -92,7 +89,7 @@ else
 
 
   <div>
-   
+
     <?php 
     $img_dir = "imagens/restaurantes/". $id_rest . "/";
     if (is_dir($img_dir)) {
@@ -101,17 +98,13 @@ else
       
       $index++;
       echo '<center><div>
-
       <img src="'.$image.'" style="width: 70%";></img>
-
-
       </div></center>';
       
       
     } else {
       echo '<center><img src="img/sem-imagem.png"; style="width: 30%;"></center>';
     }
-
     ?>
 
   </div>
@@ -206,17 +199,14 @@ else
     var modalImg=document.getElementById("imgModal");
     var captionTexto=document.getElementById("txtImg");
     var btFechar=document.getElementsByClassName("fechar")[0];
-
     modal.style.display="block";
     modalImg.src=img.src;
     modalImg.alt=img.alt;
     captionTexto.innerHTML=img.alt;
-
     btFechar.onclick=function(){
       modal.style.display="none";
     }
   }
-
 </script>
 
 <br><br>
@@ -226,28 +216,32 @@ else
 
 
 
-<div style="width: 10%; display: inline">
  <?php 
  $img_dir = "imagens/restaurantes/". $id_rest . "/";
  if (is_dir($img_dir)) {
   $images = glob($img_dir . "*");
   $index = 3;
-  $contador = 1;
-    $contador++;
-    echo '<div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 13%; margin-right: 13%">';
+  $contador = 0;
+echo '<div style="width: 10%; display: inline">';
   foreach ($images as $image) {
-   
+  echo '
+
+  <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 13%; margin-right: 13%">';
+  $contador++;
+
     $index++;
     
-
-    echo '<img class="fotogrande" src="'.$image.'" style="width: 15%";/></img>';
+    echo '<img  class="fotogrande" src="'.$image.'" style="width: 15%; float:left;"/></img>
+    </div>
+    </div>
+    </div>'
+    ;
     
   }
   
 } else {
   echo '<center>Este restaurante não possui imagens cadastradas</center><br></br>';
 }
-
 ?>
 </div> 
 </div> 
@@ -259,60 +253,56 @@ else
 
 <!-- Modal -->
 
-        <?php
+<?php
+$img_dir = "imagens/restaurantes/". $id_rest . "/";
+if (is_dir($img_dir)) {
+  $images = glob($img_dir . "*");
+  $index = 3;
+  $contador = 0;
+  foreach ($images as $image) {
 
-        $img_dir = "imagens/restaurantes/". $id_rest . "/";
-        if (is_dir($img_dir)) {
-          $images = glob($img_dir . "*");
-          $index = 3;
-          $contador = 1;
-          foreach ($images as $image) {
-           
-            $index++;
-            $contador++;
+    $index++;
+    echo '
+    <div class="modal fade" id="exampleModal'.$contador.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document" style="margin-top: 7%;" >
+        <div class="modal-content" style="">
+         <div class="modal-header">
 
-            echo '
-            <div class="modal fade" id="exampleModal'.$contador.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document" style="margin-top: 7%;" >
-    <div class="modal-content" style="">
-      <div class="modal-header">
-        
-        <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 25px;  font-family:all;">'.$data['nome'].'</a>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div >
-
-
-
-
-            <div class="modal-body">
-            <img class="fotogrande" src="'.$image.'" style="width:100%;";/></img> 
-            </div> ';
-            
-echo '
-
-      </div>
-      
-    </div>
-  </div>
-  </div>
-</div>
-
-';
-          }
+          <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 25px;  font-family:all;">'.$data['nome'].'</a>
           
-        } else {
-          echo '<center>Este restaurante não possui imagens cadastradas</center><br></br>';
-        }
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div>
 
-        ?>
+    <div class="modal-body">
+      <img class="fotogrande" src="'.$image.'" style="width:100%;";/></img> 
+    </div> ';
+
+    echo '
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    ';
+    $contador++;
+  }
+
+} else {
+  echo '<center>Este restaurante não possui imagens cadastradas</center><br></br>';
+}
+?>
 
 <br>
+<div style="margin-top: 9%">
 <?php echo '<a href="create_denuncia.php?id_rest='.$_GET['id_rest'].'" type="btn" class="btn btn-dark" style="margin-right: 5% ; float: right;">Denunciar</a>';?>
-<a href="index.php" type="btn" class="btn btn-light" style="margin-left: 2%">Voltar</a>
+
+<a href="index.php" type="btn" class="btn btn-light" style="margin-left: 3%; float:left;">Voltar</a>
 <br>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

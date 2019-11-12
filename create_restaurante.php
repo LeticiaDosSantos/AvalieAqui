@@ -177,6 +177,7 @@ if(empty($_SESSION['nome'])){
 		</div>
 	</div>
 </div>
+</div>
 <footer>
 	<?php 
 	include('rodape.php');

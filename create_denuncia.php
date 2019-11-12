@@ -5,7 +5,6 @@ if(empty($_SESSION['nome'])){
 } else{
     include ("cabecalho_logado.php");
     
-
     $sexo = "Indefinido";
     require 'banco.php';
     ?>
@@ -53,7 +52,7 @@ if(empty($_SESSION['nome'])){
     <br>
     <div class="card">   
         <div class="card-body">
-            <?php echo'<form class="form-horizontal" action="denunciar_restaurante.php?id_rest='.$_GET['id_rest'].'" enctype="multipart/form-data" method="post">';?>
+            <?php echo'<form class="form-horizontal" action="create_denuncia.php?id_rest='.$_GET['id_rest'].'" enctype="multipart/form-data" method="post">';?>
 
                 <div class="control-group <?php echo !empty($tituloErro)?'error ' : '';?>">
                     <label class="control-label">Título</label>
@@ -124,7 +123,6 @@ if(empty($_SESSION['nome'])){
 
 <?php
   //require 'banco.php';
-
 if(!empty($_POST))
 {
     $sexo="Indefinido";
@@ -133,57 +131,44 @@ if(!empty($_POST))
     $tituloErro = null;
     $descricaoErro = null;
     $id_rest = null;
-
         //      $id_rest = $_POST['id_rest'];
    // $nome = $_POST['nome'];
     $titulo = $_POST['titulo'];
     $descricao = $_POST['descricao'];
     $imagens = $_FILES['imagens'];
-
     //Validaçao dos campos:
     $validacao = true;
    
-
     if(empty($descricao))
     {
         $descricaoErro = 'Por favor faça uma breve descrição do problema';
         $validacao = false;
     }
-
     if(empty($titulo))
     {
         $tituloErro = 'Por favor insira um título';
         $validacao = false;
     }
-
     if($validacao)
     {
-
         $pdo = Banco::conectar();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO `denuncia` (`descricao`, `titulo`, `id_rest`, `id_user`) VALUES (?,?,?,?)";
         $q = $pdo->prepare($sql);
         $q->execute(array($descricao, $titulo, $_GET['id_rest'],$_SESSION['id_user']));
         $last_id = $pdo->lastInsertId();
-
         $target_dir = "imagens/";
         $count_img = 0;
         $uploaddir = $target_dir . "restaurantes/". $last_id . "/";
         
-
         foreach ($imagens['name'] as $imagem) {
             if (!is_dir($uploaddir) && strlen($imagem) > 0) {
                 mkdir($uploaddir);
             }
-
             $target_file = $uploaddir . $count_img."-".basename($imagem);
-
             move_uploaded_file($imagens["tmp_name"][$count_img], $target_file);
             $count_img = $count_img + 1;
         }
-
-
-
     }
 }
 }
