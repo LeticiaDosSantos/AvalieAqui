@@ -179,7 +179,7 @@ else
 
 
 <nav class="nav justify-content-center"> 
-  <a class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Galeria de imagens </a>
+  <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Galeria de imagens </a>
 </nav>
 
 <br>

@@ -48,31 +48,97 @@ else
 
 
 
+ <?php 
+ $id_user= $_GET['id_user'];
+ $img_dir = "imagens/usuarios/". $id_user . "/";
+ if (is_dir($img_dir)) {
+  $images = glob($img_dir . "*");
+  $index = 3;
+  $contador = 0;
+echo '<div style="width: 10%; display: inline">';
+  foreach ($images as $image) {
+  echo '
 
-  <?php
-  $img_dir = "imagens/usuarios/". $id . "/";
-  if (is_dir($img_dir)) {
-    $image = glob($img_dir . "*")[0];
-    $index = 3;
-    
+  <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 13%; margin-right: 13%">';
+  $contador++;
+
     $index++;
-    echo '<div>
-
-    <img src="'.$image.'" 
-    style=" width: 150px;
+    
+    echo '<img  class="fotogrande" style=" width: 150px;
     height: 150px;
     background: gray;
     border: 3px solid gray;
     border-radius: 50%;
     float: left;
-    margin-top: 5%;
-    margin-left: 5%"></img>
+    margin-top: 9%;
+    margin-left: 0%" src="'.$image.'" style="width: 15%; float:left;"/></img>
+    </div>
+    </div>
+    </div>'
+    ;
+    
+  }
+  
+} else {
+    echo "<img src='img/sem-img.png' style=' width: 150px;
+    height: 150px;
+    background: yellow;
+    border: 3px solid gray;
+    border-radius: 50%;
+    float: left;
+    margin-top: 8%;
+    margin-left: 5%'></img>";
+  }
+?>
+</div> 
+</div> 
+
+</div>
 
 
-    </div>';
-    
-    
-  } else {
+
+
+<!-- Modal -->
+
+<?php
+$img_dir = "imagens/usuarios/". $id_user . "/";
+if (is_dir($img_dir)) {
+  $images = glob($img_dir . "*");
+  $index = 3;
+  $contador = 0;
+  foreach ($images as $image) {
+
+    $index++;
+    echo '
+    <div class="modal fade" id="exampleModal'.$contador.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document" style="margin-top: 7%;" >
+        <div class="modal-content" style="">
+         <div class="modal-header">
+
+          <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 25px;  font-family:all;">'.$data['nome'].'</a>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div>
+
+    <div class="modal-body">
+      <img class="fotogrande" src="'.$image.'" style="width:100%;";/></img> 
+    </div> ';
+
+    echo '
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    ';
+    $contador++;
+  }
+
+} else {
     echo "<img src='img/sem-img.png' style=' width: 150px;
     height: 150px;
     background: yellow;
@@ -83,7 +149,16 @@ else
     margin-left: 5%'></img>";
   }
   ?>
+
+
+
+<!-- ----------- -->
+
+    
+  
+
   <br>
+
   <?php
   echo '<a style="margin-left: 23%; margin-right: 0.5%" class="btn btn-light" href="read_usuario.php?id_user='.$data['id_user'].'">Meus dados</a>';
   echo '<a class="btn btn-light" href="#">Minhas Denuncias</a>';?>
@@ -120,8 +195,8 @@ else
 
 
 
-    <p class="card-text" style="margin-left: 17%;"><h1><strong style="margin-left: 2%"><?php echo $_SESSION['nome'];?></strong></h1></p>
-    <p  style="margin-left: 17%"><?php echo $data['email'];?></p>
+    <p class="card-text" style="float: right;"><h1><strong style="margin-left: 2%"><?php echo $_SESSION['nome'];?></strong></h1></p>
+    <p  style="margin-left: 25%"><?php echo $data['email'];?></p>
     
   </div>
 </div></center>

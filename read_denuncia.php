@@ -49,40 +49,7 @@ else
 
 
 
-  <?php
-  $img_dir = "imagens/usuarios/". $id . "/";
-  if (is_dir($img_dir)) {
-    $image = glob($img_dir . "*")[0];
-    $index = 3;
-    
-    $index++;
-    echo '<div>
-
-    <img src="'.$image.'" 
-    style=" width: 150px;
-    height: 150px;
-    background: gray;
-    border: 3px solid gray;
-    border-radius: 50%;
-    float: left;
-    margin-top: 5%;
-    margin-left: 5%"></img>
-
-
-    </div>';
-    
-    
-  } else {
-    echo "<img src='img/sem-img.png' style=' width: 150px;
-    height: 150px;
-    background: yellow;
-    border: 3px solid gray;
-    border-radius: 50%;
-    float: left;
-    margin-top: 5%;
-    margin-left: 5%'></img>";
-  }
-  ?>
+ 
   <br>
  
   
@@ -111,10 +78,11 @@ else
 
     ?>
 
-
-    <p class="card-text" style="margin-left: 17%;"><h1><strong style="margin-left: 2%; margin-top: 10%"><?php echo $data['titulo'];?></strong></h1></p>
+<center>
+  <p class="card-text" style="margin-left: 17%;"><h1><strong style="margin-top: 10%"><?php echo $data['titulo'];?></strong></h1></p>
+</center>
   </div>
-</div></center>
+</div>
 
 
 <div class="form-actions">
@@ -147,10 +115,9 @@ else
 
 <br>
 <br>
-<a style="margin-left: 10%" href="index.php" type="btn" class="btn btn-light">Voltar</a>
 
+<center>
 </div></div><br>
-
  <?php 
  $img_dir = "imagens/denuncias/". $id . "/";
  if (is_dir($img_dir)) {
@@ -185,12 +152,12 @@ else
 
 </div>
 
-
+</center>
 
 <!-- Modal -->
 
 <?php
-$img_dir = "imagens/restaurantes/". $id . "/";
+$img_dir = "imagens/denuncias/". $id . "/";
 if (is_dir($img_dir)) {
   $images = glob($img_dir . "*");
   $index = 3;
@@ -231,6 +198,7 @@ if (is_dir($img_dir)) {
   echo '<center>Este restaurante não possui imagens cadastradas</center><br></br>';
 }
 ?>
+<a style="margin-left: -15%; margin-top: 10%" href="index.php" type="btn" class="btn btn-light">Cancelar</a>
 
 <footer style="margin-top: 7%">
   <?php
