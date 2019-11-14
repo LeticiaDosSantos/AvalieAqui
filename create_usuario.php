@@ -270,7 +270,4 @@ if(!empty($_POST))
     <br>
     <br>
     <br>
-    <?php 
-
-
-    ?>
+    
