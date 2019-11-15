@@ -4,30 +4,7 @@ $id = null;
     {
         $id = $_REQUEST['id_user'];
     }
-require_once 'banco.php';
 
-$id = null;
-if(!empty($_GET['id_user']))
-{
-  $id = $_REQUEST['id_user'];
-}
-
-if(null==$id)
-{
-  header("Location: index.php");
-}
-else
-{
- $pdo = Banco::conectar();
- $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- $sql = "SELECT * FROM usuario where id_user =".$_SESSION['id_user'];
- $q = $pdo->prepare($sql);
- $q->execute(array($id));
- $data = $q->fetch(PDO::FETCH_ASSOC);
- Banco::desconectar();
-}
-
-?>
 
 ?>
 
@@ -91,7 +68,7 @@ else
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <!--<img src="img/user-icon.png" style="width: 10%;">--><?php echo $data['nome']; ?>
+          <!--<img src="img/user-icon.png" style="width: 10%;">--><?php echo $_SESSION['nome']; ?>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="read_usuario.php?id_user=<?php echo $_SESSION['id_user'];?> ">Meu Perfil</a>

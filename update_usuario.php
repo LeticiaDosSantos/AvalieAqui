@@ -1,9 +1,8 @@
 <?php
 
-
 include "cabecalho.php";
 
-require_once 'banco.php';
+require 'banco.php';
 
 $id_user = null;
 if ( !empty($_GET['id_user']))
@@ -27,6 +26,8 @@ if ( !empty($_POST)){
     $dt_nascimento = $_POST['dt_nascimento'];
     $email = $_POST['email'];
 
+    $imagens = $_FILES['imagens'];
+    
         //Validação
     $validacao = true;
     if (empty($nome))
@@ -40,6 +41,7 @@ if ( !empty($_POST)){
         $sexoErro = 'Por favor selecione seu sexo!';
         $validacao = false;
     }
+
     if (empty($dt_nascimento))
     {
         $dt_nascimentoErro = 'Por favor digite o horrário de funcionamento!';
@@ -62,6 +64,29 @@ if ( !empty($_POST)){
         $sql = "UPDATE usuario set nome = ?, sexo = ?, dt_nascimento = ?, email = ? WHERE id_user = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($nome,$sexo,$dt_nascimento,$email,$id_user));
+
+// -------------------- atualizar foto -------------------- \\
+
+      $last_id = $pdo->lastInsertId();
+
+            $target_dir = "imagens/";
+            $count_img = 0;
+            $uploaddir = $target_dir . "usuarios/". $last_id . "/";
+            if (!is_dir($uploaddir)) {
+                mkdir($uploaddir);
+            }
+
+            foreach ($imagens['name'] as $imagem) {
+                $target_file = $uploaddir . $count_img."-".basename($imagem);
+
+                move_uploaded_file($imagens["tmp_name"][$count_img], $target_file);
+                $count_img = $count_img + 1;
+            }
+
+            Banco::desconectar();
+            exit;
+            header("Location: login.php");
+        
     }
 }
 else
@@ -76,33 +101,10 @@ else
     $sexo = $data['sexo'];
     $dt_nascimento = $data['dt_nascimento'];
     $email = $data['email'];
-
-    $imagens = $_FILES['imagens'];
     
-         $last_id = $pdo->lastInsertId();
-      $target_dir = "imagens/";
-            $count_img = 0;
-            $uploaddir = $target_dir . "usuarios/". $last_id . "/";
-            if (!is_dir($uploaddir)) {
-                mkdir($uploaddir);
-            }
-
-            foreach ($imagens['name'] as $imagem) {
-                $target_file = $uploaddir . $count_img."-".basename($imagem);
-
-                move_uploaded_file($imagens["tmp_name"][$count_img], $target_file);
-                $count_img = $count_img + 1;
-            }
-
-        
-        header("Location: buscar_usuarios.php");
-            Banco::desconectar();
-            exit;
-            header("Location: login.php");
-        }
-
-
-
+    $imagens = $_FILES['imagens'];
+    Banco::desconectar();
+}
 ?>
 
 <!DOCTYPE html>
@@ -117,21 +119,20 @@ else
 <br>
 <body>
     <div class="container">
-        <center>
-          <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Atualizar Informações</a>
-      </nav><br>
-      <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
-  }"> </div>   <br><br> </center>
-  <div class="span10 offset1">
-    <div class="card">
-        <div class="card-body">
-            <form class="form-horizontal" action="./update_usuario.php?id_user=<?php echo $id_user?>" method="post">
+        <div style="width: 85%">
+            <center>
+              <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Atualizar Informações</a>
+          </nav><br>
+          <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
+      }"> </div>   <br><br> </center>
+      <div class="span10 offset1">
+        <div class="card">
 
-                <?php
-
-                $id_user= $_GET['id_user'];
-                $img_dir = "imagens/usuarios/". $id_user . "/";
-                if (is_dir($img_dir)) {
+            <div class="card-body">
+               <?php 
+               $id_user= $_GET['id_user'];
+               $img_dir = "imagens/usuarios/". $id_user . "/";
+               if (is_dir($img_dir)) {
                   $images = glob($img_dir . "*");
                   $index = 3;
                   $contador = 0;
@@ -150,8 +151,8 @@ else
                       border: 3px solid gray;
                       border-radius: 50%;
                       float: left;
-                      margin-top: 2%;
-                      margin-left: 0%" src="'.$image.'" style="width: 15%; float:left;"/></img>
+                      margin-top: 4%;
+                      margin-left: 0%" src="'.$image.'" style="width: 15%; float:right;"/></img>
                       </div>
                       </div>
                       </div>'
@@ -166,30 +167,15 @@ else
                 border: 3px solid gray;
                 border-radius: 50%;
                 float: left;
-                margin-top: 8%;
+                margin-top: 4%;
                 margin-left: 5%'></img>";
             }
-
-            echo "
-
-
-                                    <div class='input-group mb-3'>
-                                       
-                                        <div class='input-group'>
-                                          <div class='custom-file'>
-
-                                            <input type='file' class='custom-file-input' id='inputGroupFile04'aria-describedby='inputGroupFileAddon04'  id='imagens' name='imagens[]' multiple='multiple'>
-                                            <label class='custom-file-label' for='inputGroupFile04'  style='width: 20%; margin-left: 11%'> Alterar foto </label>
-                                        </div>
-                                        <div class='input-group-append'>
-                                        </div>
-                                    </div>
+            ?>
 
 
-            ";
+            <!-- Modal -->
 
-// ---------- Modal --------- \\
-
+            <?php
             $img_dir = "imagens/usuarios/". $id_user . "/";
             if (is_dir($img_dir)) {
               $images = glob($img_dir . "*");
@@ -221,9 +207,7 @@ else
 
                 </div>
                 </div>
-                </div>
-
-                ';
+                </div>    ';
                 $contador++;
             }
 
@@ -237,52 +221,77 @@ else
             margin-top: 8%;
             margin-left: 5%'></img>";
         }
+        ?>
 
-        ?><div style="margin-left: 40%; margin-top: -20%; width: 40%">
-            <div class="control-group <?php echo !empty($nomeErro)?'error':'';?>">
-                <label class="control-label">Nome</label>
-                <div class="controls">
-                    <input name="nome" class="form-control" size="50" type="text" placeholder="Nome" value="<?php echo !empty($nome)?$nome:'';?>">
-                    <?php if (!empty($nomeErro)): ?>
-                        <span class="help-inline"><?php echo $nomeErro;?></span>
-                    <?php endif; ?>
+        <div style="margin-left: 11%">
+            <a style="margin-left: 8%">Alterar foto</a><br><br>
+
+            <div class="input-group mb-3">
+
+                <div class="input-group">
+                  <div class="custom-file">
+
+                    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" id="imagens" name="imagens[]" multiple="multiple">
+                    <label class="custom-file-label"  style="width: 20%; margin-left: 3%" for="inputGroupFile04">Selecionar</label>
                 </div>
-            </div>
-
-
-            <div class="control-group <?php echo !empty($sexoErro)?'error':'';?>">
-                <label class="control-label">Sexo</label>
-                <div class="controls">
-                    <input name="sexo" class="form-control" size="50" type="text" value="<?php echo !empty($sexo)?$sexo:'';?>">
-                    <?php if (!empty($sexoErro)): ?>
-                        <span class="help-inline"><?php echo $sexoErro;?></span>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <div class="control-group <?php echo !empty($dt_nascimentoErro)?'error':'';?>">
-                <label class="control-label">Data de Nascimento</label>
-                <div class="controls">
-                    <input name="dt_nascimento" class="form-control" size="30" type="text" placeholder="Telefone"  value="<?php echo !empty($dt_nascimento)?$dt_nascimento:'';?>">
-                    <?php if (!empty($dt_nascimentoErro)): ?>
-                        <span class="help-inline"><?php echo $dt_nascimentoErro;?></span>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <div class="control-group <?php echo !empty($emailErro)?'error':'';?>">
-                <label class="control-label">Endereço de Email</label>
-                <div class="controls">
-                    <input name="email" class="form-control" size="30" type="text" placeholder="Digite aqui" value="<?php echo !empty($email)?$email:'';?>">
-                    <?php if (!empty($emailErro)): ?>
-                        <span class="help-inline"><?php echo $emailErro;?></span>
-                    <?php endif; ?>
+                <div class="input-group-append">
                 </div>
             </div>
         </div>
+        <!-- ----------- -->
 
-    </body>
-    <script type="text/javascript">
+
+
+        <div style="width: 50%; margin-left: 47%; margin-top: -32%">
+            <form class="form-horizontal" action="./update_usuario.php?id_user=<?php echo $id_user?>" method="post">
+
+                <div class="control-group <?php echo !empty($nomeErro)?'error':'';?>">
+                    <label class="control-label">Nome</label>
+                    <div class="controls">
+                        <input name="nome" class="form-control" size="50" type="text" placeholder="Nome" value="<?php echo !empty($nome)?$nome:'';?>">
+                        <?php if (!empty($nomeErro)): ?>
+                            <span class="help-inline"><?php echo $nomeErro;?></span>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+
+                <div class="control-group <?php echo !empty($sexoErro)?'error':'';?>">
+                    <label class="control-label">Sexo</label>
+                    <div class="controls">
+                        <input name="sexo" class="form-control" size="50" type="text" value="<?php echo !empty($sexo)?$sexo:'';?>">
+                        <?php if (!empty($sexoErro)): ?>
+                            <span class="help-inline"><?php echo $sexoErro;?></span>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <div class="control-group <?php echo !empty($dt_nascimentoErro)?'error':'';?>">
+                    <label class="control-label">Data de Nascimento</label>
+                    <div class="controls">
+                        <input name="dt_nascimento" class="form-control" size="30" type="text" placeholder="Telefone" value="<?php echo !empty($dt_nascimento)?$dt_nascimento:'';?>">
+                        <?php if (!empty($dt_nascimentoErro)): ?>
+                            <span class="help-inline"><?php echo $dt_nascimentoErro;?></span>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                
+                <div class="control-group <?php echo !empty($emailErro)?'error':'';?>">
+                    <label class="control-label">Horário de Email</label>
+                    <div class="controls">
+                        <input name="email" class="form-control" size="30" type="text" placeholder="Digite aqui" value="<?php echo !empty($email)?$email:'';?>">
+                        <?php if (!empty($emailErro)): ?>
+                            <span class="help-inline"><?php echo $emailErro;?></span>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </body>
+        <script type="text/javascript">
   //CIDADES E ESTADOS
   new dgCidadesEstados({
     cidade: document.getElementById('cidade'),
@@ -294,16 +303,15 @@ else
 
 
 <br/>
-<br>
-</form>
 </div>
 </div>
 </div>
 </div>
-<br>
-<div class="form-actions" style="margin-left: 9%">
-    <a href="index.php" type="btn" class="btn btn-light">Voltar</a>
+<div class="form-actions" style="margin-left: 9%; margin-top: 2%">
     <button type="submit" class="btn btn-warning">Atualizar</button>
+    <a href="index.php" type="btn" class="btn btn-light">Voltar</a>
+</div>
+</form>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

@@ -151,5 +151,6 @@ include ("cabecalho.php");
 include ("rodape.php");
 ?>
 </div>
+</div>
 
 </body>
