@@ -46,7 +46,7 @@ include ("cabecalho.php");
   <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
 }"> </div>   
 <br>
-<nav class="nav justify-content-center" style="margin-left: 10%; margin-right: 10%;">
+<nav class="nav justify-content-center" style="margin-left: 22%; margin-right: 22%;">
   <br>
   
   <?php
@@ -58,7 +58,7 @@ include ("cabecalho.php");
   {
     echo '<tr>';                           
     echo '<td width=250>';
-    echo '<a class="btn btn-light" style="margin-bottom: 1%; margin-left: 0.7%;" href="categorias.php?id_tipo_comida='.$row['id_comida'].'">'. $row['categoria'] . '</a>';
+    echo '<a class="btn btn-light" style="margin-bottom: 3%; margin-left: 0%;" href="categorias.php?id_tipo_comida='.$row['id_comida'].'">'. $row['categoria'] . '</a>';
     echo ' ';
     echo '</td>';
     echo '</tr><br>';
@@ -66,6 +66,8 @@ include ("cabecalho.php");
   Banco::desconectar();
   ?>
   
+</nav>
+<br>
 </nav>
 <br>
 </nav>
