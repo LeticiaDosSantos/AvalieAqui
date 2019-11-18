@@ -162,6 +162,7 @@ else
     </center>
     <div class="card-body">
       <h5 class="card-title">Cardápio</h5>
+      <p class="card-text">Faixa de preço: <strong style="color: green">R$ </strong><?php echo $data['preco'];?></p>
       <p class="card-text"><?php echo $data['categoria'];?></p>
     </div>
   </div>
@@ -230,7 +231,7 @@ echo '<div style="width: 10%; display: inline">';
 
     $index++;
     
-    echo '<img  class="fotogrande" src="'.$image.'" style="width: 15%; float:left;"/></img>
+    echo '<img  class="fotogrande" src="'.$image.'" style="margin-left:0.4%; width: 15%; float:left;"/></img>
     </div>
     </div>
     </div>'

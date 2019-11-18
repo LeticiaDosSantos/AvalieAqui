@@ -68,7 +68,7 @@ else
       Avançado
       </button>
       <div class="dropdown-menu">
-      <a class="dropdown-item" href="read_usuario.php?id_user='.$row['id_user'].'">Visitar Restaurante</a>
+      <a class="dropdown-item" href="read_restaurante.php?id_rest='.$row['id_rest'].'">Visitar Restaurante</a>
       <a class="dropdown-item" href="delete_denuncia.php?id='.$row['id'].'">Excluir Denúncia</a>
       </div>
       </div>
@@ -143,7 +143,7 @@ else
   }
   
 } else {
-  echo '<center>Este restaurante não possui imagens cadastradas</center><br></br>';
+  echo '<center>Esta denúncia não possui imagens cadastradas</center><br></br>';
 }
 ?>
 
@@ -194,9 +194,7 @@ if (is_dir($img_dir)) {
     $contador++;
   }
 
-} else {
-  echo '<center>Este restaurante não possui imagens cadastradas</center><br></br>';
-}
+} 
 ?>
 <a style="margin-left: -15%; margin-top: 10%" href="index.php" type="btn" class="btn btn-light">Cancelar</a>
 

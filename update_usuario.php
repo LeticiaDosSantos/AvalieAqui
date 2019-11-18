@@ -67,25 +67,25 @@ if ( !empty($_POST)){
 
 // -------------------- atualizar foto -------------------- \\
 
-      $last_id = $pdo->lastInsertId();
+        $last_id = $pdo->lastInsertId();
 
-            $target_dir = "imagens/";
-            $count_img = 0;
-            $uploaddir = $target_dir . "usuarios/". $last_id . "/";
-            if (!is_dir($uploaddir)) {
-                mkdir($uploaddir);
-            }
+        $target_dir = "imagens/";
+        $count_img = 0;
+        $uploaddir = $target_dir . "usuarios/". $last_id . "/";
+        if (!is_dir($uploaddir)) {
+            mkdir($uploaddir);
+        }
 
-            foreach ($imagens['name'] as $imagem) {
-                $target_file = $uploaddir . $count_img."-".basename($imagem);
+        foreach ($imagens['name'] as $imagem) {
+            $target_file = $uploaddir . $count_img."-".basename($imagem);
 
-                move_uploaded_file($imagens["tmp_name"][$count_img], $target_file);
-                $count_img = $count_img + 1;
-            }
+            move_uploaded_file($imagens["tmp_name"][$count_img], $target_file);
+            $count_img = $count_img + 1;
+        }
 
-            Banco::desconectar();
-            exit;
-            header("Location: login.php");
+        Banco::desconectar();
+        exit;
+        header("Location: login.php");
         
     }
 }
@@ -118,180 +118,180 @@ else
 </head>
 <br>
 <body>
-    <div class="container">
+    <div class="container" style="margin-left: 14%">
         <div style="width: 85%">
             <center>
               <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Atualizar Informações</a>
           </nav><br>
-          <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
+          <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 5%;
       }"> </div>   <br><br> </center>
       <div class="span10 offset1">
         <div class="card">
 
             <div class="card-body">
-               <?php 
-               $id_user= $_GET['id_user'];
-               $img_dir = "imagens/usuarios/". $id_user . "/";
-               if (is_dir($img_dir)) {
-                  $images = glob($img_dir . "*");
-                  $index = 3;
-                  $contador = 0;
-                  echo '<div style="width: 10%; display: inline">';
-                  foreach ($images as $image) {
-                      echo '
-
-                      <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 13%; margin-right: 13%">';
-                      $contador++;
-
-                      $index++;
-
-                      echo '<img  class="fotogrande" style=" width: 150px;
-                      height: 150px;
-                      background: gray;
-                      border: 3px solid gray;
-                      border-radius: 50%;
-                      float: left;
-                      margin-top: 4%;
-                      margin-left: 0%" src="'.$image.'" style="width: 15%; float:right;"/></img>
-                      </div>
-                      </div>
-                      </div>'
-                      ;
-
-                  }
-
-              } else {
-                echo "<img src='img/sem-img.png' style=' width: 150px;
-                height: 150px;
-                background: yellow;
-                border: 3px solid gray;
-                border-radius: 50%;
-                float: left;
-                margin-top: 4%;
-                margin-left: 5%'></img>";
-            }
-            ?>
-
-
-            <!-- Modal -->
-
-            <?php
-            $img_dir = "imagens/usuarios/". $id_user . "/";
-            if (is_dir($img_dir)) {
+             <?php 
+             $id_user= $_GET['id_user'];
+             $img_dir = "imagens/usuarios/". $id_user . "/";
+             if (is_dir($img_dir)) {
               $images = glob($img_dir . "*");
               $index = 3;
               $contador = 0;
+              echo '<div style="width: 10%; display: inline">';
               foreach ($images as $image) {
+                  echo '
 
-                $index++;
-                echo '
-                <div class="modal fade" id="exampleModal'.$contador.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document" style="margin-top: 7%;" >
-                <div class="modal-content" style="">
-                <div class="modal-header">
+                  <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 13%; margin-right: 13%">';
+                  $contador++;
 
-                <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 25px;  font-family:all;">'.$data['nome'].'</a>
+                  $index++;
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div>
+                  echo '<img  class="fotogrande" style=" width: 150px;
+                  height: 150px;
+                  background: gray;
+                  border: 3px solid gray;
+                  border-radius: 50%;
+                  float: left;
+                  margin-top: 4%;
+                  margin-left: 0%" src="'.$image.'" style="width: 15%; float:right;"/></img>
+                  </div>
+                  </div>
+                  </div>'
+                  ;
 
-                <div class="modal-body">
-                <img class="fotogrande" src="'.$image.'" style="width:100%;";/></img> 
-                </div> ';
+              }
 
-                echo '
-                </div>
-
-                </div>
-                </div>
-                </div>    ';
-                $contador++;
-            }
-
-        } else {
+          } else {
             echo "<img src='img/sem-img.png' style=' width: 150px;
             height: 150px;
             background: yellow;
             border: 3px solid gray;
             border-radius: 50%;
             float: left;
-            margin-top: 8%;
+            margin-top: 4%;
             margin-left: 5%'></img>";
         }
         ?>
 
-        <div style="margin-left: 11%">
-            <a style="margin-left: 8%">Alterar foto</a><br><br>
 
-            <div class="input-group mb-3">
+        <!-- Modal -->
 
-                <div class="input-group">
-                  <div class="custom-file">
+        <?php
+        $img_dir = "imagens/usuarios/". $id_user . "/";
+        if (is_dir($img_dir)) {
+          $images = glob($img_dir . "*");
+          $index = 3;
+          $contador = 0;
+          foreach ($images as $image) {
 
-                    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" id="imagens" name="imagens[]" multiple="multiple">
-                    <label class="custom-file-label"  style="width: 20%; margin-left: 3%" for="inputGroupFile04">Selecionar</label>
-                </div>
-                <div class="input-group-append">
-                </div>
+            $index++;
+            echo '
+            <div class="modal fade" id="exampleModal'.$contador.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="margin-top: 7%;" >
+            <div class="modal-content" style="">
+            <div class="modal-header">
+
+            <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 25px;  font-family:all;">'.$data['nome'].'</a>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div>
+
+            <div class="modal-body">
+            <img class="fotogrande" src="'.$image.'" style="width:100%;";/></img> 
+            </div> ';
+
+            echo '
+            </div>
+
+            </div>
+            </div>
+            </div>    ';
+            $contador++;
+        }
+
+    } else {
+        echo "<img src='img/sem-img.png' style=' width: 150px;
+        height: 150px;
+        background: yellow;
+        border: 3px solid gray;
+        border-radius: 50%;
+        float: left;
+        margin-top: 8%;
+        margin-left: 5%'></img>";
+    }
+    ?>
+
+    <div style="margin-left: 11%">
+        <a style="margin-left: 8%">Alterar foto</a><br><br>
+
+        <div class="input-group mb-3">
+
+            <div class="input-group">
+              <div class="custom-file">
+
+                <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" id="imagens" name="imagens[]" multiple="multiple">
+                <label class="custom-file-label"  style="width: 20%; margin-left: 3%" for="inputGroupFile04">Selecionar</label>
+            </div>
+            <div class="input-group-append">
             </div>
         </div>
-        <!-- ----------- -->
+    </div>
+    <!-- ----------- -->
 
 
 
-        <div style="width: 50%; margin-left: 47%; margin-top: -32%">
-            <form class="form-horizontal" action="./update_usuario.php?id_user=<?php echo $id_user?>" method="post">
+    <div style="width: 50%; margin-left: 47%; margin-top: -32%">
+        <form class="form-horizontal" action="./update_usuario.php?id_user=<?php echo $id_user?>" method="post">
 
-                <div class="control-group <?php echo !empty($nomeErro)?'error':'';?>">
-                    <label class="control-label">Nome</label>
-                    <div class="controls">
-                        <input name="nome" class="form-control" size="50" type="text" placeholder="Nome" value="<?php echo !empty($nome)?$nome:'';?>">
-                        <?php if (!empty($nomeErro)): ?>
-                            <span class="help-inline"><?php echo $nomeErro;?></span>
-                        <?php endif; ?>
-                    </div>
+            <div class="control-group <?php echo !empty($nomeErro)?'error':'';?>">
+                <label class="control-label">Nome</label>
+                <div class="controls">
+                    <input name="nome" class="form-control" size="50" type="text" placeholder="Nome" value="<?php echo !empty($nome)?$nome:'';?>">
+                    <?php if (!empty($nomeErro)): ?>
+                        <span class="help-inline"><?php echo $nomeErro;?></span>
+                    <?php endif; ?>
                 </div>
-
-
-                <div class="control-group <?php echo !empty($sexoErro)?'error':'';?>">
-                    <label class="control-label">Sexo</label>
-                    <div class="controls">
-                        <input name="sexo" class="form-control" size="50" type="text" value="<?php echo !empty($sexo)?$sexo:'';?>">
-                        <?php if (!empty($sexoErro)): ?>
-                            <span class="help-inline"><?php echo $sexoErro;?></span>
-                        <?php endif; ?>
-                    </div>
-                </div>
-
-                <div class="control-group <?php echo !empty($dt_nascimentoErro)?'error':'';?>">
-                    <label class="control-label">Data de Nascimento</label>
-                    <div class="controls">
-                        <input name="dt_nascimento" class="form-control" size="30" type="text" placeholder="Telefone" value="<?php echo !empty($dt_nascimento)?$dt_nascimento:'';?>">
-                        <?php if (!empty($dt_nascimentoErro)): ?>
-                            <span class="help-inline"><?php echo $dt_nascimentoErro;?></span>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                
-                <div class="control-group <?php echo !empty($emailErro)?'error':'';?>">
-                    <label class="control-label">Horário de Email</label>
-                    <div class="controls">
-                        <input name="email" class="form-control" size="30" type="text" placeholder="Digite aqui" value="<?php echo !empty($email)?$email:'';?>">
-                        <?php if (!empty($emailErro)): ?>
-                            <span class="help-inline"><?php echo $emailErro;?></span>
-                        <?php endif; ?>
-                    </div>
-                </div>
-
             </div>
 
 
+            <div class="control-group <?php echo !empty($sexoErro)?'error':'';?>">
+                <label class="control-label">Sexo</label>
+                <div class="controls">
+                    <input name="sexo" class="form-control" size="50" type="text" value="<?php echo !empty($sexo)?$sexo:'';?>">
+                    <?php if (!empty($sexoErro)): ?>
+                        <span class="help-inline"><?php echo $sexoErro;?></span>
+                    <?php endif; ?>
+                </div>
+            </div>
 
-        </body>
-        <script type="text/javascript">
+            <div class="control-group <?php echo !empty($dt_nascimentoErro)?'error':'';?>">
+                <label class="control-label">Data de Nascimento</label>
+                <div class="controls">
+                    <input name="dt_nascimento" class="form-control" size="30" type="text" placeholder="Telefone" value="<?php echo !empty($dt_nascimento)?$dt_nascimento:'';?>">
+                    <?php if (!empty($dt_nascimentoErro)): ?>
+                        <span class="help-inline"><?php echo $dt_nascimentoErro;?></span>
+                    <?php endif; ?>
+                </div>
+            </div>
+            
+            <div class="control-group <?php echo !empty($emailErro)?'error':'';?>">
+                <label class="control-label">Horário de Email</label>
+                <div class="controls">
+                    <input name="email" class="form-control" size="30" type="text" placeholder="Digite aqui" value="<?php echo !empty($email)?$email:'';?>">
+                    <?php if (!empty($emailErro)): ?>
+                        <span class="help-inline"><?php echo $emailErro;?></span>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </body>
+    <script type="text/javascript">
   //CIDADES E ESTADOS
   new dgCidadesEstados({
     cidade: document.getElementById('cidade'),
@@ -307,7 +307,7 @@ else
 </div>
 </div>
 </div>
-<div class="form-actions" style="margin-left: 9%; margin-top: 2%">
+<div class="form-actions" style="margin-top: 2%">
     <button type="submit" class="btn btn-warning">Atualizar</button>
     <a href="index.php" type="btn" class="btn btn-light">Voltar</a>
 </div>

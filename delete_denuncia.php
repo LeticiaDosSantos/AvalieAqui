@@ -16,7 +16,7 @@ if(!empty($_POST))
     $q = $pdo->prepare($sql);
     $q->execute(array($id));
     Banco::desconectar();
-    header("Location: buscar_restaurantes.php");
+    header("Location: buscar_denuncias.php");
 }
 ?>
 

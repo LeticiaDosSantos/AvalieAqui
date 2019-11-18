@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if(empty($_SESSION['nome'])){
 	header("Location: login.php");
@@ -94,6 +93,17 @@ if(empty($_SESSION['nome'])){
 					</select>
 				</div>
 				<br>
+
+				<div class="control-group <?php echo !empty($precoErro)?'error ': '';?>">
+					<label class="control-label">Faixa de Preço</label>
+					<div class="controls">
+						<input size="40" class="form-control" name="preco" type="text" placeholder="3400-0000" required="" maxlength="20" value="<?php echo !empty($preco)?$preco: '';?>">
+						<p></p>
+						<?php if(!empty($precoErro)): ?>
+							<span class="help-inline"><?php echo $precoErro;?></span>
+						<?php endif;?>
+					</div>
+				</div>
 
 				<div class="control-group <?php echo !empty($telefoneErro)?'error ': '';?>">
 					<label class="control-label">Telefone</label>
@@ -216,6 +226,7 @@ if(!empty($_POST))
 	$nomeErro = null;
 	$descricaoErro = null;
 	$categoriaErro = null;
+	$precoErro = null;
 	$telefoneErro = null;
 	$horario_funcionamentoErro = null;
 	$estadoErro = null;
@@ -228,6 +239,7 @@ if(!empty($_POST))
 	$nome = $_POST['nome'];
 	$descricao = $_POST['descricao'];
 	$categoria = $_POST['categorias'];
+	$preco = $_POST['preco'];
 	$telefone = $_POST['telefone'];
 	$horario_funcionamento = $_POST['horario_funcionamento'];
 	$estado = $_POST['estado'];
@@ -255,6 +267,12 @@ if(!empty($_POST))
 		$categoriaErro = 'Por favor selecione uma categoria';
 		$validacao = false;
 	}
+
+	if(empty($preco))
+		{
+			$precoErro = 'Por favor digite a faixa de preço';
+			$validacao = false;
+		}
 
 	if(empty($telefone))
 	{
@@ -296,9 +314,9 @@ if(!empty($_POST))
 	{
 		$pdo = Banco::conectar();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "INSERT INTO restaurante (nome, descricao, horario_funcionamento, telefone, estado, endereco, cidade, numero) VALUES(?,?,?,?,?,?,?,?)";
+		$sql = "INSERT INTO restaurante (nome, descricao, horario_funcionamento, preco, telefone, estado, endereco, cidade, numero) VALUES(?,?,?,?,?,?,?,?,?)";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($nome, $descricao, $horario_funcionamento, $telefone, $estado, $endereco, $cidade, $numero));
+		$q->execute(array($nome, $descricao, $horario_funcionamento, $preco, $telefone, $estado, $endereco, $cidade, $numero));
 		$last_id = $pdo->lastInsertId();
 
 		$target_dir = "imagens/";

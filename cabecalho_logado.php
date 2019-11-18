@@ -56,12 +56,12 @@ $id = null;
     </div>
      
       <div>
-        <img src="img/logo1.png" style="width: 39%;" style="margin-left: 1%;">
+        <img src="img/logo1.png" style="width: 39%;" style="margin-left: 10%;">
       </div>
     
     <div class="collapse navbar-collapse" id="navbarNavDropdown" style="float: right;" >
 
-    <ul class="navbar-nav" style="margin-left: 40%;">
+    <ul class="navbar-nav" style="margin-left: 23.5%;">
 
       <li class="nav-item">
         <a class="nav-link" href="create_restaurante.php">Cadastre Seu Restaurante</a>

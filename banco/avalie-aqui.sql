@@ -85,6 +85,7 @@ CREATE TABLE `restaurante` (
   `telefone` varchar(255) NOT NULL,
   `horario_funcionamento` char(100) NOT NULL,
   `estado` varchar(2) NOT NULL,
+  `preco` varchar(15) NOT NULL,
   `endereco` varchar(100) NOT NULL,
   `numero` int(100) NOT NULL,
   `cidade` varchar(200) NOT NULL,

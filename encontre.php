@@ -170,6 +170,8 @@ include ("cabecalho.php");
       </section>
     </article>
   </center>
+</div>
+</div>
 </body>
 </html>
 
