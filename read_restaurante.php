@@ -35,10 +35,8 @@ else
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/css/Bootstrap/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/index.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/carrossel.css">
-  
-  <link rel="stylesheet" type="text/css" href="gallerieCopia.css"/>
-  <link rel="stylesheet" type="text/css" href="gallerie-effectsCopia.css"/>
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="estilo1.css">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -299,6 +297,73 @@ if (is_dir($img_dir)) {
 <br>
 <div style="margin-top: 9%">
 <?php echo '<a href="create_denuncia.php?id_rest='.$_GET['id_rest'].'" type="btn" class="btn btn-dark" style="margin-right: 5% ; float: right;">Denunciar</a>';?>
+
+</div>
+<br>
+<br>
+
+
+<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;}"> </div>   
+
+<br>
+
+
+ <nav class="nav justify-content-center"> 
+  <h5 class="nav-link" href="#" style="color: black; font-size: 30px; font-family:all;">Faça a sua avaliação aqui </h5>
+</nav>
+
+<br>
+
+<p></p>
+
+<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;"> </div>
+
+<br>
+<br>
+
+<div class="card bg-light mb-3" style="max-width: 59rem; margin-left: 15.5%;">
+  <div class="card-body" >
+    <h5 class="card-title">De uma nota ao restaurante</h5><br>
+
+
+
+    <?php
+    if(isset($_SESSION['msg'])){
+      echo $_SESSION['msg']."<br><br>";
+      unset($_SESSION['msg']);
+    }
+    ?>
+    
+    <form method="POST" action="processa.php" enctype="multipart/form-data">
+      <div class="estrelas">
+        <input type="radio" id="vazio" name="estrela" value="" checked>
+        
+        <label for="estrela_um"><i class="fa">Ruim</i></label>
+        <input type="radio" id="estrela_um" name="estrela" value="1">
+        
+        <label for="estrela_dois"><i class="fa">Razoável</i></label>
+        <input type="radio" id="estrela_dois" name="estrela" value="2">
+        
+        <label for="estrela_tres"><i class="fa">Bom</i></label>
+        <input type="radio" id="estrela_tres" name="estrela" value="3">
+        
+        <label for="estrela_quatro"><i class="fa">Ótimo</i></label>
+        <input type="radio" id="estrela_quatro" name="estrela" value="4">
+        
+        <label for="estrela_cinco"><i class="fa">Muito bom</i></label>
+        <input type="radio" id="estrela_cinco" name="estrela" value="5"><br><br>
+        
+        <input class= "btn btn-light" type="submit" value="Cadastrar">
+        
+      </div>
+    </form>
+
+  </div>
+
+</div>
+<br>
+
+
 
 <a href="index.php" type="btn" class="btn btn-light" style="margin-left: 3%; float:left;">Voltar</a>
 <br>
