@@ -15,10 +15,16 @@ else
  $pdo = Banco::conectar();
  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $sql = "SELECT * FROM restaurante where id_rest = ?";
- $a = 'SELECT * FROM `avalie-aqui`.`tipo_comida` WHERE `id_comida` = 11';
+ $a = 'SELECT t.categoria FROM restaurante r
+inner join restaurante_categoria c on (c.id_restaurante=r.id_rest)
+inner join tipo_comida t on (t.id_comida=c.id_tipo_comida)
+where id_rest = ?';
  $q = $pdo->prepare($sql);
+ $r = $pdo->prepare($a);
  $q->execute(array($id_rest));
+ $r->execute(array($id_rest));
  $data = $q->fetch(PDO::FETCH_ASSOC);
+ $dataa = $r->fetchAll();
  Banco::desconectar();
 }
 ?>
@@ -160,8 +166,16 @@ else
     </center>
     <div class="card-body">
       <h5 class="card-title">Cardápio</h5>
+
+
+      <?php
+foreach ($dataa as $key => $value) {
+      echo '<p class="card-text">'.$value['categoria'].'</p>';
+  
+}
+
+      ?>
       <p class="card-text">Faixa de preço: <strong style="color: green">R$ </strong><?php echo $data['preco'];?></p>
-      <p class="card-text"><?php echo $data['categoria'];?></p>
     </div>
   </div>
 
@@ -210,10 +224,6 @@ else
 <br><br>
 <br>
 
-
-
-
-
  <?php 
  $img_dir = "imagens/restaurantes/". $id_rest . "/";
  if (is_dir($img_dir)) {
@@ -223,13 +233,12 @@ else
 echo '<div style="width: 10%; display: inline">';
   foreach ($images as $image) {
   echo '
-
-  <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 15%; margin-right: 11%"; >';
+  <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 20%; margin-right: 13%"; >';
   $contador++;
 
     $index++;
     
-    echo '<img  class="fotogrande" src="'.$image.'" style="margin-left:0.4%; width: 28%; float:left;"/></img>
+    echo '<img  class="fotogrande" src="'.$image.'" style="margin-left:0.4%; width: 20%; float:left;"/></img>
     </div>
     </div>
     </div>'
@@ -241,10 +250,12 @@ echo '<div style="width: 10%; display: inline">';
   echo '<center>Este restaurante não possui imagens cadastradas</center><br></br>';
 }
 ?>
+  
 </div> 
 
 </div> 
 
+</div>
 </div>
 
 <br>
@@ -265,11 +276,11 @@ if (is_dir($img_dir)) {
     $index++;
     echo '
     <div class="modal fade" id="exampleModal'.$contador.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document" style="margin-top: 9%;" >
+      <div class="modal-dialog" role="document" style="margin-top: 7%;" >
         <div class="modal-content" style="">
          <div class="modal-header">
 
-          <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 24px;  font-family:all;">'.$data['nome'].'</a>
+          <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 25px;  font-family:all;">'.$data['nome'].'</a>
           
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
@@ -314,7 +325,7 @@ if(empty($_SESSION['nome'])){
   else{
     ?>
 
-<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;}"> </div>   
+<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;"> </div>   
 
 <br>
 
@@ -391,6 +402,7 @@ if(empty($_SESSION['nome'])){
 <a href="index.php" type="btn" class="btn btn-light" style="margin-left: 3%; float:left;">Voltar</a>
 <br>
 
+</div>
 </div>
 <br>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
