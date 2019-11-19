@@ -44,7 +44,7 @@ if(empty($_SESSION['nome'])){
             </thead>
             <tbody>
                 <?php
-                include 'banco.php';
+                require_once 'banco.php';
                 $pdo = Banco::conectar();
                 $sql = 'SELECT * FROM restaurante ORDER BY id_rest ASC';
 

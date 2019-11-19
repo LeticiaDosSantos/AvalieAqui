@@ -6,7 +6,7 @@ if(empty($_SESSION['nome'])){
     include ("cabecalho_logado.php");
     
     $sexo = "Indefinido";
-    require 'banco.php';
+    require_once 'banco.php';
     ?>
 
     <!DOCTYPE html>

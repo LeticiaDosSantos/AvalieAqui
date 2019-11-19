@@ -1,5 +1,5 @@
 <?php
-	require 'banco.php';
+	require_once 'banco.php';
 	if(empty($_SESSION['nome']))
 		header('Location: login.php');
 ?>

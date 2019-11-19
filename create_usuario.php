@@ -167,7 +167,7 @@ background-attachment:  fixed;">
 </html>
 
 <?php
-require 'banco.php';
+require_once 'banco.php';
 if(!empty($_POST))
 {
     
@@ -240,7 +240,7 @@ if(!empty($_POST))
         {
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo, senha) VALUES(?,?,?,?,?)";
+            $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo, senha, acesso) VALUES(?,?,?,?,?,0)";
             $q = $pdo->prepare($sql);
             $q->execute(array($nome,$dt_nascimento,$email,$sexo,$senha));
             $last_id = $pdo->lastInsertId();

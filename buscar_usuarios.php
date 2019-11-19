@@ -43,7 +43,7 @@ if(empty($_SESSION['nome'])){
             </thead>
             <tbody>
                 <?php
-                require 'banco.php';
+                require_once 'banco.php';
                 $pdo = Banco::conectar();
                 $sql = 'SELECT * FROM usuario ORDER BY id_user ASC';
 

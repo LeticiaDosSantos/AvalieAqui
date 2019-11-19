@@ -1,5 +1,5 @@
 <?php
-include ("cabecalho.php");
+require ("cabecalho.php");
 
 
 ?>
@@ -50,7 +50,7 @@ include ("cabecalho.php");
   <br>
   
   <?php
-  include 'banco.php';
+  require_once "banco.php"; 
   $pdo = Banco::conectar();
   $sql = 'SELECT * FROM `avalie-aqui`.`tipo_comida` ';
 

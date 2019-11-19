@@ -7,7 +7,7 @@ if(empty($_SESSION['nome'])){
 	
 
 	$sexo = "Indefinido";
-	require 'banco.php';
+	require_once 'banco.php';
 	?>
 
 	<!DOCTYPE html>

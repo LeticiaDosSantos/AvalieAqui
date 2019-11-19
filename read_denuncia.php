@@ -1,6 +1,6 @@
 <?php
 include "cabecalho.php";
-require 'banco.php';
+require_once 'banco.php';
 
 $id = null;
 if(!empty($_GET['id']))

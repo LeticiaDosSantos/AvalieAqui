@@ -20,7 +20,7 @@ include  'cabecalho.php';
   <br>
   <?php
   
-  require 'banco.php';
+  require_once 'banco.php';
 
   $a = $_GET['id_tipo_comida'];
 
@@ -87,7 +87,8 @@ include  'cabecalho.php';
   
   Banco::desconectar();
   ?>
-</p></center></div></div></body></html>
+</p></center></div></div>
+</body></html>
 
 <footer>
 	<?php include "rodape.php"; ?>

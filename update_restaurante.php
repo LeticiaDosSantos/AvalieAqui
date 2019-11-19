@@ -2,7 +2,7 @@
 
 include "cabecalho.php";
 
-require 'banco.php';
+require_once 'banco.php';
 
 $id_rest = null;
 if ( !empty($_GET['id_rest']))

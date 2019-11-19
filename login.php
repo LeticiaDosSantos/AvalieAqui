@@ -1,6 +1,6 @@
 <?php
 include ("cabecalho_login.php");
-require ("banco.php");
+require_once ("banco.php");
 
 if(isset($_POST['login'])) {
 	$errMsg = '';

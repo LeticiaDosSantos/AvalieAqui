@@ -1,6 +1,6 @@
 <?php
 include 'cabecalho.php';
-require 'banco.php';
+require_once 'banco.php';
 $id_user = null;
 if(!empty($_GET['id_user']))
 {

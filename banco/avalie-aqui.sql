@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Nov-2019 às 23:20
--- Versão do servidor: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Generation Time: 19-Nov-2019 às 19:49
+-- Versão do servidor: 10.1.34-MariaDB
+-- PHP Version: 5.6.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -84,15 +86,15 @@ CREATE TABLE `restaurante` (
 -- Extraindo dados da tabela `restaurante`
 --
 
-INSERT INTO `restaurante` (`id_rest`, `nome`, `descricao`, `telefone`, `horario_funcionamento`, `estado`, `endereco`, `numero`, `cidade`, `usuario_id_user`) VALUES
-(1, 'Madero Steak House', 'O hambuger do MADERO faz o mundo melhor.', '(47)3043-9100', 'segunda-feira à sábado 11:45–23:00 domingo e feriados 11:45–22:00', 'SC', 'Av. Rolf Wiest, Bom Retiro', 337, 'Água Doce', 4),
-(2, 'Virado no Alho', 'Comida deliciosa, equipe sempre simpática e o chef vem ás mesas cumprimentar. É um favorito na cidade. Sagú sempre bom!', '3426-0045', 'de terça-feira a sabado, das 11:30 as 14:00 e 18:00 as 00:00, domingo e segunda somente das 11:30 as', 'sc', 'R. Simão Kruger', 50, '0', 0),
-(11, 'Santa Mistura', 'Restaurante super caro', '34443444', '', 'SC', 'Rua Otto Boehm', 648, 'Joinville', 0),
-(19, 'La Cecília Cantina & Café', 'FAIXA DE PREÇO R$ 33 - R$ 148 COZINHAS Italiana, Café, Mediterrânea, Brasileira, Sul-americana REFEIÇÕES Café da manhã, Almoço, Drinks', '+55 41 3071-0369', 'seg-qui 11:00–00:00 sex-sáb 11:00–01:00 dom 11:00–17:00', 'PR', 'Avenida Senador Souza Naves, Curitiba, Paraná 80045-060 Brasil', 61, 'Curitiba', 0),
-(20, 'Il Sogno di mamma Nunzia', 'Il Sogno di Mamma Nunzia é O Restaurante italiano localizado no centro histórico de Curitiba, em uma casa centenária que tem uma das mais lindas decorações da cidade. Ambiente tranquilo e agradável, com pratos focados na excelência da tradição da Itália, se orgulha de servir entradas, pasta, carnes ', '4130495501', 'Seg - Sáb 12:00 - 14:30 19:00 - 23:00', 'PR', 'Avenida Jaime Reis, São Francisco, Curitiba, Paraná 80510-010 Brasil', 216, 'Curitiba', 0),
-(21, 'Izakaya Tanuki', 'Nós somos um tradicional Izakaya japonês (casa de Saquê). Nosso objetivo é trazer, para Curitiba e região, a experiência de estar em um verdadeiro Izakaya.', '+55 41 3503-5526', 'Seg - Qui 18:00 - 23:00 Seg - Sex 11:30 - 14:00 Sex - Sáb 18:00 - 23:30 Sáb - Dom 11:30 - 15:00', 'PR', 'Avenida dos Estados, Curitiba, Paraná 80610-040 Brasil', 853, 'Curitiba', 0),
-(22, 'Guacamole Cocina Mexicana', 'Reservas, Mesas ao ar livre, Lugares para sentar, Cadeiras para bebês, Serve bebida alcoólica, Bar completo, Vinho e cerveja, Wi-fi gratuito, Aceita cartão de crédito, Serviço de mesa', '+55 51 3026-5054', 'Dom - Sáb 19:00 - 00:00', 'RS', ' Avenida Doutor Nilo Pecanha, Porto Alegre, Rio Grande do Sul 90470-000 Brasil', 450, 'Porto Alegre', 0),
-(23, 'La Rouge Bistrô', 'O espaço gastronômico mais inovador de Porto Alegre. Culinária ética, criativa, orgânica, saudável, sofisticada e deliciosa.', '+55 51 3019-7638', 'Ter - Sex 12:00 - 15:00 Qui 19:30 - 22:30 Sáb - Dom 12:00 - 16:00', 'RS', 'Avenida Mariland, Porto Alegre, Rio Grande do Sul 90440-191 Brasil', 1587, 'Porto Alegre', 0);
+INSERT INTO `restaurante` (`id_rest`, `nome`, `descricao`, `telefone`, `horario_funcionamento`, `estado`, `preco`, `endereco`, `numero`, `cidade`, `usuario_id_user`) VALUES
+(1, 'Madero Steak House', 'O hambuger do MADERO faz o mundo melhor.', '(47)3043-9100', 'segunda-feira à sábado 11:45–23:00 domingo e feriados 11:45–22:00', 'SC', '', 'Av. Rolf Wiest, Bom Retiro', 337, 'Água Doce', 4),
+(2, 'Virado no Alho', 'Comida deliciosa, equipe sempre simpática e o chef vem ás mesas cumprimentar. É um favorito na cidade. Sagú sempre bom!', '3426-0045', 'de terça-feira a sabado, das 11:30 as 14:00 e 18:00 as 00:00, domingo e segunda somente das 11:30 as', 'sc', '', 'R. Simão Kruger', 50, '0', 0),
+(11, 'Santa Mistura', 'Restaurante super caro', '34443444', '', 'SC', '', 'Rua Otto Boehm', 648, 'Joinville', 0),
+(19, 'La Cecília Cantina & Café', 'FAIXA DE PREÇO R$ 33 - R$ 148 COZINHAS Italiana, Café, Mediterrânea, Brasileira, Sul-americana REFEIÇÕES Café da manhã, Almoço, Drinks', '+55 41 3071-0369', 'seg-qui 11:00–00:00 sex-sáb 11:00–01:00 dom 11:00–17:00', 'PR', '', 'Avenida Senador Souza Naves, Curitiba, Paraná 80045-060 Brasil', 61, 'Curitiba', 0),
+(20, 'Il Sogno di mamma Nunzia', 'Il Sogno di Mamma Nunzia é O Restaurante italiano localizado no centro histórico de Curitiba, em uma casa centenária que tem uma das mais lindas decorações da cidade. Ambiente tranquilo e agradável, com pratos focados na excelência da tradição da Itália, se orgulha de servir entradas, pasta, carnes ', '4130495501', 'Seg - Sáb 12:00 - 14:30 19:00 - 23:00', 'PR', '', 'Avenida Jaime Reis, São Francisco, Curitiba, Paraná 80510-010 Brasil', 216, 'Curitiba', 0),
+(21, 'Izakaya Tanuki', 'Nós somos um tradicional Izakaya japonês (casa de Saquê). Nosso objetivo é trazer, para Curitiba e região, a experiência de estar em um verdadeiro Izakaya.', '+55 41 3503-5526', 'Seg - Qui 18:00 - 23:00 Seg - Sex 11:30 - 14:00 Sex - Sáb 18:00 - 23:30 Sáb - Dom 11:30 - 15:00', 'PR', '', 'Avenida dos Estados, Curitiba, Paraná 80610-040 Brasil', 853, 'Curitiba', 0),
+(22, 'Guacamole Cocina Mexicana', 'Reservas, Mesas ao ar livre, Lugares para sentar, Cadeiras para bebês, Serve bebida alcoólica, Bar completo, Vinho e cerveja, Wi-fi gratuito, Aceita cartão de crédito, Serviço de mesa', '+55 51 3026-5054', 'Dom - Sáb 19:00 - 00:00', 'RS', '', ' Avenida Doutor Nilo Pecanha, Porto Alegre, Rio Grande do Sul 90470-000 Brasil', 450, 'Porto Alegre', 0),
+(23, 'La Rouge Bistrô', 'O espaço gastronômico mais inovador de Porto Alegre. Culinária ética, criativa, orgânica, saudável, sofisticada e deliciosa.', '+55 51 3019-7638', 'Ter - Sex 12:00 - 15:00 Qui 19:30 - 22:30 Sáb - Dom 12:00 - 16:00', 'RS', '', 'Avenida Mariland, Porto Alegre, Rio Grande do Sul 90440-191 Brasil', 1587, 'Porto Alegre', 0);
 
 -- --------------------------------------------------------
 
@@ -175,6 +177,14 @@ CREATE TABLE `tipo_user` (
   `descricao` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `tipo_user`
+--
+
+INSERT INTO `tipo_user` (`id_tip`, `descricao`) VALUES
+(1, 'Administrador'),
+(2, 'Usuário comum');
+
 -- --------------------------------------------------------
 
 --
@@ -188,7 +198,6 @@ CREATE TABLE `usuario` (
   `dt_nascimento` date NOT NULL,
   `email` varchar(80) NOT NULL,
   `senha` varchar(100) NOT NULL,
-  `acesso` varchar(100) NOT NULL,
   `tipo_user_id_tip` int(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -218,7 +227,9 @@ INSERT INTO `usuario` (`id_user`, `nome`, `sexo`, `dt_nascimento`, `email`, `sen
 (53, 'Leticia dos Santos', 'F', '2221-02-21', 'le@le.com', '2222', 0),
 (54, 'yunet', 'F', '1967-10-10', 'yunet@gmail.com', 'yunet', 0),
 (55, 'saco', 'M', '2019-10-05', 'deus@socor.com', '2019', 0),
-(56, 'ta', 'M', '2001-12-21', 'ta@ta.com', 'ta', 0);
+(56, 'ta', 'M', '2001-12-21', 'ta@ta.com', 'ta', 0),
+(58, 'lalal', 'Ma', '2003-02-21', 'aaaa@gmail.com', '123456', 0),
+(59, 'aaaa', 'Ma', '2003-12-21', 'aaa@gmail.com', '123456', 0);
 
 --
 -- Indexes for dumped tables
@@ -290,31 +301,37 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `avaliacos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `restaurante`
 --
 ALTER TABLE `restaurante`
   MODIFY `id_rest` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
 --
 -- AUTO_INCREMENT for table `restaurante_categoria`
 --
 ALTER TABLE `restaurante_categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
 --
 -- AUTO_INCREMENT for table `tipo_comida`
 --
 ALTER TABLE `tipo_comida`
   MODIFY `id_comida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `tipo_user`
 --
 ALTER TABLE `tipo_user`
-  MODIFY `id_tip` int(80) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tip` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+
 --
 -- Constraints for dumped tables
 --
@@ -325,6 +342,7 @@ ALTER TABLE `usuario`
 ALTER TABLE `restaurante_categoria`
   ADD CONSTRAINT `fk_restaurante` FOREIGN KEY (`id_restaurante`) REFERENCES `restaurante` (`id_rest`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_tipo_comida` FOREIGN KEY (`id_tipo_comida`) REFERENCES `tipo_comida` (`id_comida`) ON DELETE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
