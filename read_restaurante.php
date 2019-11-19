@@ -1,6 +1,6 @@
 <?php
 include "cabecalho.php";
-require_once 'banco.php';
+require_ONCE 'banco.php';
 $id_rest = null;
 if(!empty($_GET['id_rest']))
 {
@@ -209,8 +209,8 @@ else
 
 <br><br>
 <br>
-<br>
-<br>
+
+
 
 
 
@@ -224,12 +224,12 @@ echo '<div style="width: 10%; display: inline">';
   foreach ($images as $image) {
   echo '
 
-  <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 13%; margin-right: 13%">';
+  <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 15%; margin-right: 11%"; >';
   $contador++;
 
     $index++;
     
-    echo '<img  class="fotogrande" src="'.$image.'" style="margin-left:0.4%; width: 15%; float:left;"/></img>
+    echo '<img  class="fotogrande" src="'.$image.'" style="margin-left:0.4%; width: 28%; float:left;"/></img>
     </div>
     </div>
     </div>'
@@ -242,10 +242,13 @@ echo '<div style="width: 10%; display: inline">';
 }
 ?>
 </div> 
+
 </div> 
 
 </div>
 
+<br>
+<br>
 
 
 
@@ -295,13 +298,21 @@ if (is_dir($img_dir)) {
 ?>
 
 <br>
-<div style="margin-top: 9%">
-<?php echo '<a href="create_denuncia.php?id_rest='.$_GET['id_rest'].'" type="btn" class="btn btn-dark" style="margin-right: 5% ; float: right;">Denunciar</a>';?>
+<div style="margin-top: 12%">
+
 
 </div>
 <br>
 <br>
+<br>
 
+<?php
+if(empty($_SESSION['nome'])){
+
+    echo "";
+}
+  else{
+    ?>
 
 <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;}"> </div>   
 
@@ -320,7 +331,6 @@ if (is_dir($img_dir)) {
 
 <br>
 <br>
-
 <div class="card bg-light mb-3" style="max-width: 59rem; margin-left: 15.5%;">
   <div class="card-body" >
     <h5 class="card-title">De uma nota ao restaurante</h5><br>
@@ -380,8 +390,9 @@ if (is_dir($img_dir)) {
 
 <a href="index.php" type="btn" class="btn btn-light" style="margin-left: 3%; float:left;">Voltar</a>
 <br>
-</div>
 
+</div>
+<br>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
