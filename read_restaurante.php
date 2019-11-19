@@ -346,6 +346,8 @@ if(empty($_SESSION['nome'])){
   <div class="card-body" >
     <h5 class="card-title">De uma nota ao restaurante</h5><br>
 
+     <?php echo '<a href="create_denuncia.php?id_rest='.$_GET['id_rest'].'" type="btn" class="btn btn-dark" style="float: right;">Denunciar restaurante</a>';?>
+
 
 
     <?php
@@ -378,14 +380,14 @@ if(empty($_SESSION['nome'])){
         <label for="estrela_cinco"><i class="fa">Muito bom</i></label>
         <input type="radio" id="estrela_cinco" name="estrela" value="5"><br><br>
         
-        <input class= "btn btn-light" type="submit" value="Cadastrar">
+        <br>
+        <input class= "btn btn-light" type="submit" style="width: 100%;" value="Cadastrar">
         
       </div>
     </form>
 
   </div>
 
-  <?php echo '<a href="create_denuncia.php?id_rest='.$_GET['id_rest'].'" type="btn" class="btn btn-dark" style="margin-left:% ; float: right;">Denunciar restaurante</a>';?>
 
 </div>
 
