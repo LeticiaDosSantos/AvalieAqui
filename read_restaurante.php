@@ -262,11 +262,11 @@ if (is_dir($img_dir)) {
     $index++;
     echo '
     <div class="modal fade" id="exampleModal'.$contador.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document" style="margin-top: 7%;" >
+      <div class="modal-dialog" role="document" style="margin-top: 9%;" >
         <div class="modal-content" style="">
          <div class="modal-header">
 
-          <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 25px;  font-family:all;">'.$data['nome'].'</a>
+          <a class="modal-title" id="exampleModalLabel" style="color: black; font-size: 24px;  font-family:all;">'.$data['nome'].'</a>
           
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
@@ -332,9 +332,13 @@ if (is_dir($img_dir)) {
       echo $_SESSION['msg']."<br><br>";
       unset($_SESSION['msg']);
     }
+
     ?>
     
     <form method="POST" action="processa.php" enctype="multipart/form-data">
+      <?php
+         echo '<input type="hidden" id="rest_id" name="rest_id" value="'.$_GET['id_rest'].'">';
+      ?>
       <div class="estrelas">
         <input type="radio" id="vazio" name="estrela" value="" checked>
         
@@ -360,7 +364,16 @@ if (is_dir($img_dir)) {
 
   </div>
 
+  <?php echo '<a href="create_denuncia.php?id_rest='.$_GET['id_rest'].'" type="btn" class="btn btn-dark" style="margin-left:% ; float: right;">Denunciar restaurante</a>';?>
+
 </div>
+
+<?php 
+ 
+  }
+
+ ?>
+
 <br>
 
 
