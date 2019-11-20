@@ -72,7 +72,7 @@ if(isset($_POST['login'])) {
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -98,9 +98,10 @@ if(isset($_POST['login'])) {
 					<div id="login-box-name">Email</div><br>
 					<div id="login-box-field">
 
-						<input class="form-control" type="text" name="email" placeholder="example@email.com" class="form-login" value="<?php if(isset($_POST['email'])) echo $_POST['email'] ?>" autocomplete="off" class="box" style="margin-left: 10%"/><br /><br /></div>
+						<input class="form-control" type="text" name="email" placeholder="example@email.com" class="form-login" value="<?php if(isset($_POST['email'])) echo $_POST['email'] ?>" autocomplete="off" class="box" style="margin-left: 10%"/>
+						<br /></div>
 
-						<div id="login-box-name" style="cursor: default;">Senha</div><br>
+						<div id="login-box-name" style="cursor: default;">Senha</div>
 						<div id="login-box-field">
 
 							<input class="form-control" type="password" placeholder="********" class="form-login" name="senha" value="<?php if(isset($_POST['senha'])) echo $_POST['senha'] ?>" autocomplete="off" class="box" style="margin-left: 10%;"/><br/><br />
