@@ -16,10 +16,17 @@ else
 {
  $pdo = Banco::conectar();
  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- $sql = "SELECT * FROM usuario where id_user =".$_SESSION['id_user'];
+ $sql = "SELECT * FROM usuario where id_user =".$_GET['id_user'];
  $q = $pdo->prepare($sql);
  $q->execute(array($id));
  $data = $q->fetch(PDO::FETCH_ASSOC);
+$acess = $data['tipo_user_id_tip'];
+
+ $a = "SELECT * FROM usuario where id_user =".$_SESSION['id_user'];
+ $r = $pdo->prepare($a);
+ $r->execute(array($id));
+ $dataa = $r->fetch(PDO::FETCH_ASSOC);
+$acesso = $dataa['tipo_user_id_tip'];
  Banco::desconectar();
 }
 
@@ -138,16 +145,7 @@ if (is_dir($img_dir)) {
     $contador++;
   }
 
-} else {
-    echo "<img src='img/sem-img.png' style=' width: 150px;
-    height: 150px;
-    background: yellow;
-    border: 3px solid gray;
-    border-radius: 50%;
-    float: left;
-    margin-top: 8%;
-    margin-left: 5%'></img>";
-  }
+} 
   ?>
 
 
@@ -177,8 +175,20 @@ if (is_dir($img_dir)) {
       Avançado
       </button>
       <div class="dropdown-menu">
-      <a class="dropdown-item" href="delete_usuario.php?id_user='.$row['id_user'].'">Excluir Conta</a>
-      </div>
+      <a class="dropdown-item" href="delete_usuario.php?id_user='.$row['id_user'].'">Excluir Conta</a>';
+
+
+  if ($acesso == 1) {
+
+    if ($acess == 0) {
+           
+       echo  '<a class="dropdown-item" href="tornar_admin.php?id_user='.$row['id_user'].'">Tornar Admin</a>';
+
+    }elseif ($acess == 1) {
+       echo  '<a class="dropdown-item" href="remover_admin.php?id_user='.$row['id_user'].'">Remover Admin</a>';
+    }
+  }
+      echo '  </div>
       </div>
       </div>';
 

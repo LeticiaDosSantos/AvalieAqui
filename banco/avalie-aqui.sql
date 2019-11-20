@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 19-Nov-2019 às 19:49
+-- Generation Time: 20-Nov-2019 às 01:37
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -46,7 +46,11 @@ INSERT INTO `avaliacos` (`id`, `qnt_estrela`, `created`, `modified`, `id_rest_id
 (2, 5, '2017-08-28 22:35:35', NULL, NULL, NULL),
 (3, 4, '2019-11-18 10:32:38', NULL, NULL, NULL),
 (4, 1, '2019-11-18 10:38:32', NULL, NULL, NULL),
-(5, 1, '2019-11-18 14:49:21', NULL, NULL, NULL);
+(5, 1, '2019-11-18 14:49:21', NULL, NULL, NULL),
+(6, 4, '2019-11-19 15:55:00', NULL, NULL, NULL),
+(7, 3, '2019-11-19 16:05:54', NULL, 21, 3),
+(8, 4, '2019-11-19 16:25:43', NULL, 19, 3),
+(9, 3, '2019-11-19 16:26:12', NULL, 19, 3);
 
 -- --------------------------------------------------------
 
@@ -55,12 +59,23 @@ INSERT INTO `avaliacos` (`id`, `qnt_estrela`, `created`, `modified`, `id_rest_id
 --
 
 CREATE TABLE `denuncia` (
-  `titulo_denuncia` varchar(100) NOT NULL,
+  `id` int(11) NOT NULL,
+  `titulo` varchar(80) NOT NULL,
   `descricao` varchar(255) NOT NULL,
-  `restaurante_id_rest` int(80) NOT NULL,
-  `usuario_id_user` int(11) NOT NULL,
-  `tipo_denuncia_id_tip_denuncia` int(10) NOT NULL
+  `id_rest` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `denuncia`
+--
+
+INSERT INTO `denuncia` (`id`, `titulo`, `descricao`, `id_rest`, `id_user`) VALUES
+(1, 'hm', 'hm', 22, 3),
+(2, 'hm', 'hm', 22, 3),
+(3, 'aa', 'aaaa', 22, 3),
+(4, 'aa', 'aaaa', 22, 3),
+(5, 'ta', 'ta', 22, 3);
 
 -- --------------------------------------------------------
 
@@ -158,17 +173,6 @@ INSERT INTO `tipo_comida` (`id_comida`, `categoria`, `restaurante_id_rest`) VALU
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tipo_denuncia`
---
-
-CREATE TABLE `tipo_denuncia` (
-  `nome` varchar(80) NOT NULL,
-  `id_tip_denuncia` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `tipo_user`
 --
 
@@ -206,8 +210,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_user`, `nome`, `sexo`, `dt_nascimento`, `email`, `senha`, `tipo_user_id_tip`) VALUES
-(1, 'admin', '', '2019-05-13', 'admin@gmail.com', 'admin', 0),
-(3, 'julia', '', '2001-06-18', 'juh@gmail.com', 'julia', 0),
+(1, 'admin', '', '2019-05-13', 'admin@gmail.com', 'admin', 1),
+(3, 'julia', '', '2001-06-18', 'juh@gmail.com', 'julia', 1),
 (6, 'Leticia dos Santos', 'F', '2001-12-21', 'leticiasantos00099@gmail.com', '', 0),
 (9, 'Marcia', 'F', '1967-07-01', 'marcia@gmail.com', '', 0),
 (15, 'Julian', 'M', '0000-00-00', 'juquinha@email.com', '', 0),
@@ -247,9 +251,9 @@ ALTER TABLE `avaliacos`
 -- Indexes for table `denuncia`
 --
 ALTER TABLE `denuncia`
-  ADD KEY `fk_denuncia_restaurante1_idx` (`restaurante_id_rest`),
-  ADD KEY `fk_denuncia_usuario1_idx` (`usuario_id_user`),
-  ADD KEY `fk_denuncia_tipo_denuncia1_idx` (`tipo_denuncia_id_tip_denuncia`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_rest` (`id_rest`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `restaurante`
@@ -274,12 +278,6 @@ ALTER TABLE `tipo_comida`
   ADD KEY `fk_tipo_comida_restaurante1_idx` (`restaurante_id_rest`);
 
 --
--- Indexes for table `tipo_denuncia`
---
-ALTER TABLE `tipo_denuncia`
-  ADD PRIMARY KEY (`id_tip_denuncia`);
-
---
 -- Indexes for table `tipo_user`
 --
 ALTER TABLE `tipo_user`
@@ -300,6 +298,12 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `avaliacos`
 --
 ALTER TABLE `avaliacos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `denuncia`
+--
+ALTER TABLE `denuncia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
@@ -324,7 +328,7 @@ ALTER TABLE `tipo_comida`
 -- AUTO_INCREMENT for table `tipo_user`
 --
 ALTER TABLE `tipo_user`
-  MODIFY `id_tip` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tip` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `usuario`
@@ -335,6 +339,13 @@ ALTER TABLE `usuario`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Limitadores para a tabela `denuncia`
+--
+ALTER TABLE `denuncia`
+  ADD CONSTRAINT `denuncia_ibfk_1` FOREIGN KEY (`id_rest`) REFERENCES `restaurante` (`id_rest`),
+  ADD CONSTRAINT `denuncia_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `usuario` (`id_user`);
 
 --
 -- Limitadores para a tabela `restaurante_categoria`
