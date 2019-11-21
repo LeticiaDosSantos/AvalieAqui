@@ -48,6 +48,11 @@ else
 
  
   <br>
+<div style="width: 60%; margin-left: 20%">
+  <center>
+   <h5>Se a página estiver vazia significa que você não tem denuncias pendentes. Foram resolvidas por nossa equipe.</h5>
+ </center>
+</div>
   <?php
     foreach($pdo->query($sql)as $data)
 
@@ -64,8 +69,8 @@ else
       Avançado
       </button>
       <div class="dropdown-menu">
-      <a class="dropdown-item" href="read_restaurante.php?id_rest='.$row['id_rest'].'">Visitar Restaurante</a>
-      <a class="dropdown-item" href="delete_denuncia.php?id='.$row['id'].'">Excluir Denúncia</a>
+      <a class="dropdown-item" href="read_restaurante.php?id_rest='.$data['id_rest'].'">Visitar Restaurante</a>
+      <a class="dropdown-item" href="delete_denuncia.php?id='.$data['id'].'">Excluir Denúncia</a>
       </div>
       </div>
       </div>';
