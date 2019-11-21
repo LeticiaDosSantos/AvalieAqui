@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 20-Nov-2019 às 01:37
--- Versão do servidor: 10.1.34-MariaDB
--- PHP Version: 5.6.37
+-- Host: localhost:3306
+-- Generation Time: 20-Nov-2019 às 10:18
+-- Versão do servidor: 5.7.24-0ubuntu0.18.04.1
+-- PHP Version: 7.2.13-1+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -198,7 +196,7 @@ INSERT INTO `tipo_user` (`id_tip`, `descricao`) VALUES
 CREATE TABLE `usuario` (
   `id_user` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `sexo` varchar(2) NOT NULL,
+  `sexo` varchar(9) NOT NULL,
   `dt_nascimento` date NOT NULL,
   `email` varchar(80) NOT NULL,
   `senha` varchar(100) NOT NULL,
@@ -210,9 +208,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_user`, `nome`, `sexo`, `dt_nascimento`, `email`, `senha`, `tipo_user_id_tip`) VALUES
-(1, 'admin', '', '2019-05-13', 'admin@gmail.com', 'admin', 1),
-(3, 'julia', '', '2001-06-18', 'juh@gmail.com', 'julia', 1),
-(6, 'Leticia dos Santos', 'F', '2001-12-21', 'leticiasantos00099@gmail.com', '', 0),
+(3, 'julia', 'Feminino', '2001-06-18', 'juh@gmail.com', 'julia', 1),
+(6, 'Leticia dos Santos', 'F', '2001-12-21', 'leticiasantos00099@gmail.com', '', 1),
 (9, 'Marcia', 'F', '1967-07-01', 'marcia@gmail.com', '', 0),
 (15, 'Julian', 'M', '0000-00-00', 'juquinha@email.com', '', 0),
 (25, 'lele', 'F', '2001-12-21', 'kekek@keke.com', '', 0),
@@ -299,43 +296,36 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `avaliacos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `denuncia`
 --
 ALTER TABLE `denuncia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `restaurante`
 --
 ALTER TABLE `restaurante`
   MODIFY `id_rest` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
 --
 -- AUTO_INCREMENT for table `restaurante_categoria`
 --
 ALTER TABLE `restaurante_categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
 --
 -- AUTO_INCREMENT for table `tipo_comida`
 --
 ALTER TABLE `tipo_comida`
   MODIFY `id_comida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT for table `tipo_user`
 --
 ALTER TABLE `tipo_user`
   MODIFY `id_tip` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
-
 --
 -- Constraints for dumped tables
 --
@@ -353,7 +343,6 @@ ALTER TABLE `denuncia`
 ALTER TABLE `restaurante_categoria`
   ADD CONSTRAINT `fk_restaurante` FOREIGN KEY (`id_restaurante`) REFERENCES `restaurante` (`id_rest`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_tipo_comida` FOREIGN KEY (`id_tipo_comida`) REFERENCES `tipo_comida` (`id_comida`) ON DELETE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
