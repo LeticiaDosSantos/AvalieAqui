@@ -159,7 +159,7 @@ if (is_dir($img_dir)) {
 
   <?php
   echo '<a style="margin-left: 23%; margin-right: 0.5%" class="btn btn-light" href="read_usuario.php?id_user='.$data['id_user'].'">Meus dados</a>';
-  echo '<a class="btn btn-light" href="#">Minhas Denuncias</a>';?>
+  echo '<a class="btn btn-light" href="read_denuncia_usuario.php?id_user='.$data['id_user'].'">Minhas Denuncias</a>';?>
   
   <nav class="nav justify-content-center"> 
     
@@ -185,7 +185,7 @@ if (is_dir($img_dir)) {
        echo  '<a class="dropdown-item" href="tornar_admin.php?id_user='.$row['id_user'].'">Tornar Admin</a>';
 
     }elseif ($acess == 1) {
-       echo  '<a class="dropdown-item" href="remover_admin.php?id_user='.$row['id_user'].'">Remover Admin</a>';
+       echo  '<a class="dropdown-item" href="delete_admin.php?id_user='.$row['id_user'].'">Remover Admin</a>';
     }
   }
       echo '  </div>
