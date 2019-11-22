@@ -14,6 +14,9 @@ if(empty($_SESSION['nome'])){
         <title>Avalie Aqui - Usuários</title>
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->
+
+         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/Bootstrap/bootstrap.min.css">
 

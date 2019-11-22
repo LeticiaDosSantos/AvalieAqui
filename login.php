@@ -58,6 +58,14 @@ if(isset($_POST['login'])) {
 <head>
 	<meta charset="UTF-8"/>
 	<title>Sistema Login</title>
+
+
+  <!-- Latest compiled and minified CSS -->
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
 	<link rel="stylesheet" type="text/css" href="assets/css/login.css" />
 
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
