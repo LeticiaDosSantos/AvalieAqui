@@ -384,10 +384,22 @@ if(empty($_SESSION['nome'])){
 </div>
 
 <?php 
- 
+
+
+$pdo = Banco::conectar();
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "SELECT (SUM(qnt_estrela)/COUNT(*)) as media FROM avaliacos WHERE id_rest_id = 19";
+$q = $pdo->prepare($sql);
+$q->execute(array());
+$data = $q->fetch(PDO::FETCH_ASSOC);
+Banco::desconectar();
+
+$media = $data['media'];
+echo 'a média de avaliaçao é '.$media;
   }
 
  ?>
+
 
 <br>
 
