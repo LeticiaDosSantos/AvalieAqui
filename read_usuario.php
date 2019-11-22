@@ -159,7 +159,7 @@ if (is_dir($img_dir)) {
   <br>
 
   <?php
-  echo '<a style="margin-left: 23%; margin-right: 0.5%" class="btn btn-light" href="read_usuario.php?id_user='.$data['id_user'].'">Meus dados</a>';
+  echo '<a style="margin-left: 17%; margin-right: 0.5%" class="btn btn-light" href="read_usuario.php?id_user='.$data['id_user'].'">Meus dados</a>';
   echo '<a class="btn btn-light" href="read_denuncia_usuario.php?id_user='.$data['id_user'].'">Minhas Denuncias</a>';?>
   
   <nav class="nav justify-content-center"> 
