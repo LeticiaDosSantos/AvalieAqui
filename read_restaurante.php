@@ -373,29 +373,48 @@ if(empty($_SESSION['nome'])){
         <input type="radio" id="estrela_cinco" name="estrela" value="5"><br><br>
         
         <br>
-        <input class= "btn btn-light" type="submit" style="width: 100%;" value="Cadastrar">
         
+<?php
+
+ 
+$idd=$_GET['id_rest'];
+$id_userr=$_SESSION['id_user'];
+
+$pdo = Banco::conectar();
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "SELECT (SUM(qnt_estrela)/COUNT(*)) as media FROM avaliacos WHERE id_rest_id =? and id_user_id= ?";
+$sql1 = "SELECT (SUM(qnt_estrela)/COUNT(*)) as total FROM avaliacos WHERE id_rest_id =?";
+
+
+$q = $pdo->prepare($sql);
+$n = $pdo->prepare($sql1);
+$q->execute(array($idd,$id_userr));
+$n->execute(array($idd));
+
+$data = $q->fetch(PDO::FETCH_ASSOC);
+$data1 = $n->fetch(PDO::FETCH_ASSOC);
+Banco::desconectar();
+
+$media = $data['media'];
+$total = $data1['total'];
+
+echo '<h5 class="card-title">A media desse restaurante que voce deu é </h5> '.round($media,2);
+echo '<h5 class="card-title">A nota total desse restaurante é </h5> '.round($total,2);
+
+?>
+<br>
+
+
+<br>
+        <input class= "btn btn-light" type="submit" style="width: 100%;" value="Cadastrar">
       </div>
     </form>
 
   </div>
-
-
 </div>
 
+
 <?php 
-
-
-$pdo = Banco::conectar();
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = "SELECT (SUM(qnt_estrela)/COUNT(*)) as media FROM avaliacos WHERE id_rest_id = 19";
-$q = $pdo->prepare($sql);
-$q->execute(array());
-$data = $q->fetch(PDO::FETCH_ASSOC);
-Banco::desconectar();
-
-$media = $data['media'];
-echo 'a média de avaliaçao é '.$media;
   }
 
  ?>

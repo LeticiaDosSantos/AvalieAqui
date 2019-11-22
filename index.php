@@ -141,6 +141,36 @@ require ("cabecalho.php");
   }
   ?>
 </div>
+
+<br>
+<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;"></div> 
+<br>
+
+
+<?php
+
+$id_rest = null;
+
+$pdo = Banco::conectar();
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+/*(SUM(qnt_estrela)/COUNT(*))*/
+$sql = "SELECT nome, qnt_estrela from restaurante, avaliacos where id_rest = id_rest_id order by qnt_estrela desc limit 3";
+
+$q = $pdo->prepare($sql);
+$data = $q->fetch(PDO::FETCH_ASSOC);
+$q->execute(array($id_rest));
+
+$data = $q->fetch(PDO::FETCH_ASSOC);
+Banco::desconectar();
+
+$nota  = $data['nome'];
+echo $nota;
+
+
+ ?>
+
+
+
 </div> <!-- isso aqui fecha o container, da pra tirar dai vai ficar pros lados-->
 <br>
 
