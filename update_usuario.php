@@ -227,16 +227,15 @@ else
 
 
 
+                    <a style="margin-left: 18%">Alterar foto</a><br><br><br>
         <div style="width: 50%; margin-left: 47%; margin-top: -32%">
             <form class="form-horizontal" action="./update_usuario.php?id_user=<?php echo $id_user?>" enctype="multipart/form-data" method="post">
                 <div style="margin-left: 11%">
-                    <a style="margin-left: -90%;">Alterar foto</a><br><br>
 
                     <div class="input-group mb-3">
 
                         <div class="input-group">
                           <div class="custom-file">
-<p>aa</p>
                             <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" id="imagens" name="imagens[]" multiple="multiple">
                             <label class="custom-file-label" style="width: 50%; margin-left: -90%; margin-top: 60%" for="inputGroupFile04">Selecionar</label>
                         </div>
@@ -308,8 +307,8 @@ else
 </div>
 </div>
 <div class="form-actions" style="margin-top: 2%">
-    <button type="submit" class="btn btn-warning">Atualizar</button>
     <a href="index.php" type="btn" class="btn btn-light">Voltar</a>
+    <button type="submit" class="btn btn-warning">Atualizar</button>
 </div>
 </form>
 </div>
