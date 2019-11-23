@@ -64,66 +64,66 @@ else
 
 
 
-<div class="card-deck" style="width: 97%; margin-left: 2%">
+<div class="card-deck" style="width: 97%; margin-left: 2%;">
 
   <?php
   foreach($pdo->query($sql)as $data){
     ?>
+    <div style="width: 25%; margin-bottom: 1%">
+      <div class="card">
 
-    <div class="card">
+       <?php 
+       $img_dir = "imagens/denuncias/". $id . "/";
+       if (is_dir($img_dir)) {
+        $images = glob($img_dir . "*");
+        $index = 3;
+        $contador = 0;
+        echo '<div style="width: 10%; display: inline">';
+        foreach ($images as $image) {
+          echo '
 
-     <?php 
-     $img_dir = "imagens/denuncias/". $id . "/";
-     if (is_dir($img_dir)) {
-      $images = glob($img_dir . "*");
-      $index = 3;
-      $contador = 0;
-      echo '<div style="width: 10%; display: inline">';
-      foreach ($images as $image) {
-        echo '
+          <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 13%; margin-right: 13%">';
 
-        <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 13%; margin-right: 13%">';
+          $contador++;
 
-        $contador++;
+          $index++;
 
-        $index++;
+          echo '<img  class="fotogrande" src="'.$image.'" style="width: 15%; float:left;"/></img>
+          </div>
+          </div>'
+          ;
 
-        echo '<img  class="fotogrande" src="'.$image.'" style="width: 15%; float:left;"/></img>
-        </div>
-        </div>'
-        ;
+        }
 
+      } else {
+        echo '<center><img src="img/den.png"; style="width: 100%;"></center>';
       }
+      ?>
 
-    } else {
-      echo '<center><img src="img/den.png"; style="width: 100%;"></center>';
-    }
-    ?>
+      <div class="card-body">
+       <?php echo '<center><a style="text-decoration: none; color: black;"><h5 class="card-title">'.$data['titulo'].'</h5></a>';
+       echo '<p class="card-text">'.$data['descricao'].'</p></center>
+       <p class="card-text"><small class="text-muted"></small></p>
+       </div>
+       ';
 
+       ?>
 
-    <div class="card-body">
-     <?php echo '<a href="madero.php" style="text-decoration: none; color: black;"><h5 class="card-title">'.$data['titulo'].'</h5></a>';
-     echo '<p class="card-text">'.$data['descricao'].'</p>
-     <p class="card-text"><small class="text-muted"></small></p>
-     </div>
-     ';
-
-     ?>
-
-     <div class="btn-group"  style="width: 2%; margin-bottom: 10%; margin-left: 26%">
-      <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Avançado
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="read_restaurante.php?id_rest='.$data['id_rest'].'">Visitar Restaurante</a>
-        <a class="dropdown-item" href="delete_denuncia.php?id='.$data['id'].'">Excluir Denúncia</a>
+       <div class="btn-group"  style="width: 2%; margin-bottom: 10%; margin-left: 30%">
+        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Avançado
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="read_restaurante.php?id_rest='.$data['id_rest'].'">Visitar Restaurante</a>
+          <a class="dropdown-item" href="delete_denuncia.php?id='.$data['id'].'">Excluir Denúncia</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <?php
+<?php
 
-}
+  }
 
 ?>
 

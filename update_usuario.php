@@ -101,8 +101,6 @@ else
     $sexo = $data['sexo'];
     $dt_nascimento = $data['dt_nascimento'];
     $email = $data['email'];
-    
-    $imagens = $_FILES['imagens'];
     Banco::desconectar();
 }
 ?>
@@ -228,7 +226,7 @@ else
 
 
                     <a style="margin-left: 18%">Alterar foto</a><br><br><br>
-        <div style="width: 50%; margin-left: 47%; margin-top: -32%">
+        <div style="width: 50%; margin-left: 47%; margin-top: -35%">
             <form class="form-horizontal" action="./update_usuario.php?id_user=<?php echo $id_user?>" enctype="multipart/form-data" method="post">
                 <div style="margin-left: 11%">
 
@@ -237,7 +235,7 @@ else
                         <div class="input-group">
                           <div class="custom-file">
                             <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" id="imagens" name="imagens[]" multiple="multiple">
-                            <label class="custom-file-label" style="width: 50%; margin-left: -90%; margin-top: 60%" for="inputGroupFile04">Selecionar</label>
+                            <label class="custom-file-label" style="width: 50%; margin-left: -92.5%; margin-top: 65%" for="inputGroupFile04">Selecionar</label>
                         </div>
                         <div class="input-group-append">
                         </div>
@@ -276,7 +274,7 @@ else
                 </div>
 
                 <div class="control-group <?php echo !empty($emailErro)?'error':'';?>">
-                    <label class="control-label">Horário de Email</label>
+                    <label class="control-label">Endereço de Email</label>
                     <div class="controls">
                         <input name="email" class="form-control" size="30" type="text" placeholder="Digite aqui" value="<?php echo !empty($email)?$email:'';?>">
                         <?php if (!empty($emailErro)): ?>
@@ -284,11 +282,7 @@ else
                         <?php endif; ?>
                     </div>
                 </div>
-
             </div>
-
-
-
         </body>
         <script type="text/javascript">
   //CIDADES E ESTADOS
