@@ -27,6 +27,7 @@ where id_rest = ?';
  $dataa = $r->fetchAll();
  Banco::desconectar();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -162,7 +163,7 @@ where id_rest = ?';
 
       <?php
 foreach ($dataa as $key => $value) {
-      echo '<p class="card-text">'.$value['categoria'].'</p>';
+      echo '<p class="card-text"> Comida '.$value['categoria'].'</p>';
   
 }
 
@@ -222,7 +223,7 @@ foreach ($dataa as $key => $value) {
   $images = glob($img_dir . "*");
   $index = 3;
   $contador = 0;
-echo '<div style="width: 10%; display: inline">';
+  echo '<div style="width: 10%; display: inline">';
   foreach ($images as $image) {
   echo '
   <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 20%; margin-right: 13%"; >';
@@ -230,7 +231,13 @@ echo '<div style="width: 10%; display: inline">';
 
     $index++;
     
-    echo '<img  class="fotogrande" src="'.$image.'" style="margin-left:0.4%; width: 20%; float:left;"/></img>
+    echo '<img  class="fotogrande" src="'.$image.'" style=" width: 20%;
+    height: 150px;
+    background: gray;
+    border-radius: 0%;
+    float: left;
+    margin-top: 9%;
+    margin-left: 1%""/></img>
     </div>
     </div>
     </div>'

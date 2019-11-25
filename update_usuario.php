@@ -67,26 +67,29 @@ if ( !empty($_POST)){
 
 // -------------------- atualizar foto -------------------- \\
 
-        $last_id = $pdo->lastInsertId();
+   
 
-        $target_dir = "imagens/";
-        $count_img = 0;
-        $uploaddir = $target_dir . "usuarios/". $last_id . "/";
-        if (!is_dir($uploaddir)) {
-            mkdir($uploaddir);
-        }
 
-        foreach ($imagens['name'] as $imagem) {
-            $target_file = $uploaddir . $count_img."-".basename($imagem);
+ $last_id = $pdo->lastInsertId();
 
-            move_uploaded_file($imagens["tmp_name"][$count_img], $target_file);
-            $count_img = $count_img + 1;
-        }
+            $target_dir = "imagens/";
+            $count_img = 0;
+            $uploaddir = $target_dir . "usuarios/". $last_id . "/";
+            if (!is_dir($uploaddir)) {
+                mkdir($uploaddir);
+            }
 
-        Banco::desconectar();
-        exit;
-        header("Location: login.php");
-        
+            foreach ($imagens['name'] as $imagem) {
+                $target_file = $uploaddir . $count_img."-".basename($imagem);
+
+                move_uploaded_file($imagens["tmp_name"][$count_img], $target_file);
+                $count_img = $count_img + 0;
+            }
+
+
+
+
+
     }
 }
 else
@@ -230,16 +233,18 @@ else
             <form class="form-horizontal" action="./update_usuario.php?id_user=<?php echo $id_user?>" enctype="multipart/form-data" method="post">
                 <div style="margin-left: 11%">
 
-                    <div class="input-group mb-3">
+                  <div class="input-group mb-3">
+                     
+                    <div class="input-group">
+                      <div class="custom-file">
 
-                        <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" id="imagens" name="imagens[]" multiple="multiple">
-                            <label class="custom-file-label" style="width: 50%; margin-left: -92.5%; margin-top: 65%" for="inputGroupFile04">Selecionar</label>
-                        </div>
-                        <div class="input-group-append">
-                        </div>
+                        <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"  id="imagens" name="imagens[]" multiple="multiple">
+                        <label class="custom-file-label" for="inputGroupFile04">Escolher Arquivo...</label>
                     </div>
+                    <div class="input-group-append">
+                    </div>
+                </div>
+                 
                 </div>
 
                 <div class="control-group <?php echo !empty($nomeErro)?'error':'';?>">
