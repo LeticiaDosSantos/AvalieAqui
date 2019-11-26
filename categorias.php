@@ -38,14 +38,13 @@ include  'cabecalho.php';
   </center>
   <br>
 
-  <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;
-}">
+  <div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; margin-left: 11%;">
 </div> 
 
 <br>
 <br>
 
-<div class="card-deck" style="margin-bottom: 1% ;margin-left: 10%; margin-right: 10%; width: 100%;">
+<div class="card-deck" style="margin-bottom: 1% ;margin-left: 10%; width: 90%;">
   <?php foreach($pdo->query($sql)as $row)
   {
    ?>
