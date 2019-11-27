@@ -214,7 +214,8 @@ foreach ($dataa as $key => $value) {
   }
 </script>
 
-
+<br><br>
+<br>
 
  <?php 
  $img_dir = "imagens/restaurantes/". $id_rest . "/";
@@ -225,7 +226,7 @@ foreach ($dataa as $key => $value) {
   echo '<div style="width: 10%; display: inline">';
   foreach ($images as $image) {
   echo '
-  <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 14%; margin-right: 2%"; >';
+  <div data-toggle="modal" data-target="#exampleModal'.$contador.'" style="margin-left: 20%; margin-right: 13%"; >';
   $contador++;
 
     $index++;
@@ -235,7 +236,7 @@ foreach ($dataa as $key => $value) {
     background: gray;
     border-radius: 0%;
     float: left;
-    margin-top: 7%;
+    margin-top: 9%;
     margin-left: 1%""/></img>
     </div>
     </div>
@@ -307,7 +308,7 @@ if (is_dir($img_dir)) {
 ?>
 
 <br>
-  <div style="margin-top: 13%">
+  <div style="margin-top: 8%">
 
 
 </div>
