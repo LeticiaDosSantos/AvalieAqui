@@ -134,7 +134,7 @@ $dataa = $r->fetchAll(PDO::FETCH_ASSOC);
 
 $i = 0;
 while ($i<8) {
-  //print_r($dataa)[$i];
+  print_r($dataa)[$i];
   $i++;
 
  echo '

@@ -4,10 +4,10 @@ include  'cabecalho.php';
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<title>Avalie Aqui - Dados do Restaurante</title>
+  <meta charset="utf-8">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <title>Avalie Aqui - Dados do Restaurante</title>
 
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/css/Bootstrap/bootstrap.min.css">
@@ -90,7 +90,7 @@ include  'cabecalho.php';
 </body></html>
 
 <footer>
-	<?php include "rodape.php"; ?>
+  <?php include "rodape.php"; ?>
 </footer>
 </html>
 
