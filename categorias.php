@@ -34,7 +34,7 @@ include  'cabecalho.php';
     { }
     ?>
 
-    <a class="nav-link" style="color: black; font-size: 30px; font-family:all;">Restaurante de Comida <?php echo $row['categoria'];?></a>
+    <a class="nav-link" style="color: black; font-size: 30px; font-family:all;"><?php echo $row['categoria'];?></a>
   </center>
   <br>
 

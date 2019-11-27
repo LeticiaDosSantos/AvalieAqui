@@ -97,7 +97,7 @@ if(empty($_SESSION['nome'])){
 				<div class="control-group <?php echo !empty($precoErro)?'error ': '';?>">
 					<label class="control-label">Faixa de Preço</label>
 					<div class="controls">
-						<input size="40" class="form-control" name="preco" type="text" placeholder="3400-0000" required="" maxlength="20" value="<?php echo !empty($preco)?$preco: '';?>">
+						<input size="40" class="form-control" name="preco" type="text" placeholder="R$20 a $50" required="" maxlength="20" value="<?php echo !empty($preco)?$preco: '';?>">
 						<p></p>
 						<?php if(!empty($precoErro)): ?>
 							<span class="help-inline"><?php echo $precoErro;?></span>
