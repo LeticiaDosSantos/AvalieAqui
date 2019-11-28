@@ -180,6 +180,7 @@ if(!empty($_POST))
     $sexoErro = null;
     $id_userErro = null;
     $senhaErro = null;
+    $acesso = null;
 
        // $id_user = $_POST['id_user'];
     $nome = $_POST['nome'];
@@ -240,7 +241,7 @@ if(!empty($_POST))
         {
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo, senha, acesso) VALUES(?,?,?,?,?,0)";
+            $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo, senha, tipo_user_id_tip) VALUES(?,?,?,?,?,1)";
             $q = $pdo->prepare($sql);
             $q->execute(array($nome,$dt_nascimento,$email,$sexo,$senha));
             $last_id = $pdo->lastInsertId();

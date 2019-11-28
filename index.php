@@ -95,17 +95,12 @@ require ("cabecalho.php");
 
       <?php
       $i=1;
-      while ($i <= 4) {
+      while ($i <= 3) {
         ?>
 
-        <div class="card">
-          <img class="card-img-top" src="img/japao.png" src=".../100px100/" alt="Imagem de capa do card">
-          <div class="card-body">
-            <a href="madero.php" style="text-decoration: none; color: black;"><h5 class="card-title">Restaurante Madero</h5></a>
-            <p class="card-text">Este é um card mais longo com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este conteúdo é um pouco maior.</p>
-            <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
-          </div>
-        </div>
+          <img style="width: 20%; margin-left: 10%; cursor: default;" class="card-img-top" <?php echo "src=img/".$i.".png"  ?> src=".../100px100/" alt="Imagem de capa do card">
+        
+       
         
         <?php
         $i++;
@@ -115,6 +110,8 @@ require ("cabecalho.php");
     </div>
 
   </center>
+
+<br>
 
   <br><br>
 </div>
@@ -133,32 +130,32 @@ $r->execute();
 $dataa = $r->fetchAll(PDO::FETCH_ASSOC);
 
 $i = 0;
-while ($i<8) {
-  print_r($dataa)[$i];
-  $i++;
 
- echo '
+foreach ($dataa as $key => $value) {
+  // echo "Key: ".$key." valores: <br>";
+  // echo "Nome: ".$value['nome']." - Estrelas: ".$value['qnt_estrela']."<br>";
+
+
+  echo '
     <div class="card">
       <img class="card-img-top" src="img/japao.png" src=".../100px100/" alt="Imagem de capa do card">
       <div class="card-body">
-        <a href="madero.php" style="text-decoration: none; color: black;"><h5 class="card-title">Restaurante Madero</h5></a>
+        <a href="madero.php" style="text-decoration: none; color: black;"><h5 class="card-title">'.$value['nome'].'</h5></a>
         <p class="card-text">Este é um card mais longo com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este conteúdo é um pouco maior.</p>
-        <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+        <p class="card-text"><small class="text-muted">Restaurante '.$value['qnt_estrela'].' Estrelas</small></p>
       </div>
     </div>';
-    
-    
-    $i++;
-  }
+ 
+
+  // echo "<br>";
+}
+
 Banco::desconectar();
 
   ?>
 
 </div>
 
-<br>
-<div id="linha" style="width: 70%; border-bottom: 1.2px solid #000000; position: center; margin-left: 15%;"></div> 
-<br>
 
 
 </div> <!-- isso aqui fecha o container, da pra tirar dai vai ficar pros lados-->
