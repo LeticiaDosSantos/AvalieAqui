@@ -161,16 +161,7 @@ else
 
                   }
 
-              } else {
-                echo "<img src='img/sem-img.png' style=' width: 150px;
-                height: 150px;
-                background: yellow;
-                border: 3px solid gray;
-                border-radius: 50%;
-                float: left;
-                margin-top: 4%;
-                margin-left: 5%'></img>";
-            }
+              }
             ?>
 
 
@@ -236,18 +227,16 @@ else
                   <div class="input-group mb-3">
                      
                     <div class="input-group">
-                      <div class="custom-file">
+                      <div class="custom-file" style="margin-top: 67%; float: right; margin-left: -95%; margin-right: 130%">
 
                         <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"  id="imagens" name="imagens[]" multiple="multiple">
                         <label class="custom-file-label" for="inputGroupFile04">Escolher Arquivo...</label>
-                    </div>
-                    <div class="input-group-append">
                     </div>
                 </div>
                  
                 </div>
 
-                <div class="control-group <?php echo !empty($nomeErro)?'error':'';?>">
+                <div style="margin-top: -65%" class="control-group <?php echo !empty($nomeErro)?'error':'';?>">
                     <label class="control-label">Nome</label>
                     <div class="controls">
                         <input name="nome" class="form-control" size="50" type="text" placeholder="Nome" value="<?php echo !empty($nome)?$nome:'';?>">
