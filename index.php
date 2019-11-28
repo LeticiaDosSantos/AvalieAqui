@@ -118,20 +118,32 @@ $dataa = $r->fetchAll(PDO::FETCH_ASSOC);
 $i = 0;
 
 
-
+$foto = 1;
 
           
 foreach ($dataa as $key => $value) {
   // echo "Key: ".$key." valores: <br>";
-  // echo "Nome: ".$value['nome']." - Estrelas: ".$value['qnt_estrela']."<br>";
+   //echo "Nome: ".$value['nome']." - Estrelas: ".$value['qnt_estrela']."<br>";
 
 //read_rest.php?id_rest="'.$value['id_rest'].
-
+?>
   
+     <div class="card-deck" style="width: 32%; float:left; margin-left: 1%">
+      <div class="card" >
+     <img style="width: 80%; margin-left: 10%; cursor: default;" class="card-img-top" <?php echo "src=img/".$foto.".png"  ?> src=".../100px100/" alt="Imagem de capa do card">
+<?php
+    // echo "Nome: ".$value['nome']." - Estrelas: ".$value['qnt_estrela']."<br>";
+       echo '
+        <a href="#" style="text-decoration: none; color: black;"><h5 class="card-title">'.$value['nome'].'</h5></a>
+        <p class="card-text">Este retaurante está entre os mais bem avaliados do Brasil</p>
+        <p class="card-text"><small class="text-muted">Restaurante '.$value['qnt_estrela'].' Estrelas</small></p>
+          </div>
+</div>';
  
    
 
   // echo "<br>";
+$foto++;
 }
    ?>
 
@@ -143,21 +155,9 @@ foreach ($dataa as $key => $value) {
         ?>
 
           
-     <div class="card-deck" style="width: 32%; float:left; margin-left: 1%">
-      <div class="card" >
-     <img style="width: 80%; margin-left: 10%; cursor: default;" class="card-img-top" <?php echo "src=img/".$foto.".png"  ?> src=".../100px100/" alt="Imagem de capa do card">
-<?php
-       echo '
-    
-        <a href="#" style="text-decoration: none; color: black;"><h5 class="card-title">'.$value['nome'].'</h5></a>
-        <p class="card-text">Este retaurante está entre os mais bem avaliados do Brasil</p>
-        <p class="card-text"><small class="text-muted">Restaurante '.$value['qnt_estrela'].' Estrelas</small></p>
-          </div>
-</div>
 
 
-   ';
-    ?>
+   
  
      <?php
           $foto++;
