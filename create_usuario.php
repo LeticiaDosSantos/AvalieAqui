@@ -241,7 +241,7 @@ if(!empty($_POST))
         {
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo, senha, tipo_user_id_tip) VALUES(?,?,?,?,?,1)";
+            $sql = "INSERT INTO usuario (nome, dt_nascimento, email, sexo, senha, tipo_user_id_tip) VALUES(?,?,?,?,?,0)";
             $q = $pdo->prepare($sql);
             $q->execute(array($nome,$dt_nascimento,$email,$sexo,$senha));
             $last_id = $pdo->lastInsertId();
