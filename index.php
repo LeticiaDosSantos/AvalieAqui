@@ -93,19 +93,7 @@ require ("cabecalho.php");
 
     <div class="card-deck">
 
-      <?php
-      $i=1;
-      while ($i <= 3) {
-        ?>
-
-          <img style="width: 20%; margin-left: 10%; cursor: default;" class="card-img-top" <?php echo "src=img/".$i.".png"  ?> src=".../100px100/" alt="Imagem de capa do card">
-        
-       
-        
-        <?php
-        $i++;
-      }
-      ?>
+     
 
     </div>
 
@@ -113,42 +101,82 @@ require ("cabecalho.php");
 
 <br>
 
-  <br><br>
 </div>
 
-
-<div class="card-deck">
+      <div class="card-body">
 
 <?php
 $id_rest = null;
 $pdo = Banco::conectar();
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 /*(SUM(qnt_estrela)/COUNT(*))*/
-$sqll = "SELECT nome, qnt_estrela from restaurante, avaliacos where id_rest = id_rest_id order by qnt_estrela desc limit 3";
+$sqll = "SELECT nome, qnt_estrela, id_rest from restaurante, avaliacos where id_rest = id_rest_id order by qnt_estrela desc limit 3";
 $r = $pdo->prepare($sqll);
 $r->execute();
 $dataa = $r->fetchAll(PDO::FETCH_ASSOC);
 
 $i = 0;
 
+
+
+
+          
 foreach ($dataa as $key => $value) {
   // echo "Key: ".$key." valores: <br>";
   // echo "Nome: ".$value['nome']." - Estrelas: ".$value['qnt_estrela']."<br>";
 
+//read_rest.php?id_rest="'.$value['id_rest'].
 
-  echo '
-    <div class="card">
-      <img class="card-img-top" src="img/japao.png" src=".../100px100/" alt="Imagem de capa do card">
-      <div class="card-body">
-        <a href="madero.php" style="text-decoration: none; color: black;"><h5 class="card-title">'.$value['nome'].'</h5></a>
-        <p class="card-text">Este é um card mais longo com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este conteúdo é um pouco maior.</p>
-        <p class="card-text"><small class="text-muted">Restaurante '.$value['qnt_estrela'].' Estrelas</small></p>
-      </div>
-    </div>';
+  
  
+   
 
   // echo "<br>";
 }
+   ?>
+
+
+
+   <?php
+      $foto=1;
+      while ($foto <= 3) {
+        ?>
+
+          
+     <div class="card-deck" style="width: 32%; float:left; margin-left: 1%">
+      <div class="card" >
+     <img style="width: 80%; margin-left: 10%; cursor: default;" class="card-img-top" <?php echo "src=img/".$foto.".png"  ?> src=".../100px100/" alt="Imagem de capa do card">
+<?php
+       echo '
+    
+        <a href="#" style="text-decoration: none; color: black;"><h5 class="card-title">'.$value['nome'].'</h5></a>
+        <p class="card-text">Este retaurante está entre os mais bem avaliados do Brasil</p>
+        <p class="card-text"><small class="text-muted">Restaurante '.$value['qnt_estrela'].' Estrelas</small></p>
+          </div>
+</div>
+
+
+   ';
+    ?>
+ 
+     <?php
+          $foto++;
+      }
+      ?>
+
+
+
+
+
+   </div>
+       </div>
+        
+
+  
+
+
+<?php
+
 
 Banco::desconectar();
 
@@ -161,6 +189,7 @@ Banco::desconectar();
 </div> <!-- isso aqui fecha o container, da pra tirar dai vai ficar pros lados-->
 <br>
 
+<div style="margin-top: 25%">
 <?php
 include ("rodape.php");
 ?>
